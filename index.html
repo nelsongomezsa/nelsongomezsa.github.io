@@ -218,6 +218,34 @@
   .chip:not(.learning) .sw{ background:var(--accent); }
   .learning-note{ color:var(--text-dimmer); font-size:.82rem; margin-top:14px; font-style:italic; }
 
+  /* FEATURED PROJECT */
+  .featured-project{
+    position:relative; margin-bottom:36px; padding:2px; border-radius:22px;
+    background:linear-gradient(135deg, var(--accent), var(--accent2), var(--pink));
+    background-size:200% 200%; animation:gradientMove 6s ease infinite;
+  }
+  @keyframes gradientMove{ 0%,100%{background-position:0% 50%;} 50%{background-position:100% 50%;} }
+  .featured-inner{
+    background:linear-gradient(180deg, var(--surface), var(--bg-alt)); border-radius:20px;
+    padding:36px; display:grid; grid-template-columns:auto 1fr; gap:28px; align-items:start;
+  }
+  .featured-badge{
+    display:inline-flex; align-items:center; gap:6px; font-family:'JetBrains Mono',monospace;
+    font-size:.76rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+    color:#04120c; background:var(--accent); padding:5px 12px; border-radius:999px; margin-bottom:14px;
+  }
+  .featured-icon{
+    width:64px; height:64px; border-radius:16px; background:rgba(46,230,166,.12); border:1px solid rgba(46,230,166,.3);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .featured-icon svg{ width:32px; height:32px; color:var(--accent); }
+  .featured-inner h3{ margin:0 0 10px; font-size:1.5rem; }
+  .featured-inner p.desc{ color:var(--text-dim); font-size:.96rem; max-width:62ch; margin:0 0 18px; }
+  .other-projects-label{ color:var(--text-dimmer); font-family:'JetBrains Mono',monospace; font-size:.82rem; margin:0 0 18px; }
+  @media (max-width:640px){
+    .featured-inner{ grid-template-columns:1fr; }
+  }
+
   /* PROJECTS */
   .proj-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:26px; }
   .proj-card{
@@ -526,6 +554,26 @@
         <span class="tag">ls ./proyectos</span>
         <h2 class="h2">Proyectos destacados</h2>
       </div>
+
+      <div class="featured-project reveal">
+        <div class="featured-inner">
+          <div class="featured-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.9 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 7.1-1.01L12 2z"/></svg>
+          </div>
+          <div>
+            <span class="featured-badge">⭐ Proyecto insignia</span>
+            <h3>GestionAp PRO</h3>
+            <p class="desc">Mi proyecto base: la evolución avanzada de GestionAp. App de escritorio en Java 17 + JavaFX + MySQL con arquitectura en capas (DAO / service / controller), JDBC puro, exportación XML validada con XSD y documentación completa. Aquí sigo aplicando mejoras y refactors más allá de la entrega académica original — es donde más he crecido como desarrollador.</p>
+            <div class="proj-tags" style="padding:0; margin-bottom:20px;"><span>Java 17</span><span>JavaFX</span><span>MySQL</span><span>JDBC</span><span>XML/XSD</span><span>Maven</span></div>
+            <a class="btn btn-primary" href="https://github.com/nelsongomezsa/gestionAPPRO" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.75 5.48.75 11.75c0 5.02 3.26 9.28 7.78 10.78.57.1.78-.25.78-.55v-2.03c-3.16.69-3.83-1.36-3.83-1.36-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.53-2.52-.29-5.17-1.26-5.17-5.6 0-1.24.44-2.25 1.17-3.04-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.16a10.9 10.9 0 0 1 5.74 0c2.18-1.47 3.14-1.16 3.14-1.16.63 1.58.23 2.75.12 3.04.73.8 1.17 1.8 1.17 3.04 0 4.36-2.66 5.31-5.19 5.59.41.35.77 1.04.77 2.1v3.11c0 .3.21.66.79.55A11.26 11.26 0 0 0 23.25 11.75C23.25 5.48 18.27.5 12 .5z"/></svg>
+              Ver repositorio insignia
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <p class="other-projects-label reveal">// otros proyectos relacionados</p>
       <div class="proj-grid">
 
         <div class="proj-card reveal">
