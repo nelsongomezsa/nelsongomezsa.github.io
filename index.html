@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nelson Gómez Sánchez — Desarrollador Backend Junior</title>
+<meta name="description" content="Portfolio de Nelson Gómez Sánchez: Desarrollador Junior en formación (DAM + Máster en Big Data e IA). Java, Spring Boot, Python, SQL.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%230a0e14%22/><text x=%2250%22 y=%2266%22 font-size=%2244%22 text-anchor=%22middle%22 fill=%22%232ee6a6%22 font-family=%22monospace%22>&lt;/&gt;</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0e14;
+    --bg-alt:#0d131b;
+    --surface:#121a24;
+    --surface-2:#161f2b;
+    --border:#212c3a;
+    --text:#e7ecf3;
+    --text-dim:#8b96a8;
+    --text-dimmer:#5c6779;
+    --accent:#2ee6a6;
+    --accent-dim:#1f9e73;
+    --accent2:#5eb4ff;
+    --warn:#ffb454;
+    --pink:#ff6ac1;
+    --radius:14px;
+    --maxw:1120px;
+    --shadow: 0 10px 40px -10px rgba(0,0,0,.6);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important;}
+  }
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',system-ui,sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  code, .mono{font-family:'JetBrains Mono',ui-monospace,monospace;}
+  a{color:inherit;}
+  ::selection{background:var(--accent);color:#04120c;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px;}
+
+  /* Background grid + glow */
+  .bg-fx{
+    position:fixed; inset:0; z-index:0; pointer-events:none;
+    background:
+      radial-gradient(600px 400px at 15% 0%, rgba(46,230,166,.10), transparent 60%),
+      radial-gradient(500px 380px at 90% 10%, rgba(94,180,255,.09), transparent 60%),
+      linear-gradient(var(--bg), var(--bg));
+  }
+  .bg-grid{
+    position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.35;
+    background-image:
+      linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+    background-size: 42px 42px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 90%);
+  }
+
+  /* NAV */
+  header.nav{
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    backdrop-filter:blur(10px);
+    background:rgba(10,14,20,.55);
+    border-bottom:1px solid transparent;
+    transition:border-color .3s ease, background .3s ease;
+  }
+  header.nav.scrolled{ border-color:var(--border); background:rgba(10,14,20,.85); }
+  .nav-inner{ max-width:var(--maxw); margin:0 auto; padding:14px 24px; display:flex; align-items:center; justify-content:space-between; }
+  .brand{ display:flex; align-items:center; gap:10px; font-family:'JetBrains Mono',monospace; font-weight:700; letter-spacing:.3px; text-decoration:none; color:var(--text); }
+  .brand .brk{ color:var(--accent); }
+  .nav-links{ display:flex; gap:28px; list-style:none; margin:0; padding:0; }
+  .nav-links a{ text-decoration:none; color:var(--text-dim); font-size:.92rem; font-weight:500; position:relative; padding:4px 0; transition:color .2s ease; }
+  .nav-links a::after{ content:''; position:absolute; left:0; bottom:-2px; width:0; height:2px; background:var(--accent); transition:width .25s ease; }
+  .nav-links a:hover{ color:var(--text); }
+  .nav-links a:hover::after{ width:100%; }
+  .nav-cta{ display:flex; align-items:center; gap:12px; }
+  .burger{ display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:8px; }
+  .burger span{ width:22px; height:2px; background:var(--text); display:block; border-radius:2px; }
+
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:10px 18px; border-radius:999px; font-weight:600; font-size:.88rem;
+    text-decoration:none; cursor:pointer; border:1px solid var(--border);
+    transition:transform .18s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease;
+    font-family:'Inter',sans-serif; white-space:nowrap;
+  }
+  .btn:hover{ transform:translateY(-2px); }
+  .btn-primary{ background:var(--accent); color:#04120c; border-color:var(--accent); box-shadow:0 8px 24px -8px rgba(46,230,166,.55); }
+  .btn-primary:hover{ box-shadow:0 12px 28px -8px rgba(46,230,166,.75); }
+  .btn-ghost{ background:rgba(255,255,255,.02); color:var(--text); }
+  .btn-ghost:hover{ border-color:var(--accent-dim); background:rgba(46,230,166,.06); }
+  .btn svg{ width:16px; height:16px; }
+
+  section{ position:relative; z-index:1; }
+
+  /* HERO */
+  .hero{
+    min-height:100vh; display:flex; align-items:center;
+    padding:140px 0 90px;
+  }
+  .hero-inner{ display:grid; grid-template-columns:1.15fr .85fr; gap:56px; align-items:center; width:100%; }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'JetBrains Mono',monospace; font-size:.8rem; color:var(--accent);
+    background:rgba(46,230,166,.08); border:1px solid rgba(46,230,166,.25);
+    padding:6px 12px; border-radius:999px; margin-bottom:22px;
+  }
+  .eyebrow .dot{ width:7px; height:7px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 0 rgba(46,230,166,.6); animation:pulse 2s infinite; }
+  @keyframes pulse{
+    0%{ box-shadow:0 0 0 0 rgba(46,230,166,.55); }
+    70%{ box-shadow:0 0 0 8px rgba(46,230,166,0); }
+    100%{ box-shadow:0 0 0 0 rgba(46,230,166,0); }
+  }
+  h1.title{
+    font-size:clamp(2.2rem, 5vw, 3.4rem); line-height:1.08; margin:0 0 18px; font-weight:800; letter-spacing:-.02px;
+  }
+  h1.title .accent{ color:var(--accent); }
+  .typing-row{
+    font-family:'JetBrains Mono',monospace; font-size:clamp(1rem,2.1vw,1.25rem); color:var(--text-dim); margin-bottom:22px; min-height:1.6em;
+  }
+  .typing-row .prompt{ color:var(--accent2); }
+  .typing-row .cursor{ display:inline-block; width:9px; height:1.1em; background:var(--accent); margin-left:2px; vertical-align:-3px; animation:blink 1s step-end infinite; }
+  @keyframes blink{ 50%{ opacity:0; } }
+  .lede{ color:var(--text-dim); font-size:1.05rem; max-width:52ch; margin-bottom:30px; }
+  .hero-actions{ display:flex; gap:14px; flex-wrap:wrap; margin-bottom:34px; }
+  .socials{ display:flex; gap:14px; }
+  .icon-btn{
+    width:42px; height:42px; border-radius:12px; display:flex; align-items:center; justify-content:center;
+    border:1px solid var(--border); background:var(--surface); transition:all .2s ease; text-decoration:none;
+  }
+  .icon-btn:hover{ border-color:var(--accent-dim); background:rgba(46,230,166,.08); transform:translateY(-2px); }
+  .icon-btn svg{ width:19px; height:19px; color:var(--text-dim); }
+  .icon-btn:hover svg{ color:var(--accent); }
+
+  /* Terminal card */
+  .term{
+    background:linear-gradient(180deg, var(--surface), var(--bg-alt));
+    border:1px solid var(--border); border-radius:16px; overflow:hidden; box-shadow:var(--shadow);
+    transform:rotate(1.2deg);
+    animation:float 6s ease-in-out infinite;
+  }
+  @keyframes float{ 0%,100%{ transform:rotate(1.2deg) translateY(0);} 50%{ transform:rotate(1.2deg) translateY(-10px);} }
+  .term-bar{ display:flex; align-items:center; gap:8px; padding:12px 16px; background:var(--surface-2); border-bottom:1px solid var(--border); }
+  .term-dot{ width:11px; height:11px; border-radius:50%; }
+  .term-bar .fname{ margin-left:8px; font-family:'JetBrains Mono',monospace; font-size:.78rem; color:var(--text-dimmer); }
+  .term-body{ padding:20px 20px 24px; font-family:'JetBrains Mono',monospace; font-size:.84rem; color:var(--text-dim); }
+  .term-body .ln{ margin:0 0 6px; white-space:pre-wrap; }
+  .term-body .k{ color:var(--pink); }
+  .term-body .s{ color:var(--warn); }
+  .term-body .c{ color:var(--text-dimmer); }
+  .term-body .fn{ color:var(--accent2); }
+  .term-body .out{ color:var(--accent); }
+
+  /* SECTION HEADERS */
+  .section-pad{ padding:96px 0; }
+  .section-head{ margin-bottom:48px; }
+  .tag{
+    font-family:'JetBrains Mono',monospace; font-size:.78rem; color:var(--accent); letter-spacing:.14em; text-transform:uppercase; margin-bottom:10px; display:block;
+  }
+  .tag::before{ content:'// '; color:var(--text-dimmer); }
+  .h2{ font-size:clamp(1.6rem,3.4vw,2.2rem); font-weight:800; margin:0; }
+
+  .reveal{ opacity:0; transform:translateY(28px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.in-view{ opacity:1; transform:translateY(0); }
+  .reveal-delay-1.in-view{ transition-delay:.08s; }
+  .reveal-delay-2.in-view{ transition-delay:.16s; }
+  .reveal-delay-3.in-view{ transition-delay:.24s; }
+
+  /* ABOUT */
+  .about-grid{ display:grid; grid-template-columns:1.4fr 1fr; gap:44px; align-items:start; }
+  .about-text p{ color:var(--text-dim); margin:0 0 16px; }
+  .about-text strong{ color:var(--text); }
+  .fact-card{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:22px; }
+  .fact-row{ display:flex; justify-content:space-between; gap:16px; padding:12px 0; border-bottom:1px solid var(--border); font-size:.9rem; }
+  .fact-row:last-child{ border-bottom:none; }
+  .fact-row .k{ color:var(--text-dimmer); }
+  .fact-row .v{ color:var(--text); font-weight:600; text-align:right; }
+  .avail-pill{ display:inline-flex; align-items:center; gap:8px; background:rgba(46,230,166,.09); border:1px solid rgba(46,230,166,.28); color:var(--accent); padding:10px 14px; border-radius:10px; font-size:.85rem; font-weight:600; margin-top:16px; }
+
+  /* TIMELINE */
+  .timeline{ position:relative; padding-left:32px; }
+  .timeline::before{ content:''; position:absolute; left:6px; top:6px; bottom:6px; width:2px; background:linear-gradient(var(--accent), var(--border) 85%); }
+  .tl-item{ position:relative; padding-bottom:36px; }
+  .tl-item:last-child{ padding-bottom:0; }
+  .tl-dot{ position:absolute; left:-32px; top:4px; width:14px; height:14px; border-radius:50%; background:var(--bg); border:2px solid var(--accent); box-shadow:0 0 0 4px rgba(46,230,166,.12); }
+  .tl-card{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:20px 22px; transition:border-color .2s ease, transform .2s ease; }
+  .tl-card:hover{ border-color:var(--accent-dim); transform:translateX(4px); }
+  .tl-head{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px; align-items:baseline; margin-bottom:6px; }
+  .tl-role{ font-weight:700; font-size:1.02rem; }
+  .tl-date{ font-family:'JetBrains Mono',monospace; font-size:.76rem; color:var(--accent2); white-space:nowrap; }
+  .tl-company{ color:var(--text-dim); font-size:.88rem; margin-bottom:10px; }
+  .tl-company b{ color:var(--text); }
+  .tl-desc{ color:var(--text-dim); font-size:.9rem; margin:0; }
+
+  /* SKILLS */
+  .skills-block{ margin-bottom:34px; }
+  .skills-block h3{ font-size:.95rem; color:var(--text-dim); margin:0 0 16px; font-weight:600; }
+  .chip-row{ display:flex; flex-wrap:wrap; gap:10px; }
+  .chip{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--surface); border:1px solid var(--border); border-radius:10px;
+    padding:9px 14px; font-size:.85rem; font-weight:600; font-family:'JetBrains Mono',monospace;
+    transition:transform .18s ease, border-color .2s ease, box-shadow .2s ease;
+  }
+  .chip:hover{ transform:translateY(-3px); border-color:var(--accent-dim); box-shadow:0 10px 24px -12px rgba(46,230,166,.5); }
+  .chip .sw{ width:8px; height:8px; border-radius:2px; }
+  .chip.learning{ border-style:dashed; color:var(--warn); }
+  .chip.learning .sw{ background:var(--warn); }
+  .chip:not(.learning) .sw{ background:var(--accent); }
+  .learning-note{ color:var(--text-dimmer); font-size:.82rem; margin-top:14px; font-style:italic; }
+
+  /* PROJECTS */
+  .proj-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:26px; }
+  .proj-card{
+    background:var(--surface); border:1px solid var(--border); border-radius:16px; overflow:hidden;
+    display:flex; flex-direction:column; transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+  }
+  .proj-card:hover{ transform:translateY(-6px); border-color:var(--accent-dim); box-shadow:var(--shadow); }
+  .proj-top{ padding:22px 22px 0; }
+  .proj-icon{ width:44px; height:44px; border-radius:12px; background:rgba(46,230,166,.1); border:1px solid rgba(46,230,166,.25); display:flex; align-items:center; justify-content:center; margin-bottom:16px; }
+  .proj-icon svg{ width:22px; height:22px; color:var(--accent); }
+  .proj-card h3{ margin:0 0 8px; font-size:1.12rem; }
+  .proj-card p.desc{ color:var(--text-dim); font-size:.88rem; margin:0 0 16px; }
+  .proj-tags{ display:flex; flex-wrap:wrap; gap:6px; padding:0 22px; margin-bottom:18px; }
+  .proj-tags span{ font-family:'JetBrains Mono',monospace; font-size:.72rem; color:var(--accent2); background:rgba(94,180,255,.08); border:1px solid rgba(94,180,255,.2); padding:3px 9px; border-radius:6px; }
+  .proj-bottom{ margin-top:auto; padding:16px 22px; border-top:1px solid var(--border); display:flex; gap:10px; }
+  .proj-bottom a{ font-size:.82rem; font-weight:600; text-decoration:none; display:inline-flex; align-items:center; gap:6px; color:var(--text-dim); transition:color .2s ease; }
+  .proj-bottom a:hover{ color:var(--accent); }
+  .proj-bottom svg{ width:14px; height:14px; }
+
+  /* EDUCATION */
+  .edu-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+  .edu-card{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:20px 22px; transition:border-color .2s ease, transform .2s ease; }
+  .edu-card:hover{ border-color:var(--accent-dim); transform:translateY(-3px); }
+  .edu-card .edu-tag{ font-family:'JetBrains Mono',monospace; font-size:.72rem; color:var(--accent); text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px; display:block; }
+  .edu-card h4{ margin:0 0 6px; font-size:1rem; }
+  .edu-card p{ margin:0; color:var(--text-dim); font-size:.85rem; }
+
+  /* CONTACT */
+  .contact-box{
+    background:linear-gradient(135deg, rgba(46,230,166,.08), rgba(94,180,255,.05));
+    border:1px solid var(--border); border-radius:20px; padding:56px 40px; text-align:center;
+  }
+  .contact-box h2{ font-size:clamp(1.6rem,3.6vw,2.4rem); margin:0 0 14px; font-weight:800; }
+  .contact-box p{ color:var(--text-dim); max-width:52ch; margin:0 auto 30px; }
+  .contact-actions{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+
+  footer{ padding:36px 0 44px; text-align:center; color:var(--text-dimmer); font-size:.82rem; font-family:'JetBrains Mono',monospace; }
+  footer a{ color:var(--text-dim); text-decoration:none; }
+  footer a:hover{ color:var(--accent); }
+
+  @media (max-width:920px){
+    .hero-inner{ grid-template-columns:1fr; }
+    .term{ transform:none; animation:none; order:-1; }
+    .about-grid{ grid-template-columns:1fr; }
+    .proj-grid{ grid-template-columns:1fr; }
+    .edu-grid{ grid-template-columns:1fr; }
+    .nav-links{ display:none; }
+    .burger{ display:flex; }
+  }
+  @media (max-width:920px){
+    .nav-links.open{
+      display:flex; position:fixed; top:64px; left:0; right:0; background:rgba(10,14,20,.98);
+      flex-direction:column; padding:20px 24px; gap:18px; border-bottom:1px solid var(--border);
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="bg-fx"></div>
+<div class="bg-grid"></div>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand"><span class="brk">&lt;</span>Nelson.dev<span class="brk">/&gt;</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#sobre-mi">Sobre mí</a></li>
+      <li><a href="#experiencia">Experiencia</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#formacion">Formación</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a class="btn btn-primary" href="#contacto">Contactar</a>
+      <button class="burger" id="burger" aria-label="Menú"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div>
+        <span class="eyebrow"><span class="dot"></span> Disponible para prácticas curriculares · desde feb. 2027</span>
+        <h1 class="title">Nelson Gómez Sánchez<br><span class="accent">Desarrollador Backend Junior</span></h1>
+        <div class="typing-row">
+          <span class="prompt">nelson@dev:~$</span> <span id="typingTarget"></span><span class="cursor"></span>
+        </div>
+        <p class="lede">Operador logístico en transición a desarrollador multiplataforma. Estudiante de <strong>DAM</strong> y del <strong>Máster en Big Data e IA</strong>, construyendo aplicaciones y APIs con un enfoque práctico — con la vista puesta en el sector bancario.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#proyectos">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+            Ver proyectos
+          </a>
+          <a class="btn btn-ghost" href="#experiencia">Ver experiencia</a>
+        </div>
+        <div class="socials">
+          <a class="icon-btn" href="https://github.com/nelsongomezsa" target="_blank" rel="noopener" title="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.75 5.48.75 11.75c0 5.02 3.26 9.28 7.78 10.78.57.1.78-.25.78-.55v-2.03c-3.16.69-3.83-1.36-3.83-1.36-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.53-2.52-.29-5.17-1.26-5.17-5.6 0-1.24.44-2.25 1.17-3.04-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.16a10.9 10.9 0 0 1 5.74 0c2.18-1.47 3.14-1.16 3.14-1.16.63 1.58.23 2.75.12 3.04.73.8 1.17 1.8 1.17 3.04 0 4.36-2.66 5.31-5.19 5.59.41.35.77 1.04.77 2.1v3.11c0 .3.21.66.79.55A11.26 11.26 0 0 0 23.25 11.75C23.25 5.48 18.27.5 12 .5z"/></svg>
+          </a>
+          <a class="icon-btn" href="https://www.linkedin.com/in/nelson-g%C3%B3mez-s%C3%A1nchez/" target="_blank" rel="noopener" title="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.11 20.45H3.56V9h3.55v11.45z"/></svg>
+          </a>
+          <a class="icon-btn" href="mailto:nelsongomezsa@gmail.com" title="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M3 6.5l9 6 9-6"/><rect x="3" y="4.5" width="18" height="15" rx="2"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="term">
+        <div class="term-bar">
+          <span class="term-dot" style="background:#ff5f57"></span>
+          <span class="term-dot" style="background:#febc2e"></span>
+          <span class="term-dot" style="background:#28c840"></span>
+          <span class="fname">nelson.java</span>
+        </div>
+        <div class="term-body">
+          <p class="ln"><span class="k">public class</span> <span class="fn">NelsonGomez</span> {</p>
+          <p class="ln">&nbsp;&nbsp;<span class="k">private</span> String rol = <span class="s">"Backend Junior"</span>;</p>
+          <p class="ln">&nbsp;&nbsp;<span class="k">private</span> String[] stack = {</p>
+          <p class="ln">&nbsp;&nbsp;&nbsp;&nbsp;<span class="s">"Java"</span>, <span class="s">"Spring Boot"</span>, <span class="s">"Python"</span>, <span class="s">"SQL"</span></p>
+          <p class="ln">&nbsp;&nbsp;};</p>
+          <p class="ln">&nbsp;&nbsp;<span class="k">private</span> String meta = <span class="s">"Sector bancario"</span>;</p>
+          <p class="ln"></p>
+          <p class="ln">&nbsp;&nbsp;<span class="k">public static void</span> <span class="fn">main</span>(String[] args) {</p>
+          <p class="ln">&nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">System.out.println</span>(<span class="s">"Listo para aportar 🚀"</span>);</p>
+          <p class="ln">&nbsp;&nbsp;}</p>
+          <p class="ln">}</p>
+          <p class="ln out">&gt; Listo para aportar 🚀</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section-pad" id="sobre-mi">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="tag">whoami</span>
+        <h2 class="h2">Sobre mí</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-text reveal reveal-delay-1">
+          <p><strong>Operador logístico con experiencia en gestión de procesos</strong>, actualmente en transición a desarrollador junior multiplataforma.</p>
+          <p>Estudiante del FP de <strong>Desarrollo de Aplicaciones Multiplataforma (DAM)</strong> y de un <strong>Máster en Big Data e Inteligencia Artificial</strong>, con base en Java, JavaScript, APIs REST y bases de datos SQL.</p>
+          <p>Formación previa en Comercio Internacional (Cámara de Comercio de Madrid y Universidad Rey Juan Carlos) y FP en Transporte y Logística. Destaco por mentalidad analítica, disciplina operativa y un enfoque práctico para crear soluciones útiles y escalables.</p>
+          <p>Combino esa base técnica con años de experiencia en entornos operativos exigentes — coordinando equipos, rutas y KPIs bajo presión — algo que traslado directamente a cómo trabajo el código: con orden, foco en el resultado y capacidad de resolver problemas reales.</p>
+        </div>
+        <div class="fact-card reveal reveal-delay-2">
+          <div class="fact-row"><span class="k">Ubicación</span><span class="v">España</span></div>
+          <div class="fact-row"><span class="k">Formación actual</span><span class="v">DAM · Máster Big Data e IA</span></div>
+          <div class="fact-row"><span class="k">Stack principal</span><span class="v">Java · Spring Boot</span></div>
+          <div class="fact-row"><span class="k">Objetivo</span><span class="v">Backend · Datos · Banca</span></div>
+          <div class="fact-row"><span class="k">Modalidad</span><span class="v">Presencial · Híbrido · Remoto</span></div>
+          <div class="avail-pill">🟢 Abierto a prácticas curriculares (FCT)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="section-pad" id="experiencia">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="tag">git log --experience</span>
+        <h2 class="h2">Experiencia</h2>
+      </div>
+      <div class="timeline">
+
+        <div class="tl-item reveal">
+          <span class="tl-dot"></span>
+          <div class="tl-card">
+            <div class="tl-head">
+              <span class="tl-role">Import Operations Coordinator</span>
+              <span class="tl-date">dic. 2024 — ago. 2025 · 9 meses</span>
+            </div>
+            <div class="tl-company"><b>CEVA Logistics</b> · Brisbane, Australia</div>
+            <p class="tl-desc">Gestión end-to-end del ciclo completo de importación internacional (marítima y terrestre): revisión documental (factura comercial, packing list, B/L), despachos aduaneros y coordinación con transitarios y navieras.</p>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <span class="tl-dot"></span>
+          <div class="tl-card">
+            <div class="tl-head">
+              <span class="tl-role">Responsable de Departamento Logístico (Cuenta MediaMarkt)</span>
+              <span class="tl-date">mar. 2024 — sept. 2024 · 7 meses</span>
+            </div>
+            <div class="tl-company"><b>TGF</b> · Comunidad de Madrid</div>
+            <p class="tl-desc">Promocionado a responsable de un departamento logístico montado desde cero: diseño de rutas, estructura operativa y planificación diaria. Optimización de recorridos, turnos y cargas de trabajo en entornos de alta demanda.</p>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <span class="tl-dot"></span>
+          <div class="tl-card">
+            <div class="tl-head">
+              <span class="tl-role">Coordinador de Tráfico y Transporte (Cuenta El Corte Inglés)</span>
+              <span class="tl-date">jun. 2022 — feb. 2024 · 1 año 9 meses</span>
+            </div>
+            <div class="tl-company"><b>TGF</b> · Madrid</div>
+            <p class="tl-desc">Coordinación de 80-100 rutas diarias y asignación de flota, como punto de contacto con el cliente. Monitorización de KPIs, gestión de incidencias y responsabilidad íntegra del departamento durante varios meses ante bajas del equipo.</p>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <span class="tl-dot"></span>
+          <div class="tl-card">
+            <div class="tl-head">
+              <span class="tl-role">Prácticas en Coordinación de Tráfico y Transporte</span>
+              <span class="tl-date">mar. 2022 — may. 2022 · 3 meses</span>
+            </div>
+            <div class="tl-company"><b>TGF</b> · Comunidad de Madrid</div>
+            <p class="tl-desc">Apoyo en planificación de rutas, seguimiento de entregas y primer contacto con la operativa logística de alto volumen para la cuenta de El Corte Inglés.</p>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <span class="tl-dot"></span>
+          <div class="tl-card">
+            <div class="tl-head">
+              <span class="tl-role">Coordinador de Aprovisionamiento / Logística Interna</span>
+              <span class="tl-date">jun. 2021 — mar. 2022 · 10 meses</span>
+            </div>
+            <div class="tl-company"><b>SEDECAL</b> · Algete, Madrid</div>
+            <p class="tl-desc">Coordinación del aprovisionamiento de piezas para producción de equipos de diagnóstico médico: recepción, control de inventario y coordinación con proveedores.</p>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <span class="tl-dot"></span>
+          <div class="tl-card">
+            <div class="tl-head">
+              <span class="tl-role">Cadena de Abastecimiento (Supply Chain)</span>
+              <span class="tl-date">ene. 2021 — dic. 2021 · 1 año</span>
+            </div>
+            <div class="tl-company"><b>Amazon</b> · San Fernando de Henares</div>
+            <p class="tl-desc">Promocionado a Supply Chain: operaciones logísticas internas, inventarios cíclicos y mejora de procesos de almacén, contribuyendo a la reducción de errores y cumplimiento de SLAs.</p>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <span class="tl-dot"></span>
+          <div class="tl-card">
+            <div class="tl-head">
+              <span class="tl-role">Picker Nocturno</span>
+              <span class="tl-date">ene. 2020 — dic. 2020 · 1 año</span>
+            </div>
+            <div class="tl-company"><b>Amazon</b> · San Fernando de Henares</div>
+            <p class="tl-desc">Picking, preparación de pedidos y control de precisión bajo objetivos de productividad en centro de fulfillment de alto volumen.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section-pad" id="skills">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="tag">import stack</span>
+        <h2 class="h2">Tecnologías</h2>
+      </div>
+
+      <div class="skills-block reveal reveal-delay-1">
+        <h3>Backend &amp; lenguajes</h3>
+        <div class="chip-row">
+          <span class="chip"><span class="sw"></span>Java</span>
+          <span class="chip"><span class="sw"></span>Spring Boot</span>
+          <span class="chip"><span class="sw"></span>Python</span>
+          <span class="chip"><span class="sw"></span>JavaScript</span>
+          <span class="chip"><span class="sw"></span>APIs REST</span>
+        </div>
+      </div>
+
+      <div class="skills-block reveal reveal-delay-2">
+        <h3>Datos</h3>
+        <div class="chip-row">
+          <span class="chip"><span class="sw"></span>SQL</span>
+          <span class="chip"><span class="sw"></span>MySQL</span>
+          <span class="chip"><span class="sw"></span>Big Data</span>
+          <span class="chip"><span class="sw"></span>Machine Learning</span>
+        </div>
+      </div>
+
+      <div class="skills-block reveal reveal-delay-3">
+        <h3>🌱 Explorando ahora mismo</h3>
+        <div class="chip-row">
+          <span class="chip learning"><span class="sw"></span>AWS Cloud Practitioner (en curso)</span>
+          <span class="chip learning"><span class="sw"></span>Docker</span>
+          <span class="chip learning"><span class="sw"></span>Git &amp; GitHub avanzado</span>
+        </div>
+        <p class="learning-note">Aprendizaje activo, no dominio todavía — prefiero ser honesto sobre dónde estoy en cada tecnología.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section-pad" id="proyectos">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="tag">ls ./proyectos</span>
+        <h2 class="h2">Proyectos destacados</h2>
+      </div>
+      <div class="proj-grid">
+
+        <div class="proj-card reveal">
+          <div class="proj-top">
+            <div class="proj-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 9v11"/></svg>
+            </div>
+            <h3>GestionAp</h3>
+            <p class="desc">Aplicación de escritorio para la gestión de alquiler de habitaciones. Proyecto intermodular de 1º de DAM con interfaz gráfica en JavaFX, base de datos MySQL y gestión de dependencias con Maven.</p>
+          </div>
+          <div class="proj-tags"><span>Java</span><span>JavaFX</span><span>MySQL</span><span>Maven</span></div>
+          <div class="proj-bottom">
+            <a href="https://github.com/nelsongomezsa/GestionAP" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.75 5.48.75 11.75c0 5.02 3.26 9.28 7.78 10.78.57.1.78-.25.78-.55v-2.03c-3.16.69-3.83-1.36-3.83-1.36-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.53-2.52-.29-5.17-1.26-5.17-5.6 0-1.24.44-2.25 1.17-3.04-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.16a10.9 10.9 0 0 1 5.74 0c2.18-1.47 3.14-1.16 3.14-1.16.63 1.58.23 2.75.12 3.04.73.8 1.17 1.8 1.17 3.04 0 4.36-2.66 5.31-5.19 5.59.41.35.77 1.04.77 2.1v3.11c0 .3.21.66.79.55A11.26 11.26 0 0 0 23.25 11.75C23.25 5.48 18.27.5 12 .5z"/></svg>
+              Ver repositorio
+            </a>
+          </div>
+        </div>
+
+        <div class="proj-card reveal reveal-delay-1">
+          <div class="proj-top">
+            <div class="proj-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 17V7a2 2 0 0 1 2-2h9l5 5v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M9 21v-6h6v6"/></svg>
+            </div>
+            <h3>GestionAp API</h3>
+            <p class="desc">API REST en Java 17 + Spring Boot: ampliación backend del proyecto GestionAp. CRUD completo de habitaciones, inquilinos y contratos, arquitectura en capas con Spring Data JPA y validación de datos.</p>
+          </div>
+          <div class="proj-tags"><span>Java 17</span><span>Spring Boot</span><span>Spring Data JPA</span><span>REST</span></div>
+          <div class="proj-bottom">
+            <a href="https://github.com/nelsongomezsa/gestionap-api" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.75 5.48.75 11.75c0 5.02 3.26 9.28 7.78 10.78.57.1.78-.25.78-.55v-2.03c-3.16.69-3.83-1.36-3.83-1.36-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.53-2.52-.29-5.17-1.26-5.17-5.6 0-1.24.44-2.25 1.17-3.04-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.16a10.9 10.9 0 0 1 5.74 0c2.18-1.47 3.14-1.16 3.14-1.16.63 1.58.23 2.75.12 3.04.73.8 1.17 1.8 1.17 3.04 0 4.36-2.66 5.31-5.19 5.59.41.35.77 1.04.77 2.1v3.11c0 .3.21.66.79.55A11.26 11.26 0 0 0 23.25 11.75C23.25 5.48 18.27.5 12 .5z"/></svg>
+              Ver repositorio
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section class="section-pad" id="formacion">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="tag">education.map()</span>
+        <h2 class="h2">Formación</h2>
+      </div>
+      <div class="edu-grid">
+        <div class="edu-card reveal">
+          <span class="edu-tag">En curso</span>
+          <h4>Máster en Big Data e Inteligencia Artificial</h4>
+          <p>thePower</p>
+        </div>
+        <div class="edu-card reveal reveal-delay-1">
+          <span class="edu-tag">En curso · 2º curso</span>
+          <h4>FP Desarrollo de Aplicaciones Multiplataforma (DAM)</h4>
+          <p>Formación Profesional</p>
+        </div>
+        <div class="edu-card reveal reveal-delay-2">
+          <span class="edu-tag">Completado</span>
+          <h4>Comercio Internacional</h4>
+          <p>Cámara de Comercio de Madrid &amp; Universidad Rey Juan Carlos</p>
+        </div>
+        <div class="edu-card reveal reveal-delay-3">
+          <span class="edu-tag">Completado</span>
+          <h4>FP en Transporte y Logística</h4>
+          <p>Formación Profesional</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section-pad" id="contacto">
+    <div class="wrap">
+      <div class="contact-box reveal">
+        <h2>¿Hablamos?</h2>
+        <p>Busco prácticas curriculares (FCT) en desarrollo de software a partir de febrero de 2027. Si tienes una oportunidad o simplemente quieres conectar, escríbeme.</p>
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="mailto:nelsongomezsa@gmail.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6.5l9 6 9-6"/><rect x="3" y="4.5" width="18" height="15" rx="2"/></svg>
+            nelsongomezsa@gmail.com
+          </a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/nelson-g%C3%B3mez-s%C3%A1nchez/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.11 20.45H3.56V9h3.55v11.45z"/></svg>
+            LinkedIn
+          </a>
+          <a class="btn btn-ghost" href="https://github.com/nelsongomezsa" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.75 5.48.75 11.75c0 5.02 3.26 9.28 7.78 10.78.57.1.78-.25.78-.55v-2.03c-3.16.69-3.83-1.36-3.83-1.36-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.53-2.52-.29-5.17-1.26-5.17-5.6 0-1.24.44-2.25 1.17-3.04-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.16a10.9 10.9 0 0 1 5.74 0c2.18-1.47 3.14-1.16 3.14-1.16.63 1.58.23 2.75.12 3.04.73.8 1.17 1.8 1.17 3.04 0 4.36-2.66 5.31-5.19 5.59.41.35.77 1.04.77 2.1v3.11c0 .3.21.66.79.55A11.26 11.26 0 0 0 23.25 11.75C23.25 5.48 18.27.5 12 .5z"/></svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>&copy; <span id="year"></span> Nelson Gómez Sánchez — hecho con <span style="color:var(--accent)">Java</span>, café y bastantes tildes corregidas.</p>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll state
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 10);
+  });
+
+  // Mobile menu
+  const burger = document.getElementById('burger');
+  const navLinks = document.getElementById('navLinks');
+  burger.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => io.observe(el));
+
+  // Typing effect (own implementation, no external image dependency)
+  const phrases = [
+    'whoami',
+    'Estudiante DAM + Máster Big Data e IA',
+    'Java · Spring Boot · Python · SQL',
+    'Buscando prácticas curriculares 🚀',
+    'git commit -m "listo para aprender"'
+  ];
+  const target = document.getElementById('typingTarget');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (reduceMotion) {
+    target.textContent = phrases[1];
+  } else {
+    let pIndex = 0, cIndex = 0, deleting = false;
+    function tick(){
+      const current = phrases[pIndex];
+      if (!deleting) {
+        cIndex++;
+        target.textContent = current.slice(0, cIndex);
+        if (cIndex === current.length) { deleting = true; setTimeout(tick, 1400); return; }
+        setTimeout(tick, 55 + Math.random()*35);
+      } else {
+        cIndex--;
+        target.textContent = current.slice(0, cIndex);
+        if (cIndex === 0) { deleting = false; pIndex = (pIndex+1) % phrases.length; setTimeout(tick, 300); return; }
+        setTimeout(tick, 25);
+      }
+    }
+    tick();
+  }
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
