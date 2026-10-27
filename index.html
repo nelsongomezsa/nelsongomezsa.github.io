@@ -283,6 +283,20 @@
     .featured-inner{ grid-template-columns:1fr; }
   }
 
+  /* MORE PROJECTS */
+  .mini-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:18px; }
+  .mini-card{ background:var(--surface); border:1px solid var(--border); border-radius:14px; overflow:hidden; display:flex; flex-direction:column; text-decoration:none; color:inherit; transition:transform .25s ease, border-color .25s ease; }
+  .mini-card:hover{ transform:translateY(-4px); border-color:var(--accent-dim); }
+  .mini-shot{ display:block; width:100%; aspect-ratio:16/9; object-fit:cover; object-position:top; border-bottom:1px solid var(--border); }
+  .mini-body{ padding:16px; display:flex; flex-direction:column; gap:8px; flex:1; }
+  .mini-badge{ align-self:flex-start; font-family:'JetBrains Mono',monospace; font-size:.66rem; color:var(--accent); border:1px solid rgba(46,230,166,.3); background:rgba(46,230,166,.08); padding:2px 8px; border-radius:999px; }
+  .mini-card h3{ margin:0; font-size:.98rem; }
+  .mini-card p{ margin:0; color:var(--text-dim); font-size:.82rem; }
+  .mini-tags{ display:flex; flex-wrap:wrap; gap:5px; margin-top:auto; padding-top:4px; }
+  .mini-tags span{ font-family:'JetBrains Mono',monospace; font-size:.68rem; color:var(--accent2); background:rgba(94,180,255,.08); border:1px solid rgba(94,180,255,.2); padding:2px 7px; border-radius:6px; }
+  .mini-link{ font-size:.76rem; font-weight:600; color:var(--text-dim); }
+  .mini-card:hover .mini-link{ color:var(--accent); }
+
   /* PROJECTS */
   .proj-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:26px; }
   .proj-card{
@@ -686,6 +700,69 @@
             </a>
           </div>
         </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MORE PROJECTS -->
+  <section class="section-pad" id="mas-proyectos">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="tag">ls ./otros</span>
+        <h2 class="h2">Proyectos de datos y otros lenguajes</h2>
+      </div>
+      <div class="mini-grid">
+
+        <a class="mini-card reveal" href="https://github.com/nelsongomezsa/proyecto4-sql" target="_blank" rel="noopener">
+          <div class="mini-body">
+            <span class="mini-badge">Máster en Data &amp; Analytics</span>
+            <h3>Consultas SQL</h3>
+            <p>Consultas SQL sobre la base de datos demo de Postgres Pro, la de reservas de vuelos.</p>
+            <div class="mini-tags"><span>SQL</span><span>PostgreSQL</span></div>
+            <span class="mini-link">Ver repositorio →</span>
+          </div>
+        </a>
+
+        <a class="mini-card reveal" href="https://github.com/nelsongomezsa/proyecto5-nosql" target="_blank" rel="noopener">
+          <div class="mini-body">
+            <span class="mini-badge">Máster en Data &amp; Analytics</span>
+            <h3>API de películas</h3>
+            <p>API de películas con Express y MongoDB (Mongoose), con el CRUD completo.</p>
+            <div class="mini-tags"><span>Node.js</span><span>Express</span><span>MongoDB</span><span>Mongoose</span></div>
+            <span class="mini-link">Ver repositorio →</span>
+          </div>
+        </a>
+
+        <a class="mini-card reveal" href="https://github.com/nelsongomezsa/proyecto3-katas-python" target="_blank" rel="noopener">
+          <div class="mini-body">
+            <span class="mini-badge">Máster en Data &amp; Analytics</span>
+            <h3>Katas de Python</h3>
+            <p>40 katas de Python: listas, diccionarios, tuplas y sets, lambdas, una función recursiva y manejo de excepciones.</p>
+            <div class="mini-tags"><span>Python</span></div>
+            <span class="mini-link">Ver repositorio →</span>
+          </div>
+        </a>
+
+        <a class="mini-card reveal" href="https://github.com/nelsongomezsa/proyecto2-katas-javascript" target="_blank" rel="noopener">
+          <div class="mini-body">
+            <span class="mini-badge">Máster en Data &amp; Analytics</span>
+            <h3>Katas de JavaScript</h3>
+            <p>56 ejercicios resueltos de JavaScript, de los fundamentos a la asincronía y el DOM.</p>
+            <div class="mini-tags"><span>JavaScript</span><span>ES6+</span><span>DOM</span><span>HTML</span></div>
+            <span class="mini-link">Ver repositorio →</span>
+          </div>
+        </a>
+
+        <a class="mini-card reveal" href="https://github.com/nelsongomezsa/portfolio-chimigo" target="_blank" rel="noopener">
+          <img class="mini-shot" src="https://raw.githubusercontent.com/nelsongomezsa/portfolio-chimigo/main/docs/captura.png" alt="Captura de la web de Chimi Go" loading="lazy">
+          <div class="mini-body">
+            <h3>Chimi Go</h3>
+            <p>Web para Chimi Go, un local de comida callejera dominicana en Cuatro Caminos (Madrid): presentación, menú, ubicación y contacto en una sola página.</p>
+            <div class="mini-tags"><span>HTML</span><span>CSS</span><span>Flexbox</span><span>Grid</span></div>
+            <span class="mini-link">Ver repositorio →</span>
+          </div>
+        </a>
 
       </div>
     </div>
