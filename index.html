@@ -290,6 +290,7 @@
     display:flex; flex-direction:column; transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease;
   }
   .proj-card:hover{ transform:translateY(-6px); border-color:var(--accent-dim); box-shadow:var(--shadow); }
+  .proj-shot{ display:block; width:100%; aspect-ratio:16/9; object-fit:cover; object-position:top; border-bottom:1px solid var(--border); }
   .proj-top{ padding:22px 22px 0; }
   .proj-icon{ width:44px; height:44px; border-radius:12px; background:rgba(46,230,166,.1); border:1px solid rgba(46,230,166,.25); display:flex; align-items:center; justify-content:center; margin-bottom:16px; }
   .proj-icon svg{ width:22px; height:22px; color:var(--accent); }
@@ -614,8 +615,8 @@
           <div>
             <span class="featured-badge">⭐ Proyecto insignia</span>
             <h3>GestionAp PRO</h3>
-            <p class="desc">Mi proyecto base: la evolución avanzada de GestionAp. App de escritorio en Java 17 + JavaFX + MySQL con arquitectura en capas (DAO / service / controller), JDBC puro, exportación XML validada con XSD y documentación completa. Aquí sigo aplicando mejoras y refactors más allá de la entrega académica original — es donde más he crecido como desarrollador.</p>
-            <div class="proj-tags" style="padding:0; margin-bottom:20px;"><span>Java 17</span><span>JavaFX</span><span>MySQL</span><span>JDBC</span><span>XML/XSD</span><span>Maven</span></div>
+            <p class="desc">GestionAp PRO: app de escritorio para gestionar el alquiler de habitaciones. Java 21, JavaFX, MySQL y JDBC en capas, PDF con iText, BCrypt y 189 tests con JUnit 5.</p>
+            <div class="proj-tags" style="padding:0; margin-bottom:20px;"><span>Java 21</span><span>JavaFX</span><span>MySQL</span><span>JDBC</span><span>JUnit 5</span><span>Maven</span></div>
             <a class="btn btn-primary" href="https://github.com/nelsongomezsa/gestionAPPRO" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.75 5.48.75 11.75c0 5.02 3.26 9.28 7.78 10.78.57.1.78-.25.78-.55v-2.03c-3.16.69-3.83-1.36-3.83-1.36-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.53-2.52-.29-5.17-1.26-5.17-5.6 0-1.24.44-2.25 1.17-3.04-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.16a10.9 10.9 0 0 1 5.74 0c2.18-1.47 3.14-1.16 3.14-1.16.63 1.58.23 2.75.12 3.04.73.8 1.17 1.8 1.17 3.04 0 4.36-2.66 5.31-5.19 5.59.41.35.77 1.04.77 2.1v3.11c0 .3.21.66.79.55A11.26 11.26 0 0 0 23.25 11.75C23.25 5.48 18.27.5 12 .5z"/></svg>
               Ver repositorio insignia
@@ -634,10 +635,28 @@
         <div class="proj-card reveal">
           <div class="proj-top">
             <div class="proj-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>
+            </div>
+            <h3>GestionAp PRO API + iOS</h3>
+            <p class="desc">GestionAp PRO API + iOS: API REST con Spring Boot 3.5, Spring Security y JWT por roles, PDF de contratos y app SwiftUI. 83 tests con JUnit 5 y MockMvc.</p>
+          </div>
+          <div class="proj-tags"><span>Java 21</span><span>Spring Boot 3.5</span><span>Spring Security</span><span>JWT</span><span>MariaDB</span><span>SwiftUI</span></div>
+          <div class="proj-bottom">
+            <a href="https://github.com/nelsongomezsa/gestionapro" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.75 5.48.75 11.75c0 5.02 3.26 9.28 7.78 10.78.57.1.78-.25.78-.55v-2.03c-3.16.69-3.83-1.36-3.83-1.36-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.53-2.52-.29-5.17-1.26-5.17-5.6 0-1.24.44-2.25 1.17-3.04-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.16a10.9 10.9 0 0 1 5.74 0c2.18-1.47 3.14-1.16 3.14-1.16.63 1.58.23 2.75.12 3.04.73.8 1.17 1.8 1.17 3.04 0 4.36-2.66 5.31-5.19 5.59.41.35.77 1.04.77 2.1v3.11c0 .3.21.66.79.55A11.26 11.26 0 0 0 23.25 11.75C23.25 5.48 18.27.5 12 .5z"/></svg>
+              Ver repositorio
+            </a>
+          </div>
+        </div>
+
+        <div class="proj-card reveal">
+          <img class="proj-shot" src="img/finance-tracker-swagger.png" alt="Swagger UI de Finance Tracker API" loading="lazy">
+          <div class="proj-top">
+            <div class="proj-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-6"/></svg>
             </div>
             <h3>Finance Tracker API</h3>
-            <p class="desc">API REST en Java 17 + Spring Boot 3 para controlar ingresos y gastos personales, con resumen mensual por categoría. Tests con JUnit 5, Mockito y MockMvc, validación, manejo centralizado de errores y documentación con Swagger (OpenAPI).</p>
+            <p class="desc">API REST de finanzas personales con Java 17 y Spring Boot 3: ingresos, gastos y resumen mensual por categoría. Tests con JUnit 5, Mockito y MockMvc.</p>
           </div>
           <div class="proj-tags"><span>Java 17</span><span>Spring Boot 3</span><span>JUnit 5</span><span>Mockito</span><span>Swagger</span></div>
           <div class="proj-bottom">
@@ -654,9 +673,9 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 17V7a2 2 0 0 1 2-2h9l5 5v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M9 21v-6h6v6"/></svg>
             </div>
             <h3>GestionAp API</h3>
-            <p class="desc">API REST en Java 17 + Spring Boot: ampliación backend del proyecto GestionAp. CRUD completo de habitaciones, inquilinos y contratos, arquitectura en capas con Spring Data JPA y validación de datos.</p>
+            <p class="desc">API REST con Java 17 y Spring Boot 3 para gestionar habitaciones, inquilinos y contratos. Arquitectura en capas, Spring Data JPA, validación y errores JSON.</p>
           </div>
-          <div class="proj-tags"><span>Java 17</span><span>Spring Boot</span><span>Spring Data JPA</span><span>REST</span></div>
+          <div class="proj-tags"><span>Java 17</span><span>Spring Boot 3</span><span>Spring Data JPA</span><span>REST</span></div>
           <div class="proj-bottom">
             <a href="https://github.com/nelsongomezsa/gestionap-api" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.75 5.48.75 11.75c0 5.02 3.26 9.28 7.78 10.78.57.1.78-.25.78-.55v-2.03c-3.16.69-3.83-1.36-3.83-1.36-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.53-2.52-.29-5.17-1.26-5.17-5.6 0-1.24.44-2.25 1.17-3.04-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.16a10.9 10.9 0 0 1 5.74 0c2.18-1.47 3.14-1.16 3.14-1.16.63 1.58.23 2.75.12 3.04.73.8 1.17 1.8 1.17 3.04 0 4.36-2.66 5.31-5.19 5.59.41.35.77 1.04.77 2.1v3.11c0 .3.21.66.79.55A11.26 11.26 0 0 0 23.25 11.75C23.25 5.48 18.27.5 12 .5z"/></svg>
