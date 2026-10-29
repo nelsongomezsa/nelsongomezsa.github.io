@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nelson Gómez Sánchez — Desarrollador Java Junior</title>
+<title>Nelson Gómez Sánchez · Desarrollador Java Junior</title>
 <meta name="description" content="Desarrollador Java junior (DAM + Máster en Data &amp; Analytics): Java, Spring Boot, SQL y Python. Prácticas de Formación en Empresa en Madrid desde febrero de 2027.">
 <meta name="theme-color" content="#0a0e14">
 <link rel="canonical" href="https://nelsongomezsa.github.io/">
@@ -12,7 +12,7 @@
 <!-- Open Graph / Facebook / LinkedIn -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://nelsongomezsa.github.io/">
-<meta property="og:title" content="Nelson Gómez Sánchez — Desarrollador Java Junior">
+<meta property="og:title" content="Nelson Gómez Sánchez · Desarrollador Java Junior">
 <meta property="og:description" content="Desarrollador Java junior (DAM + Máster en Data &amp; Analytics): Java, Spring Boot, SQL y Python. Prácticas de Formación en Empresa en Madrid desde febrero de 2027.">
 <meta property="og:image" content="https://nelsongomezsa.github.io/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -22,7 +22,7 @@
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:url" content="https://nelsongomezsa.github.io/">
-<meta name="twitter:title" content="Nelson Gómez Sánchez — Desarrollador Java Junior">
+<meta name="twitter:title" content="Nelson Gómez Sánchez · Desarrollador Java Junior">
 <meta name="twitter:description" content="Desarrollador Java junior (DAM + Máster en Data &amp; Analytics): Java, Spring Boot, SQL y Python. Prácticas de Formación en Empresa en Madrid desde febrero de 2027.">
 <meta name="twitter:image" content="https://nelsongomezsa.github.io/og-image.png">
 
@@ -69,6 +69,11 @@
     --pink:#ff6ac1;
     --radius:18px;
     --maxw:1160px;
+    --fs-display:clamp(2.5rem, 5.6vw, 4.25rem);
+    --fs-h2:clamp(1.75rem, 3.4vw, 2.5rem);
+    --fs-h3:1.25rem;
+    --fs-body:1.0625rem;
+    --fs-small:.9375rem;
     --shadow:0 18px 50px -18px rgba(0,0,0,.7);
   }
   @property --spin{ syntax:'<angle>'; inherits:false; initial-value:0deg; }
@@ -83,6 +88,7 @@
     background:var(--bg);
     color:var(--text);
     font-family:'Inter',system-ui,sans-serif;
+    font-size:var(--fs-body);
     line-height:1.6;
     -webkit-font-smoothing:antialiased;
     overflow-x:hidden;
@@ -94,6 +100,7 @@
   :focus-visible{outline:2px solid var(--accent); outline-offset:3px;}
   .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px;}
   p, h1, h2, h3{text-wrap:pretty;}
+  h1, h2{text-wrap:balance;}
   .skip{position:absolute; left:16px; top:-60px; z-index:100; background:var(--accent); color:#04120c; padding:8px 14px; border-radius:10px; font-weight:700; text-decoration:none;}
   .skip:focus{top:12px;}
 
@@ -117,10 +124,10 @@
   }
   header.nav.scrolled{ border-color:var(--border); background:rgba(10,14,20,.82); }
   .nav-inner{ max-width:var(--maxw); margin:0 auto; padding:14px 24px; display:flex; align-items:center; justify-content:space-between; gap:16px; }
-  .brand{ display:flex; align-items:center; font-family:'JetBrains Mono',monospace; font-weight:700; letter-spacing:.3px; text-decoration:none; color:var(--text); white-space:nowrap; }
+  .brand{ display:flex; align-items:center; font-size:var(--fs-body); font-weight:800; letter-spacing:-.01em; text-decoration:none; color:var(--text); white-space:nowrap; }
   .brand .brk{ color:var(--accent); }
   .nav-links{ display:flex; gap:26px; list-style:none; margin:0; padding:0; }
-  .nav-links a{ text-decoration:none; color:var(--text-dim); font-size:.92rem; font-weight:500; position:relative; padding:4px 0; transition:color .2s ease; }
+  .nav-links a{ text-decoration:none; color:var(--text-dim); font-size:var(--fs-small); font-weight:500; position:relative; padding:4px 0; transition:color .2s ease; }
   .nav-links a::after{ content:''; position:absolute; left:0; bottom:-2px; width:0; height:2px; background:linear-gradient(90deg,var(--accent),var(--neon)); transition:width .25s ease; }
   .nav-links a:hover{ color:var(--text); }
   .nav-links a:hover::after{ width:100%; }
@@ -142,7 +149,7 @@
   .lang-switch[data-active="en"]::before{ transform:translateX(100%); }
   .lang-switch button{
     position:relative; z-index:1; background:none; border:0; border-radius:999px; cursor:pointer;
-    min-width:44px; min-height:38px; padding:6px 11px; font-family:'JetBrains Mono',monospace; font-size:.74rem; font-weight:600; letter-spacing:.06em;
+    min-width:44px; min-height:38px; padding:6px 11px; font-family:inherit; font-size:var(--fs-small); font-weight:600;
     color:var(--text-dimmer); transition:color .2s ease;
   }
   .lang-switch button:hover{ color:var(--text); }
@@ -151,7 +158,7 @@
 
   .btn{
     display:inline-flex; align-items:center; gap:8px;
-    padding:11px 18px; border-radius:999px; font-weight:600; font-size:.88rem;
+    padding:11px 18px; border-radius:999px; font-weight:600; font-size:var(--fs-small);
     text-decoration:none; cursor:pointer; border:1px solid var(--border);
     transition:transform .18s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease;
     font-family:'Inter',sans-serif; white-space:nowrap;
@@ -162,7 +169,7 @@
   .btn-ghost{ background:rgba(255,255,255,.03); color:var(--text); }
   .btn-ghost:hover{ border-color:rgba(var(--neon-rgb),.6); background:rgba(var(--neon-rgb),.08); box-shadow:0 0 22px -6px rgba(var(--neon-rgb),.55); }
   .btn svg{ width:16px; height:16px; flex-shrink:0; }
-  .btn-sm{ padding:8px 14px; font-size:.8rem; }
+  .btn-sm{ padding:8px 14px; }
 
   section{ position:relative; z-index:1; }
 
@@ -185,25 +192,20 @@
   #particles{ position:absolute; inset:0; width:100%; height:100%; }
   .hero-fx::after{ content:''; position:absolute; left:0; right:0; bottom:0; height:180px; background:linear-gradient(transparent, var(--bg)); }
   .hero-inner{ position:relative; z-index:1; display:grid; grid-template-columns:1.15fr .85fr; gap:56px; align-items:center; width:100%; }
-  .eyebrow{
-    display:inline-flex; align-items:center; gap:8px;
-    font-family:'JetBrains Mono',monospace; font-size:.8rem; color:var(--accent);
-    background:rgba(var(--accent-rgb),.08); border:1px solid rgba(var(--accent-rgb),.28);
-    padding:6px 12px; border-radius:999px; margin-bottom:22px;
-  }
-  .eyebrow .dot{ width:7px; height:7px; flex-shrink:0; border-radius:50%; background:var(--accent); animation:pulse 2s infinite; }
+  .avail{ display:flex; align-items:center; gap:10px; margin:0 0 28px; font-size:var(--fs-small); font-weight:500; color:var(--text); }
+  .avail .dot{ width:7px; height:7px; flex-shrink:0; border-radius:50%; background:var(--accent); animation:pulse 2s infinite; }
   @keyframes pulse{
     0%{ box-shadow:0 0 0 0 rgba(var(--accent-rgb),.55); }
     70%{ box-shadow:0 0 0 8px rgba(var(--accent-rgb),0); }
     100%{ box-shadow:0 0 0 0 rgba(var(--accent-rgb),0); }
   }
-  h1.title{ font-size:clamp(2.2rem, 5.2vw, 3.6rem); line-height:1.06; margin:0 0 18px; font-weight:800; letter-spacing:-.02em; }
-  .grad{ color:var(--accent); text-shadow:0 0 28px rgba(var(--accent-rgb),.35); }
+  h1.title{ font-size:var(--fs-display); line-height:1; margin:0 0 14px; font-weight:800; letter-spacing:-.03em; }
+  .role{ font-size:var(--fs-h2); line-height:1.15; font-weight:700; letter-spacing:-.02em; color:var(--accent); margin:0 0 18px; }
   .typing-row{ font-family:'JetBrains Mono',monospace; font-size:clamp(.95rem,2.1vw,1.2rem); color:var(--text-dim); margin-bottom:22px; min-height:1.6em; }
   .typing-row .prompt{ color:var(--neon); }
   .typing-row .cursor{ display:inline-block; width:9px; height:1.1em; background:var(--accent); margin-left:2px; vertical-align:-3px; box-shadow:0 0 10px rgba(var(--accent-rgb),.8); animation:blink 1s step-end infinite; }
   @keyframes blink{ 50%{ opacity:0; } }
-  .lede{ color:var(--text-dim); font-size:1.05rem; max-width:54ch; margin:0 0 30px; }
+  .lede{ color:var(--text); max-width:58ch; margin:0 0 30px; }
   .lede strong{ color:var(--text); }
   .hero-actions{ display:flex; gap:12px; flex-wrap:wrap; margin-bottom:30px; }
   .socials{ display:flex; gap:12px; }
@@ -229,8 +231,8 @@
   .term{ position:relative; background:linear-gradient(180deg, rgba(22,31,43,.92), rgba(13,19,27,.95)); border:1px solid var(--border); border-radius:17px; overflow:hidden; box-shadow:var(--shadow); }
   .term-bar{ display:flex; align-items:center; gap:8px; padding:12px 16px; background:rgba(22,31,43,.9); border-bottom:1px solid var(--border); }
   .term-dot{ width:11px; height:11px; border-radius:50%; }
-  .term-bar .fname{ margin-left:8px; font-family:'JetBrains Mono',monospace; font-size:.78rem; color:var(--text-dimmer); }
-  .term-body{ padding:20px 20px 24px; font-family:'JetBrains Mono',monospace; font-size:.84rem; color:var(--text-dim); }
+  .term-bar .fname{ margin-left:8px; font-family:'JetBrains Mono',monospace; font-size:var(--fs-small); color:var(--text-dimmer); }
+  .term-body{ padding:20px 20px 24px; font-family:'JetBrains Mono',monospace; font-size:var(--fs-small); line-height:1.55; color:var(--text-dim); }
   .term-body .ln{ margin:0 0 6px; white-space:pre-wrap; }
   .term-body .k{ color:var(--pink); }
   .term-body .s{ color:var(--warn); }
@@ -243,30 +245,21 @@
     display:grid; grid-template-columns:repeat(4,1fr); margin:0;
     background:var(--glass); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden;
   }
-  .stat{ position:relative; padding:24px 22px; border-left:1px solid var(--border); outline:none; transition:background .2s ease; }
+  .stat{ position:relative; padding:24px 22px; border-left:1px solid var(--border); }
   .stat:first-child{ border-left:none; }
-  .stat::after{ content:''; position:absolute; left:22px; right:22px; bottom:0; height:2px; background:linear-gradient(90deg,var(--accent),var(--neon)); transform:scaleX(0); transform-origin:left; transition:transform .35s ease; }
-  .stat:hover, .stat:focus-visible{ background:rgba(var(--accent-rgb),.04); }
-  .stat:hover::after, .stat:focus-visible::after{ transform:scaleX(1); }
-  .stat dt{ font-family:'JetBrains Mono',monospace; font-size:.72rem; color:var(--text-dimmer); text-transform:uppercase; letter-spacing:.1em; }
-  .stat dt::before{ content:'$ '; color:var(--accent); }
-  .stat-num{ margin:8px 0 4px; font-family:'JetBrains Mono',monospace; font-size:clamp(1.5rem,2.9vw,2.1rem); font-weight:700; color:var(--text); font-variant-numeric:tabular-nums; line-height:1.1; white-space:nowrap; }
+  .stat-num{ margin:0 0 6px; font-size:var(--fs-h2); font-weight:800; letter-spacing:-.02em; color:var(--text); font-variant-numeric:tabular-nums; line-height:1.1; white-space:nowrap; }
   .stat-num .u{ color:var(--accent); }
-  .stat-cap{ margin:0; position:relative; min-height:1.5em; font-size:.82rem; }
-  .stat-cap span{ display:block; transition:opacity .2s ease, transform .2s ease; }
-  .stat-cap .detail{ color:var(--text-dim); }
-  .stat-cap .context{ position:absolute; inset:0; color:var(--neon); opacity:0; transform:translateY(4px); }
-  .stat:hover .detail, .stat:focus-visible .detail{ opacity:0; transform:translateY(-4px); }
-  .stat:hover .context, .stat:focus-visible .context{ opacity:1; transform:none; }
+  .stat-cap{ margin:0; font-size:var(--fs-small); line-height:1.45; }
+  .stat-cap span{ display:block; }
+  .stat-cap .detail{ color:var(--text); }
+  .stat-cap .context{ color:var(--text-dim); margin-top:2px; }
 
   /* SECTION HEADERS */
   .section-pad{ padding:96px 0; }
   .section-head{ margin-bottom:44px; }
-  .tag{ font-family:'JetBrains Mono',monospace; font-size:.78rem; color:var(--accent); letter-spacing:.14em; text-transform:uppercase; margin-bottom:10px; display:block; }
-  .tag::before{ content:'// '; color:var(--neon); }
-  .h2{ font-size:clamp(1.7rem,3.6vw,2.4rem); font-weight:800; margin:0; letter-spacing:-.01em; }
-  .h3-sub{ font-family:'JetBrains Mono',monospace; font-size:.9rem; font-weight:600; color:var(--text-dim); margin:56px 0 18px; }
-  .h3-sub::before{ content:'// '; color:var(--neon); }
+  .h2{ font-size:var(--fs-h2); font-weight:800; margin:0; letter-spacing:-.02em; line-height:1.15; }
+  .sub-note{ color:var(--text-dim); margin:-12px 0 24px; }
+  .h3-sub{ font-size:var(--fs-h3); font-weight:700; color:var(--text); margin:72px 0 24px; }
 
   /* Hidden only once JS has run, so the page never ships blank */
   .js .reveal{ opacity:0; transform:translateY(26px); transition:opacity .7s ease, transform .7s ease; }
@@ -290,14 +283,14 @@
 
   /* ABOUT */
   .about-grid{ display:grid; grid-template-columns:1.4fr 1fr; gap:44px; align-items:start; }
-  .about-text p{ color:var(--text-dim); margin:0 0 16px; }
+  .about-text p{ color:var(--text); margin:0 0 16px; max-width:65ch; }
   .about-text strong{ color:var(--text); }
   .fact-card{ padding:22px; }
-  .fact-row{ display:flex; justify-content:space-between; gap:16px; padding:12px 0; border-bottom:1px solid var(--border); font-size:.9rem; }
+  .fact-row{ display:flex; justify-content:space-between; gap:16px; padding:12px 0; border-bottom:1px solid var(--border); font-size:var(--fs-small); }
   .fact-row:last-of-type{ border-bottom:none; }
   .fact-row .k{ color:var(--text-dimmer); }
   .fact-row .v{ color:var(--text); font-weight:600; text-align:right; }
-  .avail-pill{ display:inline-flex; align-items:center; gap:8px; background:rgba(var(--accent-rgb),.09); border:1px solid rgba(var(--accent-rgb),.3); color:var(--accent); padding:10px 14px; border-radius:10px; font-size:.85rem; font-weight:600; margin-top:16px; }
+  .avail-pill{ display:inline-flex; align-items:center; gap:8px; background:rgba(var(--accent-rgb),.09); border:1px solid rgba(var(--accent-rgb),.3); color:var(--accent); padding:10px 14px; border-radius:10px; font-size:var(--fs-small); font-weight:600; margin-top:16px; }
 
   /* TIMELINE: the beam fills as you scroll */
   .timeline{ position:relative; padding-left:36px; }
@@ -309,20 +302,20 @@
   .tl-item.lit .tl-dot{ border-color:var(--accent); box-shadow:0 0 0 4px rgba(var(--accent-rgb),.14), 0 0 14px rgba(var(--accent-rgb),.7); }
   .tl-card{ padding:20px 22px; }
   .tl-head{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px; align-items:baseline; margin-bottom:6px; }
-  .tl-role{ font-weight:700; font-size:1.02rem; }
-  .tl-date{ font-family:'JetBrains Mono',monospace; font-size:.76rem; color:var(--neon); white-space:nowrap; }
-  .tl-company{ color:var(--text-dim); font-size:.88rem; margin-bottom:10px; }
+  .tl-role{ font-weight:700; font-size:var(--fs-h3); line-height:1.3; margin:0; }
+  .tl-date{ font-family:'JetBrains Mono',monospace; font-size:var(--fs-small); color:var(--text-dim); white-space:nowrap; }
+  .tl-company{ color:var(--text-dim); font-size:var(--fs-small); margin-bottom:10px; }
   .tl-company b{ color:var(--text); }
-  .tl-desc{ color:var(--text-dim); font-size:.9rem; margin:0; }
+  .tl-desc{ color:var(--text); margin:0; max-width:65ch; }
 
   /* SKILLS: chips with a light sweep */
   .skills-block{ margin-bottom:34px; }
-  .skills-block h3{ font-size:.95rem; color:var(--text-dim); margin:0 0 16px; font-weight:600; }
+  .skills-block h3{ font-size:var(--fs-body); color:var(--text); margin:0 0 14px; font-weight:700; }
   .chip-row{ display:flex; flex-wrap:wrap; gap:10px; }
   .chip{
     position:relative; overflow:hidden; display:inline-flex; align-items:center; gap:8px;
     background:var(--glass); border:1px solid var(--border); border-radius:10px;
-    padding:9px 14px; font-size:.85rem; font-weight:600; font-family:'JetBrains Mono',monospace;
+    padding:9px 14px; font-size:var(--fs-small); font-weight:600;
     transition:transform .18s ease, border-color .2s ease, box-shadow .2s ease;
   }
   .chip::after{
@@ -336,7 +329,7 @@
   .chip:not(.learning) .sw{ background:var(--accent); box-shadow:0 0 8px rgba(var(--accent-rgb),.9); }
   .chip.learning{ border-style:dashed; color:var(--warn); }
   .chip.learning .sw{ background:var(--warn); box-shadow:0 0 8px rgba(255,180,84,.8); }
-  .learning-note{ color:var(--text-dimmer); font-size:.84rem; margin-top:14px; font-style:italic; }
+  .learning-note{ color:var(--text-dim); font-size:var(--fs-small); margin-top:14px; max-width:65ch; }
 
   /* PROJECTS: two big featured cards */
   .feat-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
@@ -345,21 +338,21 @@
   .shot img{ display:block; width:100%; height:auto; aspect-ratio:16/10; object-fit:cover; object-position:top; transition:transform .6s ease; }
   .card:hover .shot img{ transform:scale(1.04); }
   .feat-body{ padding:24px; display:flex; flex-direction:column; gap:12px; flex:1; }
-  .feat h3{ margin:0; font-size:1.4rem; }
-  .desc{ color:var(--text-dim); font-size:.92rem; margin:0; }
+  .feat h3{ margin:0; font-size:var(--fs-h3); }
+  .desc{ color:var(--text); margin:0; max-width:65ch; }
   .feat .actions{ margin-top:auto; padding-top:6px; }
   .badge{
-    align-self:flex-start; display:inline-flex; align-items:center; gap:6px; font-family:'JetBrains Mono',monospace;
-    font-size:.7rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+    align-self:flex-start; display:inline-flex; align-items:center; gap:6px;
+    font-size:var(--fs-small); font-weight:600;
     color:#04120c; background:var(--accent); padding:4px 11px; border-radius:999px;
   }
   .badge.neon{ background:rgba(var(--neon-rgb),.14); color:var(--neon); border:1px solid rgba(var(--neon-rgb),.45); }
-  .badge.soft{ background:rgba(var(--accent-rgb),.08); color:var(--accent); border:1px solid rgba(var(--accent-rgb),.3); text-transform:none; letter-spacing:0; font-weight:500; }
+  .badge.soft{ background:rgba(var(--accent-rgb),.08); color:var(--accent); border:1px solid rgba(var(--accent-rgb),.3); font-weight:500; }
   .live-dot{ width:7px; height:7px; border-radius:50%; background:var(--neon); box-shadow:0 0 8px var(--neon); }
   .tags{ display:flex; flex-wrap:wrap; gap:6px; }
-  .tags span{ font-family:'JetBrains Mono',monospace; font-size:.72rem; color:var(--accent2); background:rgba(94,180,255,.08); border:1px solid rgba(94,180,255,.22); padding:3px 9px; border-radius:6px; }
+  .tags span{ font-size:var(--fs-small); color:var(--accent2); background:rgba(94,180,255,.08); border:1px solid rgba(94,180,255,.22); padding:3px 9px; border-radius:6px; }
   .actions{ display:flex; flex-wrap:wrap; align-items:center; gap:12px; }
-  .link{ font-size:.84rem; font-weight:600; color:var(--text-dim); text-decoration:none; display:inline-flex; align-items:center; gap:6px; padding:6px 0; transition:color .2s ease; }
+  .link{ font-size:var(--fs-small); font-weight:600; color:var(--text-dim); text-decoration:none; display:inline-flex; align-items:center; gap:6px; padding:6px 0; transition:color .2s ease; }
   .link svg{ width:15px; height:15px; }
   .link::after{ content:'→'; transition:transform .2s ease; }
   .link:hover{ color:var(--accent); }
@@ -371,22 +364,19 @@
   .b-wide{ grid-column:span 2; }
   .b-tall{ grid-column:span 2; grid-row:span 2; }
   .b-body{ padding:20px; display:flex; flex-direction:column; gap:10px; flex:1; }
-  .b-body h3{ margin:0; font-size:1.06rem; }
-  .b-body .desc{ font-size:.86rem; }
+  .b-body h3{ margin:0; font-size:var(--fs-h3); }
   .b-body .tags{ margin-top:auto; padding-top:4px; }
   .b-body .actions{ margin-top:2px; }
   .p-icon{ width:42px; height:42px; border-radius:12px; background:rgba(var(--accent-rgb),.1); border:1px solid rgba(var(--accent-rgb),.28); display:flex; align-items:center; justify-content:center; }
   .p-icon svg{ width:21px; height:21px; color:var(--accent); }
   .bento.minis .b-body{ padding:18px; }
-  .bento.minis h3{ font-size:.98rem; }
-  .bento.minis .desc{ font-size:.82rem; }
 
   /* EDUCATION */
   .edu-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
   .edu-card{ padding:20px 22px; }
-  .edu-card .edu-tag{ font-family:'JetBrains Mono',monospace; font-size:.72rem; color:var(--accent); text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px; display:block; }
-  .edu-card h3{ margin:0 0 6px; font-size:1rem; }
-  .edu-card p{ margin:0; color:var(--text-dim); font-size:.86rem; }
+  .edu-card .edu-tag{ font-family:'JetBrains Mono',monospace; font-size:var(--fs-small); color:var(--text-dim); margin-top:6px; display:block; }
+  .edu-card h3{ margin:0 0 4px; font-size:var(--fs-h3); line-height:1.3; }
+  .edu-card p{ margin:0; color:var(--text-dim); }
 
   /* CONTACT: glass panel over neon orbs, spinning border */
   .contact-stage{ position:relative; }
@@ -405,11 +395,11 @@
     -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite:xor; mask-composite:exclude;
     animation:spin 8s linear infinite;
   }
-  .contact-glass h2{ font-size:clamp(1.7rem,3.8vw,2.5rem); margin:0 0 14px; font-weight:800; }
+  .contact-glass h2{ font-size:var(--fs-h2); margin:0 0 14px; font-weight:800; letter-spacing:-.02em; }
   .contact-glass p{ color:var(--text-dim); max-width:52ch; margin:0 auto 30px; }
   .contact-actions{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
 
-  footer{ position:relative; z-index:1; padding:36px 0 44px; text-align:center; color:var(--text-dimmer); font-size:.82rem; font-family:'JetBrains Mono',monospace; }
+  footer{ position:relative; z-index:1; padding:36px 0 44px; text-align:center; color:var(--text-dim); font-size:var(--fs-small); }
   footer p{ margin:0; }
 
   @media (max-width:1020px){
@@ -446,7 +436,7 @@
     .b-tall, .b-wide{ grid-column:auto; }
     .contact-glass{ padding:40px 20px; }
     .feat-body{ padding:20px; }
-    .term-body{ font-size:.76rem; padding:16px; }
+    .term-body{ padding:16px; }
     .hero-actions .btn{ flex:1 1 auto; justify-content:center; }
     .btn, .link{ min-height:44px; }
     .lang-switch button{ min-height:40px; }
@@ -499,8 +489,9 @@
     </div>
     <div class="wrap hero-inner">
       <div>
-        <span class="eyebrow"><span class="dot"></span> Disponible para prácticas de Formación en Empresa · desde feb. 2027</span>
-        <h1 class="title">Nelson Gómez Sánchez<br><span class="grad">Desarrollador Java Junior</span></h1>
+        <h1 class="title">Nelson Gómez Sánchez</h1>
+        <p class="role">Desarrollador Java Junior</p>
+        <p class="avail"><span class="dot" aria-hidden="true"></span>Disponible para prácticas desde feb. 2027</p>
         <div class="typing-row">
           <span class="prompt">nelson@dev:~$</span> <span id="typingTarget"></span><span class="cursor" aria-hidden="true"></span>
         </div>
@@ -552,25 +543,21 @@
   <section class="stats" aria-label="Cifras clave">
     <div class="wrap">
       <dl class="stats-grid reveal">
-        <div class="stat" tabindex="0">
-          <dt>experiencia</dt>
-          <dd class="stat-num">6<span class="u">+ años</span></dd>
+        <div class="stat">
+          <dt class="stat-num">6<span class="u">+ años</span></dt>
           <dd class="stat-cap"><span class="detail">en operaciones y logística</span><span class="context">España y Australia, en inglés desde 2024</span></dd>
         </div>
-        <div class="stat" tabindex="0">
-          <dt>rutas</dt>
-          <dd class="stat-num">80–100<span class="u">/día</span></dd>
-          <dd class="stat-cap"><span class="detail">coordinadas en TGF</span><span class="context">Para la cuenta de El Corte Inglés</span></dd>
+        <div class="stat">
+          <dt class="stat-num">80–100<span class="u">/día</span></dt>
+          <dd class="stat-cap"><span class="detail">rutas coordinadas en TGF</span><span class="context">Para la cuenta de El Corte Inglés</span></dd>
         </div>
-        <div class="stat" tabindex="0">
-          <dt>tests</dt>
-          <dd class="stat-num">272</dd>
-          <dd class="stat-cap"><span class="detail">automatizados con JUnit 5</span><span class="context">189 en GestionAp PRO + 83 en su API</span></dd>
+        <div class="stat">
+          <dt class="stat-num">272</dt>
+          <dd class="stat-cap"><span class="detail">tests automatizados con JUnit 5</span><span class="context">189 en GestionAp PRO + 83 en su API</span></dd>
         </div>
-        <div class="stat" tabindex="0">
-          <dt>proyectos</dt>
-          <dd class="stat-num">9</dd>
-          <dd class="stat-cap"><span class="detail">publicados en GitHub</span><span class="context">Java, Spring Boot, SQL, Python y JS</span></dd>
+        <div class="stat">
+          <dt class="stat-num">9</dt>
+          <dd class="stat-cap"><span class="detail">proyectos publicados en GitHub</span><span class="context">Java, Spring Boot, SQL, Python y JS</span></dd>
         </div>
       </dl>
     </div>
@@ -580,7 +567,6 @@
   <section class="section-pad" id="sobre-mi">
     <div class="wrap">
       <div class="section-head reveal">
-        <span class="tag">whoami</span>
         <h2 class="h2">Sobre mí</h2>
       </div>
       <div class="about-grid">
@@ -606,7 +592,6 @@
   <section class="section-pad" id="experiencia">
     <div class="wrap">
       <div class="section-head reveal">
-        <span class="tag">git log --experience</span>
         <h2 class="h2">Experiencia</h2>
       </div>
       <div class="timeline" id="timeline">
@@ -617,7 +602,7 @@
           <div class="card glow tl-card">
             <div class="tl-head">
               <h3 class="tl-role">Coordinador de Aprovisionamiento y Gestión de Almacén</h3>
-              <span class="tl-date">feb. 2026 — actualidad</span>
+              <span class="tl-date">feb. 2026 – actualidad</span>
             </div>
             <div class="tl-company"><b>Civeo Australia</b> · Coppabella, Queensland, Australia</div>
             <p class="tl-desc">Promocionado en febrero de 2026 a la gestión de aprovisionamiento y almacén de un campamento minero remoto de unos 3.500 residentes, en una operativa 24/7 en inglés: control de stock, inventario y reposición con Excel y SAP, recepción de mercancía y coordinación con proveedores.</p>
@@ -629,7 +614,7 @@
           <div class="card glow tl-card">
             <div class="tl-head">
               <h3 class="tl-role">Facilities Attendant</h3>
-              <span class="tl-date">jun. 2025 — ene. 2026 · 8 meses</span>
+              <span class="tl-date">jun. 2025 – ene. 2026 · 8 meses</span>
             </div>
             <div class="tl-company"><b>Civeo Australia</b> · Coppabella, Queensland, Australia</div>
             <p class="tl-desc">Operativa diaria de instalaciones en Coppabella Village, alojamiento para trabajadores del sector minero en el Bowen Basin: mantenimiento de zonas comunes y habitaciones, resolución de incidencias y trabajo en equipo multicultural en inglés.</p>
@@ -641,7 +626,7 @@
           <div class="card glow tl-card">
             <div class="tl-head">
               <h3 class="tl-role">Import Operations Coordinator</h3>
-              <span class="tl-date">dic. 2024 — jun. 2025 · 7 meses</span>
+              <span class="tl-date">dic. 2024 – jun. 2025 · 7 meses</span>
             </div>
             <div class="tl-company"><b>CEVA Logistics</b> · Brisbane, Australia</div>
             <p class="tl-desc">Gestión end-to-end del ciclo completo de importación internacional (marítima y terrestre): revisión documental (factura comercial, packing list, B/L), despachos aduaneros y coordinación con transitarios y navieras.</p>
@@ -653,7 +638,7 @@
           <div class="card glow tl-card">
             <div class="tl-head">
               <h3 class="tl-role">Responsable de Departamento Logístico (Cuenta MediaMarkt)</h3>
-              <span class="tl-date">mar. 2024 — sept. 2024 · 7 meses</span>
+              <span class="tl-date">mar. 2024 – sept. 2024 · 7 meses</span>
             </div>
             <div class="tl-company"><b>TGF</b> · Comunidad de Madrid</div>
             <p class="tl-desc">Monté desde cero el departamento logístico de la cuenta MediaMarkt: diseño de rutas, estructura operativa y planificación diaria. Gestión diaria de unos 30 conductores y entre 20 y 30 rutas, con optimización de recorridos, turnos y cargas de trabajo.</p>
@@ -665,7 +650,7 @@
           <div class="card glow tl-card">
             <div class="tl-head">
               <h3 class="tl-role">Coordinador de Tráfico y Transporte (Cuenta El Corte Inglés)</h3>
-              <span class="tl-date">jun. 2022 — feb. 2024 · 1 año 9 meses</span>
+              <span class="tl-date">jun. 2022 – feb. 2024 · 1 año 9 meses</span>
             </div>
             <div class="tl-company"><b>TGF</b> · Madrid</div>
             <p class="tl-desc">Coordinación de entre 80 y 100 rutas diarias y asignación de conductores y flota, como punto de contacto con el cliente. Seguimiento de KPIs de servicio y gestión de incidencias. Único responsable del departamento durante 4 meses (nov. 2023 – feb. 2024).</p>
@@ -677,7 +662,7 @@
           <div class="card glow tl-card">
             <div class="tl-head">
               <h3 class="tl-role">Prácticas en Coordinación de Tráfico y Transporte</h3>
-              <span class="tl-date">mar. 2022 — may. 2022 · 3 meses</span>
+              <span class="tl-date">mar. 2022 – may. 2022 · 3 meses</span>
             </div>
             <div class="tl-company"><b>TGF</b> · Comunidad de Madrid</div>
             <p class="tl-desc">Apoyo en planificación de rutas y seguimiento de entregas para la cuenta de El Corte Inglés. Al terminar, me incorporaron a plantilla.</p>
@@ -689,7 +674,7 @@
           <div class="card glow tl-card">
             <div class="tl-head">
               <h3 class="tl-role">Coordinador de Aprovisionamiento / Logística Interna</h3>
-              <span class="tl-date">jun. 2021 — mar. 2022 · 10 meses</span>
+              <span class="tl-date">jun. 2021 – mar. 2022 · 10 meses</span>
             </div>
             <div class="tl-company"><b>SEDECAL</b> · Algete, Madrid</div>
             <p class="tl-desc">Coordinación del aprovisionamiento de piezas para producción de equipos de diagnóstico médico: recepción, control de inventario y coordinación con proveedores.</p>
@@ -701,7 +686,7 @@
           <div class="card glow tl-card">
             <div class="tl-head">
               <h3 class="tl-role">Supply Chain y operaciones de almacén</h3>
-              <span class="tl-date">ene. 2020 — dic. 2020 · 1 año</span>
+              <span class="tl-date">ene. 2020 – dic. 2020 · 1 año</span>
             </div>
             <div class="tl-company"><b>Amazon</b> · San Fernando de Henares</div>
             <p class="tl-desc">Operaciones de almacén y supply chain en un centro de fulfillment de alto volumen: preparación de pedidos, inventarios cíclicos, control de stock y reposición con objetivos de productividad y SLAs.</p>
@@ -716,7 +701,6 @@
   <section class="section-pad" id="skills">
     <div class="wrap">
       <div class="section-head reveal">
-        <span class="tag">import stack</span>
         <h2 class="h2">Tecnologías</h2>
       </div>
 
@@ -751,7 +735,7 @@
           <span class="chip learning"><span class="sw"></span>Docker</span>
           <span class="chip learning"><span class="sw"></span>Git &amp; GitHub avanzado</span>
         </div>
-        <p class="learning-note">Aprendizaje activo, no dominio todavía — prefiero ser honesto sobre dónde estoy en cada tecnología.</p>
+        <p class="learning-note">Aprendizaje activo, no dominio todavía. Prefiero ser honesto sobre dónde estoy en cada tecnología.</p>
       </div>
     </div>
   </section>
@@ -760,7 +744,6 @@
   <section class="section-pad" id="proyectos">
     <div class="wrap">
       <div class="section-head reveal">
-        <span class="tag">ls ./proyectos</span>
         <h2 class="h2">Proyectos destacados</h2>
       </div>
 
@@ -770,8 +753,8 @@
             <picture><source srcset="img/gestionap-pro.webp" type="image/webp"><img src="img/gestionap-pro.jpg" alt="" width="1200" height="901" loading="lazy" decoding="async"></picture>
           </a>
           <div class="feat-body">
-            <span class="badge">⭐ Proyecto insignia</span>
             <h3>GestionAp PRO</h3>
+            <span class="badge">⭐ Proyecto insignia</span>
             <p class="desc">App de escritorio para gestionar el alquiler de habitaciones. Java 21, JavaFX, MySQL y JDBC en capas, PDF con iText, BCrypt y 189 tests con JUnit 5.</p>
             <div class="tags"><span>Java 21</span><span>JavaFX</span><span>MySQL</span><span>JDBC</span><span>JUnit 5</span><span>Maven</span></div>
             <div class="actions">
@@ -789,8 +772,8 @@
             <picture><source srcset="img/chimigo.webp" type="image/webp"><img src="img/chimigo.jpg" alt="" width="1200" height="750" loading="lazy" decoding="async"></picture>
           </a>
           <div class="feat-body">
-            <span class="badge neon"><span class="live-dot"></span>En vivo</span>
             <h3>ChimiGO Urban Food</h3>
+            <span class="badge neon"><span class="live-dot"></span>En vivo</span>
             <p class="desc">Web para un local de comida callejera dominicana en Cuatro Caminos (Madrid): carta interactiva con carrito de pedido (listo para WhatsApp), horario en vivo, ES / EN e instalable como PWA. Lighthouse 100.</p>
             <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>PWA</span><span>i18n</span></div>
             <div class="actions">
@@ -801,7 +784,7 @@
         </article>
       </div>
 
-      <h3 class="h3-sub reveal">más proyectos</h3>
+      <h3 class="h3-sub reveal">Más proyectos</h3>
       <div class="bento">
         <article class="card glow b-tall reveal">
           <div class="shot"><picture><source srcset="img/finance-tracker-swagger.webp" type="image/webp"><img src="img/finance-tracker-swagger.png" alt="Swagger UI de Finance Tracker API" width="1280" height="900" loading="lazy" decoding="async"></picture></div>
@@ -835,10 +818,10 @@
       </div>
 
       <h3 class="h3-sub reveal" id="mas-proyectos">Proyectos de datos y otros lenguajes</h3>
+      <p class="sub-note reveal">Proyectos del <strong>Máster en Data &amp; Analytics</strong>.</p>
       <div class="bento minis">
         <article class="card glow reveal">
           <div class="b-body">
-            <span class="badge soft">Máster en Data &amp; Analytics</span>
             <h3>Consultas SQL</h3>
             <p class="desc">Consultas SQL sobre la base de datos demo de Postgres Pro, la de reservas de vuelos.</p>
             <div class="tags"><span>SQL</span><span>PostgreSQL</span></div>
@@ -848,7 +831,6 @@
 
         <article class="card glow reveal reveal-delay-1">
           <div class="b-body">
-            <span class="badge soft">Máster en Data &amp; Analytics</span>
             <h3>API de películas</h3>
             <p class="desc">API de películas con Express y MongoDB (Mongoose), con el CRUD completo.</p>
             <div class="tags"><span>Node.js</span><span>Express</span><span>MongoDB</span><span>Mongoose</span></div>
@@ -858,7 +840,6 @@
 
         <article class="card glow reveal reveal-delay-2">
           <div class="b-body">
-            <span class="badge soft">Máster en Data &amp; Analytics</span>
             <h3>Katas de Python</h3>
             <p class="desc">40 katas de Python: listas, diccionarios, tuplas y sets, lambdas, una función recursiva y manejo de excepciones.</p>
             <div class="tags"><span>Python</span></div>
@@ -868,7 +849,6 @@
 
         <article class="card glow reveal reveal-delay-3">
           <div class="b-body">
-            <span class="badge soft">Máster en Data &amp; Analytics</span>
             <h3>Katas de JavaScript</h3>
             <p class="desc">56 ejercicios resueltos de JavaScript, de los fundamentos a la asincronía y el DOM.</p>
             <div class="tags"><span>JavaScript</span><span>ES6+</span><span>DOM</span><span>HTML</span></div>
@@ -883,29 +863,28 @@
   <section class="section-pad" id="formacion">
     <div class="wrap">
       <div class="section-head reveal">
-        <span class="tag">education.map()</span>
         <h2 class="h2">Formación</h2>
       </div>
       <div class="edu-grid">
         <div class="card glow edu-card reveal">
-          <span class="edu-tag">En curso · 2025 – 2027</span>
           <h3>Máster en Data &amp; Analytics</h3>
           <p>Prometeo by thePower</p>
+          <span class="edu-tag">En curso · 2025 – 2027</span>
         </div>
         <div class="card glow edu-card reveal reveal-delay-1">
-          <span class="edu-tag">En curso · 2.º curso · 2025 – 2027</span>
           <h3>CFGS Desarrollo de Aplicaciones Multiplataforma (DAM)</h3>
           <p>Prometeo by thePower, Madrid</p>
+          <span class="edu-tag">En curso · 2.º curso · 2025 – 2027</span>
         </div>
         <div class="card glow edu-card reveal reveal-delay-2">
-          <span class="edu-tag">Completado · 2023 – 2024</span>
           <h3>Máster en Comercio Exterior</h3>
           <p>Cámara de Comercio de Madrid &amp; Universidad Rey Juan Carlos</p>
+          <span class="edu-tag">Completado · 2023 – 2024</span>
         </div>
         <div class="card glow edu-card reveal reveal-delay-3">
-          <span class="edu-tag">Completado · 2020 – 2022</span>
           <h3>CFGS Transporte y Logística</h3>
           <p>Escuela Profesional Javeriana</p>
+          <span class="edu-tag">Completado · 2020 – 2022</span>
         </div>
       </div>
     </div>
@@ -1114,7 +1093,7 @@
     "Saltar al contenido": "Skip to content",
     "Sobre mí": "About", "Experiencia": "Experience", "Proyectos": "Projects", "Formación": "Education",
     "Contacto": "Contact", "Contactar": "Get in touch",
-    "Disponible para prácticas de Formación en Empresa · desde feb. 2027": "Available for a Formación en Empresa internship · from Feb 2027",
+    "Disponible para prácticas desde feb. 2027": "Available for an internship from Feb 2027",
     "Desarrollador Java Junior": "Junior Java Developer",
     "Programo en Java y Spring Boot, y antes de escribir código pasé 6 años coordinando rutas, stock y KPIs en España y Australia. Estudiante de": "I code in Java and Spring Boot, and before writing code I spent 6 years coordinating routes, stock and KPIs in Spain and Australia. Student of",
     "y del": "and of the",
@@ -1127,15 +1106,15 @@
     '"Banca y consultoría"': '"Banking & consulting"',
     '"Listo para aportar 🚀"': '"Ready to build 🚀"',
     "> Listo para aportar 🚀": "> Ready to build 🚀",
-    "experiencia": "experience", "+ años": "+ years",
+    "+ años": "+ years",
     "en operaciones y logística": "in operations and logistics",
     "España y Australia, en inglés desde 2024": "Spain and Australia, in English since 2024",
-    "rutas": "routes", "/día": "/day",
-    "coordinadas en TGF": "coordinated at TGF",
+    "/día": "/day",
+    "rutas coordinadas en TGF": "routes coordinated at TGF",
     "Para la cuenta de El Corte Inglés": "For the El Corte Inglés account",
-    "automatizados con JUnit 5": "automated with JUnit 5",
+    "tests automatizados con JUnit 5": "tests automated with JUnit 5",
     "189 en GestionAp PRO + 83 en su API": "189 in GestionAp PRO + 83 in its API",
-    "proyectos": "projects", "publicados en GitHub": "published on GitHub",
+    "proyectos publicados en GitHub": "projects published on GitHub",
     "Java, Spring Boot, SQL, Python y JS": "Java, Spring Boot, SQL, Python and JS",
     "Programo en Java y Spring Boot": "I code in Java and Spring Boot",
     ", y antes de escribir código pasé 6 años coordinando rutas, stock y KPIs en España y Australia.": ", and before writing code I spent 6 years coordinating routes, stock and KPIs in Spain and Australia.",
@@ -1153,37 +1132,38 @@
     "Modalidad": "Work mode", "Presencial · Híbrido · Remoto": "On-site · Hybrid · Remote",
     "🟢 Abierto a prácticas de Formación en Empresa (feb. 2027)": "🟢 Open to a Formación en Empresa internship (Feb 2027)",
     "Coordinador de Aprovisionamiento y Gestión de Almacén": "Procurement and Warehouse Coordinator",
-    "feb. 2026 — actualidad": "Feb 2026 — present",
+    "feb. 2026 – actualidad": "Feb 2026 – present",
     "Promocionado en febrero de 2026 a la gestión de aprovisionamiento y almacén de un campamento minero remoto de unos 3.500 residentes, en una operativa 24/7 en inglés: control de stock, inventario y reposición con Excel y SAP, recepción de mercancía y coordinación con proveedores.": "Promoted in February 2026 to run procurement and the warehouse at a remote mining camp of about 3,500 residents, in a 24/7 operation in English: stock control, inventory and replenishment with Excel and SAP, goods receiving and coordination with suppliers.",
-    "jun. 2025 — ene. 2026 · 8 meses": "Jun 2025 — Jan 2026 · 8 months",
+    "jun. 2025 – ene. 2026 · 8 meses": "Jun 2025 – Jan 2026 · 8 months",
     "Operativa diaria de instalaciones en Coppabella Village, alojamiento para trabajadores del sector minero en el Bowen Basin: mantenimiento de zonas comunes y habitaciones, resolución de incidencias y trabajo en equipo multicultural en inglés.": "Daily facilities operations at Coppabella Village, accommodation for mining workers in the Bowen Basin: upkeep of common areas and rooms, issue resolution and multicultural teamwork in English.",
-    "dic. 2024 — jun. 2025 · 7 meses": "Dec 2024 — Jun 2025 · 7 months",
+    "dic. 2024 – jun. 2025 · 7 meses": "Dec 2024 – Jun 2025 · 7 months",
     "Gestión end-to-end del ciclo completo de importación internacional (marítima y terrestre): revisión documental (factura comercial, packing list, B/L), despachos aduaneros y coordinación con transitarios y navieras.": "End-to-end management of the full international import cycle (sea and road): document review (commercial invoice, packing list, B/L), customs clearance and coordination with forwarders and shipping lines.",
     "Responsable de Departamento Logístico (Cuenta MediaMarkt)": "Logistics Department Lead (MediaMarkt account)",
-    "mar. 2024 — sept. 2024 · 7 meses": "Mar 2024 — Sep 2024 · 7 months",
+    "mar. 2024 – sept. 2024 · 7 meses": "Mar 2024 – Sep 2024 · 7 months",
     "· Comunidad de Madrid": "· Madrid region",
     "Monté desde cero el departamento logístico de la cuenta MediaMarkt: diseño de rutas, estructura operativa y planificación diaria. Gestión diaria de unos 30 conductores y entre 20 y 30 rutas, con optimización de recorridos, turnos y cargas de trabajo.": "Built the MediaMarkt account's logistics department from scratch: route design, operating structure and daily planning. Daily management of about 30 drivers and 20 to 30 routes, optimising routes, shifts and workloads.",
     "Coordinador de Tráfico y Transporte (Cuenta El Corte Inglés)": "Traffic and Transport Coordinator (El Corte Inglés account)",
-    "jun. 2022 — feb. 2024 · 1 año 9 meses": "Jun 2022 — Feb 2024 · 1 year 9 months",
+    "jun. 2022 – feb. 2024 · 1 año 9 meses": "Jun 2022 – Feb 2024 · 1 year 9 months",
     "Coordinación de entre 80 y 100 rutas diarias y asignación de conductores y flota, como punto de contacto con el cliente. Seguimiento de KPIs de servicio y gestión de incidencias. Único responsable del departamento durante 4 meses (nov. 2023 – feb. 2024).": "Coordinated 80 to 100 daily routes and assigned drivers and fleet, as the client's point of contact. Service KPI tracking and incident management. Ran the department on my own for 4 months (Nov 2023 – Feb 2024).",
     "Prácticas en Coordinación de Tráfico y Transporte": "Traffic and Transport Coordination Intern",
-    "mar. 2022 — may. 2022 · 3 meses": "Mar 2022 — May 2022 · 3 months",
+    "mar. 2022 – may. 2022 · 3 meses": "Mar 2022 – May 2022 · 3 months",
     "Apoyo en planificación de rutas y seguimiento de entregas para la cuenta de El Corte Inglés. Al terminar, me incorporaron a plantilla.": "Supported route planning and delivery tracking for the El Corte Inglés account. When it ended, I was hired on staff.",
     "Coordinador de Aprovisionamiento / Logística Interna": "Procurement / Internal Logistics Coordinator",
-    "jun. 2021 — mar. 2022 · 10 meses": "Jun 2021 — Mar 2022 · 10 months",
+    "jun. 2021 – mar. 2022 · 10 meses": "Jun 2021 – Mar 2022 · 10 months",
     "Coordinación del aprovisionamiento de piezas para producción de equipos de diagnóstico médico: recepción, control de inventario y coordinación con proveedores.": "Coordinated the supply of parts for the production of medical diagnostic equipment: receiving, inventory control and coordination with suppliers.",
     "Supply Chain y operaciones de almacén": "Supply Chain and warehouse operations",
-    "ene. 2020 — dic. 2020 · 1 año": "Jan 2020 — Dec 2020 · 1 year",
+    "ene. 2020 – dic. 2020 · 1 año": "Jan 2020 – Dec 2020 · 1 year",
     "Operaciones de almacén y supply chain en un centro de fulfillment de alto volumen: preparación de pedidos, inventarios cíclicos, control de stock y reposición con objetivos de productividad y SLAs.": "Warehouse and supply chain operations at a high-volume fulfilment centre: order picking, cycle counts, stock control and replenishment against productivity targets and SLAs.",
     "Tecnologías": "Tech stack", "Backend & lenguajes": "Backend & languages", "APIs REST": "REST APIs",
     "Datos": "Data", "Análisis de datos": "Data analysis",
     "🌱 Explorando ahora mismo": "🌱 Exploring right now", "Git & GitHub avanzado": "Advanced Git & GitHub",
-    "Aprendizaje activo, no dominio todavía — prefiero ser honesto sobre dónde estoy en cada tecnología.": "Actively learning, not mastered yet — I'd rather be honest about where I stand with each technology.",
+    "Aprendizaje activo, no dominio todavía. Prefiero ser honesto sobre dónde estoy en cada tecnología.": "Actively learning, not mastered yet. I'd rather be honest about where I stand with each technology.",
     "Proyectos destacados": "Featured projects", "⭐ Proyecto insignia": "⭐ Flagship project",
     "App de escritorio para gestionar el alquiler de habitaciones. Java 21, JavaFX, MySQL y JDBC en capas, PDF con iText, BCrypt y 189 tests con JUnit 5.": "Desktop app to manage room rentals. Java 21, JavaFX, MySQL and layered JDBC, PDF with iText, BCrypt and 189 JUnit 5 tests.",
     "Ver repositorio insignia": "See flagship repository", "Descargar app (macOS)": "Download app (macOS)",
     "En vivo": "Live",
-    "más proyectos": "more projects",
+    "Más proyectos": "More projects",
+    "Proyectos del": "Projects from the",
     "API REST con Spring Boot 3.5, Spring Security y JWT por roles, PDF de contratos y app SwiftUI. 83 tests con JUnit 5 y MockMvc.": "REST API with Spring Boot 3.5, Spring Security and role-based JWT, PDF contracts and a SwiftUI app. 83 tests with JUnit 5 and MockMvc.",
     "Ver repositorio": "See repository",
     "API REST de finanzas personales con Java 17 y Spring Boot 3: ingresos, gastos y resumen mensual por categoría. Tests con JUnit 5, Mockito y MockMvc.": "Personal finance REST API with Java 17 and Spring Boot 3: income, expenses and a monthly summary by category. Tests with JUnit 5, Mockito and MockMvc.",
@@ -1214,7 +1194,7 @@
   const EN_ATTR = { "Menú": "Menu", "Idioma": "Language", "Cifras clave": "Key numbers", "Swagger UI de Finance Tracker API": "Finance Tracker API Swagger UI" };
   const ES_META = { title: document.title, desc: document.querySelector('meta[name="description"]').content };
   const EN_META = {
-    title: 'Nelson Gómez Sánchez — Junior Java Developer',
+    title: 'Nelson Gómez Sánchez · Junior Java Developer',
     desc: "Junior Java developer (DAM + Master's in Data & Analytics): Java, Spring Boot, SQL and Python. Formación en Empresa internship in Madrid from February 2027."
   };
 
