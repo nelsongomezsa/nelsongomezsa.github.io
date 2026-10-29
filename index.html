@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nelson Gómez Sánchez — Desarrollador Java Junior</title>
 <meta name="description" content="Desarrollador Java junior (DAM + Máster en Data &amp; Analytics): Java, Spring Boot, SQL y Python. Prácticas de Formación en Empresa en Madrid desde febrero de 2027.">
+<meta name="theme-color" content="#0a0e14">
 <link rel="canonical" href="https://nelsongomezsa.github.io/">
 <meta name="google-site-verification" content="DYKfnQv1VahS18NmOht7Uqag6PJ8IT0HCceyO9pg85M" />
 
@@ -52,24 +53,29 @@
     --bg-alt:#0d131b;
     --surface:#121a24;
     --surface-2:#161f2b;
+    --glass:rgba(18,26,36,.62);
     --border:#212c3a;
     --text:#e7ecf3;
     --text-dim:#8b96a8;
-    --text-dimmer:#5c6779;
+    --text-dimmer:#7a8599;
     --accent:#2ee6a6;
+    --accent-rgb:46,230,166;
     --accent-dim:#1f9e73;
+    --neon:#a78bfa;
+    --neon-rgb:167,139,250;
     --accent2:#5eb4ff;
     --warn:#ffb454;
     --pink:#ff6ac1;
-    --radius:14px;
-    --maxw:1120px;
-    --shadow: 0 10px 40px -10px rgba(0,0,0,.6);
+    --radius:18px;
+    --maxw:1160px;
+    --shadow:0 18px 50px -18px rgba(0,0,0,.7);
   }
+  @property --spin{ syntax:'<angle>'; inherits:false; initial-value:0deg; }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto;}
-    *{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important;}
+    *, *::before, *::after{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important;}
   }
   body{
     margin:0;
@@ -82,44 +88,45 @@
   }
   code, .mono{font-family:'JetBrains Mono',ui-monospace,monospace;}
   a{color:inherit;}
+  img{max-width:100%;}
   ::selection{background:var(--accent);color:#04120c;}
+  :focus-visible{outline:2px solid var(--accent); outline-offset:3px;}
   .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px;}
+  p, h1, h2, h3{text-wrap:pretty;}
+  .skip{position:absolute; left:16px; top:-60px; z-index:100; background:var(--accent); color:#04120c; padding:8px 14px; border-radius:10px; font-weight:700; text-decoration:none;}
+  .skip:focus{top:12px;}
 
-  /* Background grid + glow */
-  .bg-fx{
-    position:fixed; inset:0; z-index:0; pointer-events:none;
-    background:
-      radial-gradient(600px 400px at 15% 0%, rgba(46,230,166,.10), transparent 60%),
-      radial-gradient(500px 380px at 90% 10%, rgba(94,180,255,.09), transparent 60%),
-      linear-gradient(var(--bg), var(--bg));
-  }
+  /* Page backdrop: faint grid fading out from the top */
   .bg-grid{
-    position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.35;
+    position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.3;
     background-image:
       linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
       linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
-    background-size: 42px 42px;
-    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 90%);
+    background-size:44px 44px;
+    mask-image:radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 85%);
   }
 
   /* NAV */
   header.nav{
     position:fixed; top:0; left:0; right:0; z-index:50;
-    backdrop-filter:blur(10px);
-    background:rgba(10,14,20,.55);
+    backdrop-filter:blur(14px) saturate(140%); -webkit-backdrop-filter:blur(14px) saturate(140%);
+    background:rgba(10,14,20,.5);
     border-bottom:1px solid transparent;
     transition:border-color .3s ease, background .3s ease;
   }
-  header.nav.scrolled{ border-color:var(--border); background:rgba(10,14,20,.85); }
-  .nav-inner{ max-width:var(--maxw); margin:0 auto; padding:14px 24px; display:flex; align-items:center; justify-content:space-between; }
-  .brand{ display:flex; align-items:center; gap:10px; font-family:'JetBrains Mono',monospace; font-weight:700; letter-spacing:.3px; text-decoration:none; color:var(--text); }
+  header.nav.scrolled{ border-color:var(--border); background:rgba(10,14,20,.82); }
+  .nav-inner{ max-width:var(--maxw); margin:0 auto; padding:14px 24px; display:flex; align-items:center; justify-content:space-between; gap:16px; }
+  .brand{ display:flex; align-items:center; font-family:'JetBrains Mono',monospace; font-weight:700; letter-spacing:.3px; text-decoration:none; color:var(--text); white-space:nowrap; }
   .brand .brk{ color:var(--accent); }
-  .nav-links{ display:flex; gap:28px; list-style:none; margin:0; padding:0; }
+  .nav-links{ display:flex; gap:26px; list-style:none; margin:0; padding:0; }
   .nav-links a{ text-decoration:none; color:var(--text-dim); font-size:.92rem; font-weight:500; position:relative; padding:4px 0; transition:color .2s ease; }
-  .nav-links a::after{ content:''; position:absolute; left:0; bottom:-2px; width:0; height:2px; background:var(--accent); transition:width .25s ease; }
+  .nav-links a::after{ content:''; position:absolute; left:0; bottom:-2px; width:0; height:2px; background:linear-gradient(90deg,var(--accent),var(--neon)); transition:width .25s ease; }
   .nav-links a:hover{ color:var(--text); }
   .nav-links a:hover::after{ width:100%; }
   .nav-cta{ display:flex; align-items:center; gap:12px; }
+  .burger{ display:none; flex-direction:column; align-items:center; justify-content:center; gap:5px; width:44px; height:44px; background:none; border:none; cursor:pointer; padding:0; }
+  .burger span{ width:22px; height:2px; background:var(--text); display:block; border-radius:2px; }
+
   /* Language switcher: segmented pill with a sliding indicator */
   .lang-switch{
     position:relative; display:inline-grid; grid-template-columns:1fr 1fr; padding:3px;
@@ -127,305 +134,336 @@
   }
   .lang-switch::before{
     content:''; position:absolute; top:3px; bottom:3px; left:3px; width:calc(50% - 3px); border-radius:999px;
-    background:rgba(46,230,166,.12); border:1px solid rgba(46,230,166,.35);
+    background:rgba(var(--accent-rgb),.12); border:1px solid rgba(var(--accent-rgb),.4);
+    box-shadow:0 0 14px -2px rgba(var(--accent-rgb),.45);
     transition:transform .35s cubic-bezier(.3,1.4,.5,1);
   }
   .lang-switch[data-active="en"]::before{ transform:translateX(100%); }
   .lang-switch button{
     position:relative; z-index:1; background:none; border:0; border-radius:999px; cursor:pointer;
-    padding:6px 11px; font-family:'JetBrains Mono',monospace; font-size:.74rem; font-weight:600; letter-spacing:.06em;
+    min-width:44px; min-height:38px; padding:6px 11px; font-family:'JetBrains Mono',monospace; font-size:.74rem; font-weight:600; letter-spacing:.06em;
     color:var(--text-dimmer); transition:color .2s ease;
   }
   .lang-switch button:hover{ color:var(--text); }
   .lang-switch button[aria-checked="true"]{ color:var(--accent); }
-  .lang-switch button:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
-  @media (max-width:420px){ .nav-cta .btn-primary{ display:none; } }
-  .burger{ display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:8px; }
-  .burger span{ width:22px; height:2px; background:var(--text); display:block; border-radius:2px; }
+  .lang-switch button:focus-visible{ outline-offset:2px; }
 
   .btn{
     display:inline-flex; align-items:center; gap:8px;
-    padding:10px 18px; border-radius:999px; font-weight:600; font-size:.88rem;
+    padding:11px 18px; border-radius:999px; font-weight:600; font-size:.88rem;
     text-decoration:none; cursor:pointer; border:1px solid var(--border);
     transition:transform .18s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease;
     font-family:'Inter',sans-serif; white-space:nowrap;
   }
   .btn:hover{ transform:translateY(-2px); }
-  .btn-primary{ background:var(--accent); color:#04120c; border-color:var(--accent); box-shadow:0 8px 24px -8px rgba(46,230,166,.55); }
-  .btn-primary:hover{ box-shadow:0 12px 28px -8px rgba(46,230,166,.75); }
-  .btn-ghost{ background:rgba(255,255,255,.02); color:var(--text); }
-  .btn-ghost:hover{ border-color:var(--accent-dim); background:rgba(46,230,166,.06); }
-  .btn svg{ width:16px; height:16px; }
+  .btn-primary{ background:var(--accent); color:#04120c; border-color:var(--accent); box-shadow:0 8px 26px -8px rgba(var(--accent-rgb),.6); }
+  .btn-primary:hover{ box-shadow:0 12px 32px -6px rgba(var(--accent-rgb),.8), 0 0 0 4px rgba(var(--accent-rgb),.12); }
+  .btn-ghost{ background:rgba(255,255,255,.03); color:var(--text); }
+  .btn-ghost:hover{ border-color:rgba(var(--neon-rgb),.6); background:rgba(var(--neon-rgb),.08); box-shadow:0 0 22px -6px rgba(var(--neon-rgb),.55); }
+  .btn svg{ width:16px; height:16px; flex-shrink:0; }
+  .btn-sm{ padding:8px 14px; font-size:.8rem; }
 
   section{ position:relative; z-index:1; }
 
-  /* HERO */
+  /* HERO: particle field + soft aurora */
   .hero{
-    min-height:100vh; display:flex; align-items:center;
-    padding:140px 0 90px;
+    position:relative; overflow:hidden; min-height:100vh; min-height:100svh; display:flex; align-items:center;
+    padding:130px 0 80px;
   }
-  .hero-inner{ display:grid; grid-template-columns:1.15fr .85fr; gap:56px; align-items:center; width:100%; }
+  .hero-fx{ position:absolute; inset:0; z-index:0; pointer-events:none; }
+  .hero-fx .aurora{
+    position:absolute; inset:-20%;
+    background:
+      radial-gradient(40% 35% at 20% 25%, rgba(var(--accent-rgb),.16), transparent 70%),
+      radial-gradient(35% 30% at 80% 20%, rgba(var(--neon-rgb),.16), transparent 70%),
+      radial-gradient(30% 30% at 60% 85%, rgba(var(--accent-rgb),.07), transparent 70%);
+    filter:blur(10px);
+    animation:drift 18s ease-in-out infinite alternate;
+  }
+  @keyframes drift{ to{ transform:translate3d(3%,2%,0) scale(1.06); } }
+  #particles{ position:absolute; inset:0; width:100%; height:100%; }
+  .hero-fx::after{ content:''; position:absolute; left:0; right:0; bottom:0; height:180px; background:linear-gradient(transparent, var(--bg)); }
+  .hero-inner{ position:relative; z-index:1; display:grid; grid-template-columns:1.15fr .85fr; gap:56px; align-items:center; width:100%; }
   .eyebrow{
     display:inline-flex; align-items:center; gap:8px;
     font-family:'JetBrains Mono',monospace; font-size:.8rem; color:var(--accent);
-    background:rgba(46,230,166,.08); border:1px solid rgba(46,230,166,.25);
+    background:rgba(var(--accent-rgb),.08); border:1px solid rgba(var(--accent-rgb),.28);
     padding:6px 12px; border-radius:999px; margin-bottom:22px;
   }
-  .eyebrow .dot{ width:7px; height:7px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 0 rgba(46,230,166,.6); animation:pulse 2s infinite; }
+  .eyebrow .dot{ width:7px; height:7px; flex-shrink:0; border-radius:50%; background:var(--accent); animation:pulse 2s infinite; }
   @keyframes pulse{
-    0%{ box-shadow:0 0 0 0 rgba(46,230,166,.55); }
-    70%{ box-shadow:0 0 0 8px rgba(46,230,166,0); }
-    100%{ box-shadow:0 0 0 0 rgba(46,230,166,0); }
+    0%{ box-shadow:0 0 0 0 rgba(var(--accent-rgb),.55); }
+    70%{ box-shadow:0 0 0 8px rgba(var(--accent-rgb),0); }
+    100%{ box-shadow:0 0 0 0 rgba(var(--accent-rgb),0); }
   }
-  h1.title{
-    font-size:clamp(2.2rem, 5vw, 3.4rem); line-height:1.08; margin:0 0 18px; font-weight:800; letter-spacing:-.02px;
-  }
-  h1.title .accent{ color:var(--accent); }
-  .typing-row{
-    font-family:'JetBrains Mono',monospace; font-size:clamp(1rem,2.1vw,1.25rem); color:var(--text-dim); margin-bottom:22px; min-height:1.6em;
-  }
-  .typing-row .prompt{ color:var(--accent2); }
-  .typing-row .cursor{ display:inline-block; width:9px; height:1.1em; background:var(--accent); margin-left:2px; vertical-align:-3px; animation:blink 1s step-end infinite; }
+  h1.title{ font-size:clamp(2.2rem, 5.2vw, 3.6rem); line-height:1.06; margin:0 0 18px; font-weight:800; letter-spacing:-.02em; }
+  .grad{ color:var(--accent); text-shadow:0 0 28px rgba(var(--accent-rgb),.35); }
+  .typing-row{ font-family:'JetBrains Mono',monospace; font-size:clamp(.95rem,2.1vw,1.2rem); color:var(--text-dim); margin-bottom:22px; min-height:1.6em; }
+  .typing-row .prompt{ color:var(--neon); }
+  .typing-row .cursor{ display:inline-block; width:9px; height:1.1em; background:var(--accent); margin-left:2px; vertical-align:-3px; box-shadow:0 0 10px rgba(var(--accent-rgb),.8); animation:blink 1s step-end infinite; }
   @keyframes blink{ 50%{ opacity:0; } }
-  .lede{ color:var(--text-dim); font-size:1.05rem; max-width:52ch; margin-bottom:30px; }
-  .hero-actions{ display:flex; gap:14px; flex-wrap:wrap; margin-bottom:34px; }
-  .socials{ display:flex; gap:14px; }
+  .lede{ color:var(--text-dim); font-size:1.05rem; max-width:54ch; margin:0 0 30px; }
+  .lede strong{ color:var(--text); }
+  .hero-actions{ display:flex; gap:12px; flex-wrap:wrap; margin-bottom:30px; }
+  .socials{ display:flex; gap:12px; }
   .icon-btn{
-    width:42px; height:42px; border-radius:12px; display:flex; align-items:center; justify-content:center;
-    border:1px solid var(--border); background:var(--surface); transition:all .2s ease; text-decoration:none;
+    width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center;
+    border:1px solid var(--border); background:var(--glass); transition:all .2s ease; text-decoration:none;
   }
-  .icon-btn:hover{ border-color:var(--accent-dim); background:rgba(46,230,166,.08); transform:translateY(-2px); }
+  .icon-btn:hover{ border-color:rgba(var(--accent-rgb),.6); box-shadow:0 0 20px -4px rgba(var(--accent-rgb),.6); transform:translateY(-2px); }
   .icon-btn svg{ width:19px; height:19px; color:var(--text-dim); }
   .icon-btn:hover svg{ color:var(--accent); }
 
-  /* Terminal card */
-  .term{
-    background:linear-gradient(180deg, var(--surface), var(--bg-alt));
-    border:1px solid var(--border); border-radius:16px; overflow:hidden; box-shadow:var(--shadow);
-    transform:rotate(1.2deg);
-    animation:float 6s ease-in-out infinite;
+  /* Terminal card with a rotating neon border */
+  .term-wrap{ position:relative; border-radius:18px; padding:1px; animation:float 7s ease-in-out infinite; }
+  .term-wrap::before{
+    content:''; position:absolute; inset:0; border-radius:inherit; padding:1px;
+    background:conic-gradient(from var(--spin), transparent 0 55%, var(--accent) 70%, var(--neon) 85%, transparent 100%);
+    -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite:xor; mask-composite:exclude;
+    animation:spin 6s linear infinite;
   }
-  @keyframes float{ 0%,100%{ transform:rotate(1.2deg) translateY(0);} 50%{ transform:rotate(1.2deg) translateY(-10px);} }
-  .term-bar{ display:flex; align-items:center; gap:8px; padding:12px 16px; background:var(--surface-2); border-bottom:1px solid var(--border); }
+  .term-wrap::after{ content:''; position:absolute; inset:10% 8%; z-index:-1; border-radius:30px; background:radial-gradient(rgba(var(--neon-rgb),.25), transparent 70%); filter:blur(30px); }
+  @keyframes spin{ to{ --spin:360deg; } }
+  @keyframes float{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(-10px);} }
+  .term{ position:relative; background:linear-gradient(180deg, rgba(22,31,43,.92), rgba(13,19,27,.95)); border:1px solid var(--border); border-radius:17px; overflow:hidden; box-shadow:var(--shadow); }
+  .term-bar{ display:flex; align-items:center; gap:8px; padding:12px 16px; background:rgba(22,31,43,.9); border-bottom:1px solid var(--border); }
   .term-dot{ width:11px; height:11px; border-radius:50%; }
   .term-bar .fname{ margin-left:8px; font-family:'JetBrains Mono',monospace; font-size:.78rem; color:var(--text-dimmer); }
   .term-body{ padding:20px 20px 24px; font-family:'JetBrains Mono',monospace; font-size:.84rem; color:var(--text-dim); }
   .term-body .ln{ margin:0 0 6px; white-space:pre-wrap; }
   .term-body .k{ color:var(--pink); }
   .term-body .s{ color:var(--warn); }
-  .term-body .c{ color:var(--text-dimmer); }
   .term-body .fn{ color:var(--accent2); }
-  .term-body .out{ color:var(--accent); }
+  .term-body .out{ color:var(--accent); text-shadow:0 0 12px rgba(var(--accent-rgb),.5); }
+
+  /* STATS BAND */
+  .stats{ padding:0 0 30px; }
+  .stats-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); margin:0;
+    background:var(--glass); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden;
+  }
+  .stat{ position:relative; padding:24px 22px; border-left:1px solid var(--border); outline:none; transition:background .2s ease; }
+  .stat:first-child{ border-left:none; }
+  .stat::after{ content:''; position:absolute; left:22px; right:22px; bottom:0; height:2px; background:linear-gradient(90deg,var(--accent),var(--neon)); transform:scaleX(0); transform-origin:left; transition:transform .35s ease; }
+  .stat:hover, .stat:focus-visible{ background:rgba(var(--accent-rgb),.04); }
+  .stat:hover::after, .stat:focus-visible::after{ transform:scaleX(1); }
+  .stat dt{ font-family:'JetBrains Mono',monospace; font-size:.72rem; color:var(--text-dimmer); text-transform:uppercase; letter-spacing:.1em; }
+  .stat dt::before{ content:'$ '; color:var(--accent); }
+  .stat-num{ margin:8px 0 4px; font-family:'JetBrains Mono',monospace; font-size:clamp(1.5rem,2.9vw,2.1rem); font-weight:700; color:var(--text); font-variant-numeric:tabular-nums; line-height:1.1; white-space:nowrap; }
+  .stat-num .u{ color:var(--accent); }
+  .stat-cap{ margin:0; position:relative; min-height:1.5em; font-size:.82rem; }
+  .stat-cap span{ display:block; transition:opacity .2s ease, transform .2s ease; }
+  .stat-cap .detail{ color:var(--text-dim); }
+  .stat-cap .context{ position:absolute; inset:0; color:var(--neon); opacity:0; transform:translateY(4px); }
+  .stat:hover .detail, .stat:focus-visible .detail{ opacity:0; transform:translateY(-4px); }
+  .stat:hover .context, .stat:focus-visible .context{ opacity:1; transform:none; }
 
   /* SECTION HEADERS */
   .section-pad{ padding:96px 0; }
-  .section-head{ margin-bottom:48px; }
-  .tag{
-    font-family:'JetBrains Mono',monospace; font-size:.78rem; color:var(--accent); letter-spacing:.14em; text-transform:uppercase; margin-bottom:10px; display:block;
-  }
-  .tag::before{ content:'// '; color:var(--text-dimmer); }
-  .h2{ font-size:clamp(1.6rem,3.4vw,2.2rem); font-weight:800; margin:0; }
+  .section-head{ margin-bottom:44px; }
+  .tag{ font-family:'JetBrains Mono',monospace; font-size:.78rem; color:var(--accent); letter-spacing:.14em; text-transform:uppercase; margin-bottom:10px; display:block; }
+  .tag::before{ content:'// '; color:var(--neon); }
+  .h2{ font-size:clamp(1.7rem,3.6vw,2.4rem); font-weight:800; margin:0; letter-spacing:-.01em; }
+  .h3-sub{ font-family:'JetBrains Mono',monospace; font-size:.9rem; font-weight:600; color:var(--text-dim); margin:56px 0 18px; }
+  .h3-sub::before{ content:'// '; color:var(--neon); }
 
-  .reveal{ opacity:0; transform:translateY(28px); transition:opacity .7s ease, transform .7s ease; }
-  .reveal.in-view{ opacity:1; transform:translateY(0); }
+  .reveal{ opacity:0; transform:translateY(26px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.in-view{ opacity:1; transform:none; }
   .reveal-delay-1.in-view{ transition-delay:.08s; }
   .reveal-delay-2.in-view{ transition-delay:.16s; }
   .reveal-delay-3.in-view{ transition-delay:.24s; }
+
+  /* Glow cards: a light that follows the pointer, plus a lit edge ring */
+  .card{ position:relative; background:var(--glass); border:1px solid var(--border); border-radius:var(--radius); transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
+  .glow{ --x:50%; --y:0%; isolation:isolate; }
+  .glow::before, .glow::after{ content:''; position:absolute; inset:-1px; border-radius:inherit; pointer-events:none; opacity:0; transition:opacity .3s ease; }
+  .glow::before{
+    padding:1px; z-index:2;
+    background:radial-gradient(320px circle at var(--x) var(--y), rgba(var(--accent-rgb),.9), rgba(var(--neon-rgb),.6) 40%, transparent 70%);
+    -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite:xor; mask-composite:exclude;
+  }
+  .glow::after{ z-index:-1; background:radial-gradient(420px circle at var(--x) var(--y), rgba(var(--neon-rgb),.09), transparent 60%); }
+  .glow:hover::before, .glow:hover::after, .glow:focus-within::before{ opacity:1; }
+  .glow:hover{ transform:translateY(-4px); box-shadow:0 24px 60px -24px rgba(var(--neon-rgb),.35); }
 
   /* ABOUT */
   .about-grid{ display:grid; grid-template-columns:1.4fr 1fr; gap:44px; align-items:start; }
   .about-text p{ color:var(--text-dim); margin:0 0 16px; }
   .about-text strong{ color:var(--text); }
-  .fact-card{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:22px; }
+  .fact-card{ padding:22px; }
   .fact-row{ display:flex; justify-content:space-between; gap:16px; padding:12px 0; border-bottom:1px solid var(--border); font-size:.9rem; }
-  .fact-row:last-child{ border-bottom:none; }
+  .fact-row:last-of-type{ border-bottom:none; }
   .fact-row .k{ color:var(--text-dimmer); }
   .fact-row .v{ color:var(--text); font-weight:600; text-align:right; }
-  .avail-pill{ display:inline-flex; align-items:center; gap:8px; background:rgba(46,230,166,.09); border:1px solid rgba(46,230,166,.28); color:var(--accent); padding:10px 14px; border-radius:10px; font-size:.85rem; font-weight:600; margin-top:16px; }
+  .avail-pill{ display:inline-flex; align-items:center; gap:8px; background:rgba(var(--accent-rgb),.09); border:1px solid rgba(var(--accent-rgb),.3); color:var(--accent); padding:10px 14px; border-radius:10px; font-size:.85rem; font-weight:600; margin-top:16px; }
 
-  /* TIMELINE */
-  .timeline{ position:relative; padding-left:32px; }
-  .timeline::before{ content:''; position:absolute; left:6px; top:6px; bottom:6px; width:2px; background:linear-gradient(var(--accent), var(--border) 85%); }
-  .tl-item{ position:relative; padding-bottom:36px; }
+  /* TIMELINE: the beam fills as you scroll */
+  .timeline{ position:relative; padding-left:36px; }
+  .timeline::before{ content:''; position:absolute; left:7px; top:6px; bottom:6px; width:2px; background:var(--border); border-radius:2px; }
+  .tl-beam{ position:absolute; left:7px; top:6px; bottom:6px; width:2px; border-radius:2px; background:linear-gradient(var(--accent), var(--neon)); box-shadow:0 0 12px rgba(var(--accent-rgb),.7); transform-origin:top; transform:scaleY(var(--p, 0)); }
+  .tl-item{ position:relative; padding-bottom:30px; }
   .tl-item:last-child{ padding-bottom:0; }
-  .tl-dot{ position:absolute; left:-32px; top:4px; width:14px; height:14px; border-radius:50%; background:var(--bg); border:2px solid var(--accent); box-shadow:0 0 0 4px rgba(46,230,166,.12); }
-  .tl-card{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:20px 22px; transition:border-color .2s ease, transform .2s ease; }
-  .tl-card:hover{ border-color:var(--accent-dim); transform:translateX(4px); }
+  .tl-dot{ position:absolute; left:-36px; top:18px; width:16px; height:16px; border-radius:50%; background:var(--bg); border:2px solid var(--border); transition:border-color .3s ease, box-shadow .3s ease; }
+  .tl-item.lit .tl-dot{ border-color:var(--accent); box-shadow:0 0 0 4px rgba(var(--accent-rgb),.14), 0 0 14px rgba(var(--accent-rgb),.7); }
+  .tl-card{ padding:20px 22px; }
   .tl-head{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px; align-items:baseline; margin-bottom:6px; }
   .tl-role{ font-weight:700; font-size:1.02rem; }
-  .tl-date{ font-family:'JetBrains Mono',monospace; font-size:.76rem; color:var(--accent2); white-space:nowrap; }
+  .tl-date{ font-family:'JetBrains Mono',monospace; font-size:.76rem; color:var(--neon); white-space:nowrap; }
   .tl-company{ color:var(--text-dim); font-size:.88rem; margin-bottom:10px; }
   .tl-company b{ color:var(--text); }
   .tl-desc{ color:var(--text-dim); font-size:.9rem; margin:0; }
 
-  /* SKILLS */
+  /* SKILLS: chips with a light sweep */
   .skills-block{ margin-bottom:34px; }
   .skills-block h3{ font-size:.95rem; color:var(--text-dim); margin:0 0 16px; font-weight:600; }
   .chip-row{ display:flex; flex-wrap:wrap; gap:10px; }
   .chip{
-    display:inline-flex; align-items:center; gap:8px;
-    background:var(--surface); border:1px solid var(--border); border-radius:10px;
+    position:relative; overflow:hidden; display:inline-flex; align-items:center; gap:8px;
+    background:var(--glass); border:1px solid var(--border); border-radius:10px;
     padding:9px 14px; font-size:.85rem; font-weight:600; font-family:'JetBrains Mono',monospace;
     transition:transform .18s ease, border-color .2s ease, box-shadow .2s ease;
   }
-  .chip:hover{ transform:translateY(-3px); border-color:var(--accent-dim); box-shadow:0 10px 24px -12px rgba(46,230,166,.5); }
+  .chip::after{
+    content:''; position:absolute; top:0; bottom:0; left:-60%; width:50%;
+    background:linear-gradient(100deg, transparent, rgba(255,255,255,.14), transparent);
+    transform:skewX(-20deg); transition:left .6s ease;
+  }
+  .chip:hover{ transform:translateY(-3px); border-color:rgba(var(--accent-rgb),.55); box-shadow:0 10px 26px -12px rgba(var(--accent-rgb),.6); }
+  .chip:hover::after{ left:120%; }
   .chip .sw{ width:8px; height:8px; border-radius:2px; }
+  .chip:not(.learning) .sw{ background:var(--accent); box-shadow:0 0 8px rgba(var(--accent-rgb),.9); }
   .chip.learning{ border-style:dashed; color:var(--warn); }
-  .chip.learning .sw{ background:var(--warn); }
-  .chip:not(.learning) .sw{ background:var(--accent); }
-  .learning-note{ color:var(--text-dimmer); font-size:.82rem; margin-top:14px; font-style:italic; }
+  .chip.learning .sw{ background:var(--warn); box-shadow:0 0 8px rgba(255,180,84,.8); }
+  .learning-note{ color:var(--text-dimmer); font-size:.84rem; margin-top:14px; font-style:italic; }
 
-  /* FEATURED PROJECT */
-  .featured-project{
-    position:relative; margin-bottom:36px; padding:2px; border-radius:22px;
-    background:linear-gradient(135deg, var(--accent), var(--accent2), var(--pink));
-    background-size:200% 200%; animation:gradientMove 6s ease infinite;
+  /* PROJECTS: two big featured cards */
+  .feat-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
+  .feat{ display:flex; flex-direction:column; overflow:hidden; }
+  .shot{ display:block; overflow:hidden; border-bottom:1px solid var(--border); background:var(--bg-alt); }
+  .shot img{ display:block; width:100%; height:auto; aspect-ratio:16/10; object-fit:cover; object-position:top; transition:transform .6s ease; }
+  .card:hover .shot img{ transform:scale(1.04); }
+  .feat-body{ padding:24px; display:flex; flex-direction:column; gap:12px; flex:1; }
+  .feat h3{ margin:0; font-size:1.4rem; }
+  .desc{ color:var(--text-dim); font-size:.92rem; margin:0; }
+  .feat .actions{ margin-top:auto; padding-top:6px; }
+  .badge{
+    align-self:flex-start; display:inline-flex; align-items:center; gap:6px; font-family:'JetBrains Mono',monospace;
+    font-size:.7rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+    color:#04120c; background:var(--accent); padding:4px 11px; border-radius:999px;
   }
-  @keyframes gradientMove{ 0%,100%{background-position:0% 50%;} 50%{background-position:100% 50%;} }
-  .featured-inner{
-    background:linear-gradient(180deg, var(--surface), var(--bg-alt)); border-radius:20px;
-    padding:36px; display:grid; grid-template-columns:auto 1fr; gap:28px; align-items:start;
-  }
-  .featured-badge{
-    display:inline-flex; align-items:center; gap:6px; font-family:'JetBrains Mono',monospace;
-    font-size:.76rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
-    color:#04120c; background:var(--accent); padding:5px 12px; border-radius:999px; margin-bottom:14px;
-  }
-  .featured-icon{
-    width:64px; height:64px; border-radius:16px; background:rgba(46,230,166,.12); border:1px solid rgba(46,230,166,.3);
-    display:flex; align-items:center; justify-content:center; flex-shrink:0;
-  }
-  .featured-icon svg{ width:32px; height:32px; color:var(--accent); }
-  .featured-inner h3{ margin:0 0 10px; font-size:1.5rem; }
-  .featured-inner p.desc{ color:var(--text-dim); font-size:.96rem; max-width:62ch; margin:0 0 18px; }
-  .other-projects-label{ color:var(--text-dimmer); font-family:'JetBrains Mono',monospace; font-size:.82rem; margin:0 0 18px; }
-  @media (max-width:640px){
-    .featured-inner{ grid-template-columns:1fr; }
-  }
+  .badge.neon{ background:rgba(var(--neon-rgb),.14); color:var(--neon); border:1px solid rgba(var(--neon-rgb),.45); }
+  .badge.soft{ background:rgba(var(--accent-rgb),.08); color:var(--accent); border:1px solid rgba(var(--accent-rgb),.3); text-transform:none; letter-spacing:0; font-weight:500; }
+  .live-dot{ width:7px; height:7px; border-radius:50%; background:var(--neon); box-shadow:0 0 8px var(--neon); }
+  .tags{ display:flex; flex-wrap:wrap; gap:6px; }
+  .tags span{ font-family:'JetBrains Mono',monospace; font-size:.72rem; color:var(--accent2); background:rgba(94,180,255,.08); border:1px solid rgba(94,180,255,.22); padding:3px 9px; border-radius:6px; }
+  .actions{ display:flex; flex-wrap:wrap; align-items:center; gap:12px; }
+  .link{ font-size:.84rem; font-weight:600; color:var(--text-dim); text-decoration:none; display:inline-flex; align-items:center; gap:6px; padding:6px 0; transition:color .2s ease; }
+  .link svg{ width:15px; height:15px; }
+  .link::after{ content:'→'; transition:transform .2s ease; }
+  .link:hover{ color:var(--accent); }
+  .link:hover::after{ transform:translateX(4px); }
 
-  /* MORE PROJECTS */
-  .mini-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:18px; }
-  .mini-card{ background:var(--surface); border:1px solid var(--border); border-radius:14px; overflow:hidden; display:flex; flex-direction:column; text-decoration:none; color:inherit; transition:transform .25s ease, border-color .25s ease; }
-  .mini-card:hover{ transform:translateY(-4px); border-color:var(--accent-dim); }
-  .mini-shot{ display:block; width:100%; aspect-ratio:16/9; object-fit:cover; object-position:top; border-bottom:1px solid var(--border); }
-  .mini-body{ padding:16px; display:flex; flex-direction:column; gap:8px; flex:1; }
-  .mini-badge{ align-self:flex-start; font-family:'JetBrains Mono',monospace; font-size:.66rem; color:var(--accent); border:1px solid rgba(46,230,166,.3); background:rgba(46,230,166,.08); padding:2px 8px; border-radius:999px; }
-  .mini-card h3{ margin:0; font-size:.98rem; }
-  .mini-card p{ margin:0; color:var(--text-dim); font-size:.82rem; }
-  .mini-tags{ display:flex; flex-wrap:wrap; gap:5px; margin-top:auto; padding-top:4px; }
-  .mini-tags span{ font-family:'JetBrains Mono',monospace; font-size:.68rem; color:var(--accent2); background:rgba(94,180,255,.08); border:1px solid rgba(94,180,255,.2); padding:2px 7px; border-radius:6px; }
-  .mini-link{ font-size:.76rem; font-weight:600; color:var(--text-dim); }
-  .mini-card:hover .mini-link{ color:var(--accent); }
-  .mini-actions{ display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-top:6px; }
-  .mini-actions .mini-link{ text-decoration:none; }
-  .mini-actions .mini-link:hover, .mini-actions .mini-link:focus-visible{ color:var(--accent); }
-  .btn-sm{ padding:7px 14px; font-size:.78rem; }
-  .mini-card--live > a{ display:block; }
-  .mini-card--live .mini-shot{ height:auto; }
+  /* PROJECTS: bento grid (4 columns, every cell filled) */
+  .bento{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+  .bento .card{ display:flex; flex-direction:column; overflow:hidden; }
+  .b-wide{ grid-column:span 2; }
+  .b-tall{ grid-column:span 2; grid-row:span 2; }
+  .b-body{ padding:20px; display:flex; flex-direction:column; gap:10px; flex:1; }
+  .b-body h3{ margin:0; font-size:1.06rem; }
+  .b-body .desc{ font-size:.86rem; }
+  .b-body .tags{ margin-top:auto; padding-top:4px; }
+  .b-body .actions{ margin-top:2px; }
+  .p-icon{ width:42px; height:42px; border-radius:12px; background:rgba(var(--accent-rgb),.1); border:1px solid rgba(var(--accent-rgb),.28); display:flex; align-items:center; justify-content:center; }
+  .p-icon svg{ width:21px; height:21px; color:var(--accent); }
+  .bento.minis .b-body{ padding:18px; }
+  .bento.minis h3{ font-size:.98rem; }
+  .bento.minis .desc{ font-size:.82rem; }
 
-  /* PROJECTS */
-  .proj-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:26px; }
-  .proj-card{
-    background:var(--surface); border:1px solid var(--border); border-radius:16px; overflow:hidden;
-    display:flex; flex-direction:column; transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease;
-  }
-  .proj-card:hover{ transform:translateY(-6px); border-color:var(--accent-dim); box-shadow:var(--shadow); }
-  .proj-shot{ display:block; width:100%; aspect-ratio:16/9; object-fit:cover; object-position:top; border-bottom:1px solid var(--border); }
-  .proj-top{ padding:22px 22px 0; }
-  .proj-icon{ width:44px; height:44px; border-radius:12px; background:rgba(46,230,166,.1); border:1px solid rgba(46,230,166,.25); display:flex; align-items:center; justify-content:center; margin-bottom:16px; }
-  .proj-icon svg{ width:22px; height:22px; color:var(--accent); }
-  .proj-card h3{ margin:0 0 8px; font-size:1.12rem; }
-  .proj-card p.desc{ color:var(--text-dim); font-size:.88rem; margin:0 0 16px; }
-  .proj-tags{ display:flex; flex-wrap:wrap; gap:6px; padding:0 22px; margin-bottom:18px; }
-  .proj-tags span{ font-family:'JetBrains Mono',monospace; font-size:.72rem; color:var(--accent2); background:rgba(94,180,255,.08); border:1px solid rgba(94,180,255,.2); padding:3px 9px; border-radius:6px; }
-  .proj-bottom{ margin-top:auto; padding:16px 22px; border-top:1px solid var(--border); display:flex; gap:10px; }
-  .proj-bottom a{ font-size:.82rem; font-weight:600; text-decoration:none; display:inline-flex; align-items:center; gap:6px; color:var(--text-dim); transition:color .2s ease; }
-  .proj-bottom a:hover{ color:var(--accent); }
-  .proj-bottom svg{ width:14px; height:14px; }
+  /* EDUCATION */
+  .edu-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+  .edu-card{ padding:20px 22px; }
+  .edu-card .edu-tag{ font-family:'JetBrains Mono',monospace; font-size:.72rem; color:var(--accent); text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px; display:block; }
+  .edu-card h3{ margin:0 0 6px; font-size:1rem; }
+  .edu-card p{ margin:0; color:var(--text-dim); font-size:.86rem; }
 
-  /* Project cards: terminal window bar, zoom on the screenshot, arrow nudge on links */
-  .proj-card::before{
-    content:''; display:block; height:30px; flex-shrink:0; border-bottom:1px solid var(--border);
-    background:
-      radial-gradient(circle at 18px 50%, #ff5f57 5px, transparent 5.5px),
-      radial-gradient(circle at 36px 50%, #febc2e 5px, transparent 5.5px),
-      radial-gradient(circle at 54px 50%, #28c840 5px, transparent 5.5px),
-      var(--surface-2);
+  /* CONTACT: glass panel over neon orbs, spinning border */
+  .contact-stage{ position:relative; }
+  .orb{ position:absolute; border-radius:50%; filter:blur(60px); pointer-events:none; }
+  .orb.g{ width:320px; height:320px; left:4%; top:-10%; background:rgba(var(--accent-rgb),.28); }
+  .orb.v{ width:300px; height:300px; right:6%; bottom:-14%; background:rgba(var(--neon-rgb),.3); }
+  .contact-glass{
+    position:relative; border-radius:24px; padding:56px 40px; text-align:center; overflow:hidden;
+    background:rgba(18,26,36,.5); border:1px solid rgba(255,255,255,.08);
+    backdrop-filter:blur(18px) saturate(150%); -webkit-backdrop-filter:blur(18px) saturate(150%);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.06), var(--shadow);
   }
-  .proj-shot-wrap{ overflow:hidden; border-bottom:1px solid var(--border); }
-  .proj-shot-wrap .proj-shot{ border-bottom:none; transition:transform .5s ease; }
-  .proj-card:hover .proj-shot{ transform:scale(1.04); }
-  .proj-bottom a::after{ content:'→'; transition:transform .2s ease; }
-  .proj-bottom a:hover::after{ transform:translateX(4px); }
+  .contact-glass::before{
+    content:''; position:absolute; inset:0; border-radius:inherit; padding:1px; pointer-events:none;
+    background:conic-gradient(from var(--spin), transparent 0 60%, rgba(var(--accent-rgb),.9) 75%, rgba(var(--neon-rgb),.9) 88%, transparent 100%);
+    -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite:xor; mask-composite:exclude;
+    animation:spin 8s linear infinite;
+  }
+  .contact-glass h2{ font-size:clamp(1.7rem,3.8vw,2.5rem); margin:0 0 14px; font-weight:800; }
+  .contact-glass p{ color:var(--text-dim); max-width:52ch; margin:0 auto 30px; }
+  .contact-actions{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
 
-  /* STATS BAND */
-  .stats{ padding:0 0 24px; }
-  .stats-grid{
-    display:grid; grid-template-columns:repeat(4,1fr); margin:0;
-    border-top:1px solid var(--border); border-bottom:1px solid var(--border);
+  footer{ position:relative; z-index:1; padding:36px 0 44px; text-align:center; color:var(--text-dimmer); font-size:.82rem; font-family:'JetBrains Mono',monospace; }
+  footer p{ margin:0; }
+
+  @media (max-width:1020px){
+    .nav-links{ display:none; }
+    .burger{ display:flex; }
+    .nav-links.open{
+      display:flex; position:fixed; top:64px; left:0; right:0; background:rgba(10,14,20,.97);
+      flex-direction:column; padding:20px 24px; gap:6px; border-bottom:1px solid var(--border);
+    }
+    .nav-links.open a{ display:block; padding:10px 0; font-size:1rem; }
   }
-  .stat{ padding:26px 24px; border-left:1px solid var(--border); outline:none; transition:background .2s ease; }
-  .stat:first-child{ border-left:none; }
-  .stat:hover, .stat:focus-visible{ background:rgba(46,230,166,.04); }
-  .stat dt{ font-family:'JetBrains Mono',monospace; font-size:.72rem; color:var(--text-dimmer); text-transform:uppercase; letter-spacing:.1em; }
-  .stat dt::before{ content:'$ '; color:var(--accent-dim); }
-  .stat-num{ margin:8px 0 4px; font-family:'JetBrains Mono',monospace; font-size:clamp(1.8rem,3.6vw,2.4rem); font-weight:700; color:var(--text); font-variant-numeric:tabular-nums; line-height:1.1; }
-  .stat-num .u{ color:var(--accent); }
-  .stat-cap{ margin:0; position:relative; min-height:1.5em; font-size:.82rem; }
-  .stat-cap span{ display:block; transition:opacity .2s ease, transform .2s ease; }
-  .stat-cap .detail{ color:var(--text-dim); }
-  .stat-cap .context{ position:absolute; inset:0; color:var(--accent); opacity:0; transform:translateY(4px); }
-  .stat:hover .detail, .stat:focus-visible .detail{ opacity:0; transform:translateY(-4px); }
-  .stat:hover .context, .stat:focus-visible .context{ opacity:1; transform:none; }
+  @media (max-width:920px){
+    .hero{ padding-top:110px; }
+    .hero-inner{ grid-template-columns:1fr; gap:40px; }
+    .term-wrap{ animation:none; }
+    .about-grid{ grid-template-columns:1fr; }
+    .feat-grid{ grid-template-columns:1fr; }
+    .bento{ grid-template-columns:repeat(2,1fr); }
+    .b-tall{ grid-row:auto; }
+    .b-wide{ grid-column:span 1; }
+    .edu-grid{ grid-template-columns:1fr; }
+  }
   @media (max-width:760px){
     .stats-grid{ grid-template-columns:repeat(2,1fr); }
     .stat{ padding:20px 16px; }
     .stat:nth-child(3){ border-left:none; }
     .stat:nth-child(n+3){ border-top:1px solid var(--border); }
   }
-
-  /* EDUCATION */
-  .edu-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
-  .edu-card{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:20px 22px; transition:border-color .2s ease, transform .2s ease; }
-  .edu-card:hover{ border-color:var(--accent-dim); transform:translateY(-3px); }
-  .edu-card .edu-tag{ font-family:'JetBrains Mono',monospace; font-size:.72rem; color:var(--accent); text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px; display:block; }
-  .edu-card h4{ margin:0 0 6px; font-size:1rem; }
-  .edu-card p{ margin:0; color:var(--text-dim); font-size:.85rem; }
-
-  /* CONTACT */
-  .contact-box{
-    background:linear-gradient(135deg, rgba(46,230,166,.08), rgba(94,180,255,.05));
-    border:1px solid var(--border); border-radius:20px; padding:56px 40px; text-align:center;
+  @media (max-width:640px){
+    .wrap{ padding:0 16px; }
+    .nav-inner{ padding:12px 16px; }
+    .section-pad{ padding:72px 0; }
+    .bento{ grid-template-columns:1fr; }
+    .b-tall, .b-wide{ grid-column:auto; }
+    .contact-glass{ padding:40px 20px; }
+    .feat-body{ padding:20px; }
+    .term-body{ font-size:.76rem; padding:16px; }
+    .hero-actions .btn{ flex:1 1 auto; justify-content:center; }
+    .btn, .link{ min-height:44px; }
+    .lang-switch button{ min-height:40px; }
   }
-  .contact-box h2{ font-size:clamp(1.6rem,3.6vw,2.4rem); margin:0 0 14px; font-weight:800; }
-  .contact-box p{ color:var(--text-dim); max-width:52ch; margin:0 auto 30px; }
-  .contact-actions{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
-
-  footer{ padding:36px 0 44px; text-align:center; color:var(--text-dimmer); font-size:.82rem; font-family:'JetBrains Mono',monospace; }
-  footer a{ color:var(--text-dim); text-decoration:none; }
-  footer a:hover{ color:var(--accent); }
-
-  @media (max-width:920px){
-    .hero-inner{ grid-template-columns:1fr; }
-    .term{ transform:none; animation:none; order:-1; }
-    .about-grid{ grid-template-columns:1fr; }
-    .proj-grid{ grid-template-columns:1fr; }
-    .edu-grid{ grid-template-columns:1fr; }
-    .nav-links{ display:none; }
-    .burger{ display:flex; }
-  }
-  @media (max-width:920px){
-    .nav-links.open{
-      display:flex; position:fixed; top:64px; left:0; right:0; background:rgba(10,14,20,.98);
-      flex-direction:column; padding:20px 24px; gap:18px; border-bottom:1px solid var(--border);
-    }
-  }
+  @media (max-width:420px){ .nav-cta .btn-primary{ display:none; } }
 </style>
 </head>
 <body>
 
-<div class="bg-fx"></div>
-<div class="bg-grid"></div>
+<a class="skip" href="#sobre-mi">Saltar al contenido</a>
+
+<!-- Shared icons -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-gh" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .5C5.73.5.75 5.48.75 11.75c0 5.02 3.26 9.28 7.78 10.78.57.1.78-.25.78-.55v-2.03c-3.16.69-3.83-1.36-3.83-1.36-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.53-2.52-.29-5.17-1.26-5.17-5.6 0-1.24.44-2.25 1.17-3.04-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.16a10.9 10.9 0 0 1 5.74 0c2.18-1.47 3.14-1.16 3.14-1.16.63 1.58.23 2.75.12 3.04.73.8 1.17 1.8 1.17 3.04 0 4.36-2.66 5.31-5.19 5.59.41.35.77 1.04.77 2.1v3.11c0 .3.21.66.79.55A11.26 11.26 0 0 0 23.25 11.75C23.25 5.48 18.27.5 12 .5z"/></symbol>
+  <symbol id="i-in" viewBox="0 0 24 24"><path fill="currentColor" d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.11 20.45H3.56V9h3.55v11.45z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6.5l9 6 9-6"/><rect x="3" y="4.5" width="18" height="15" rx="2"/></g></symbol>
+</svg>
+
+<div class="bg-grid" aria-hidden="true"></div>
 
 <header class="nav" id="nav">
   <div class="nav-inner">
@@ -444,7 +482,7 @@
         <button type="button" role="radio" lang="en" data-lang="en" aria-checked="false" tabindex="-1">EN</button>
       </div>
       <a class="btn btn-primary" href="#contacto">Contactar</a>
-      <button class="burger" id="burger" aria-label="Menú"><span></span><span></span><span></span></button>
+      <button class="burger" id="burger" aria-label="Menú" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
@@ -452,18 +490,22 @@
 <main id="top">
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero" id="hero">
+    <div class="hero-fx" aria-hidden="true">
+      <div class="aurora"></div>
+      <canvas id="particles"></canvas>
+    </div>
     <div class="wrap hero-inner">
       <div>
         <span class="eyebrow"><span class="dot"></span> Disponible para prácticas de Formación en Empresa · desde feb. 2027</span>
-        <h1 class="title">Nelson Gómez Sánchez<br><span class="accent">Desarrollador Java Junior</span></h1>
+        <h1 class="title">Nelson Gómez Sánchez<br><span class="grad">Desarrollador Java Junior</span></h1>
         <div class="typing-row">
-          <span class="prompt">nelson@dev:~$</span> <span id="typingTarget"></span><span class="cursor"></span>
+          <span class="prompt">nelson@dev:~$</span> <span id="typingTarget"></span><span class="cursor" aria-hidden="true"></span>
         </div>
         <p class="lede">Programo en Java y Spring Boot, y antes de escribir código pasé 6 años coordinando rutas, stock y KPIs en España y Australia. Estudiante de <strong>DAM</strong> y del <strong>Máster en Data &amp; Analytics</strong> en Prometeo by thePower, con la vista puesta en banca y consultoría tecnológica.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#proyectos">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
             Ver proyectos
           </a>
           <a class="btn btn-ghost" href="#experiencia">Ver experiencia</a>
@@ -471,38 +513,34 @@
           <a class="btn btn-ghost" href="CV_Nelson_Gomez_Sanchez_EN.pdf" download>CV (English)</a>
         </div>
         <div class="socials">
-          <a class="icon-btn" href="https://github.com/nelsongomezsa" target="_blank" rel="noopener" title="GitHub">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.75 5.48.75 11.75c0 5.02 3.26 9.28 7.78 10.78.57.1.78-.25.78-.55v-2.03c-3.16.69-3.83-1.36-3.83-1.36-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.53-2.52-.29-5.17-1.26-5.17-5.6 0-1.24.44-2.25 1.17-3.04-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.16a10.9 10.9 0 0 1 5.74 0c2.18-1.47 3.14-1.16 3.14-1.16.63 1.58.23 2.75.12 3.04.73.8 1.17 1.8 1.17 3.04 0 4.36-2.66 5.31-5.19 5.59.41.35.77 1.04.77 2.1v3.11c0 .3.21.66.79.55A11.26 11.26 0 0 0 23.25 11.75C23.25 5.48 18.27.5 12 .5z"/></svg>
-          </a>
-          <a class="icon-btn" href="https://www.linkedin.com/in/nelson-g%C3%B3mez-s%C3%A1nchez/" target="_blank" rel="noopener" title="LinkedIn">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.11 20.45H3.56V9h3.55v11.45z"/></svg>
-          </a>
-          <a class="icon-btn" href="mailto:nelsongomezsa@gmail.com" title="Email">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M3 6.5l9 6 9-6"/><rect x="3" y="4.5" width="18" height="15" rx="2"/></svg>
-          </a>
+          <a class="icon-btn" href="https://github.com/nelsongomezsa" target="_blank" rel="noopener" aria-label="GitHub"><svg aria-hidden="true"><use href="#i-gh"/></svg></a>
+          <a class="icon-btn" href="https://www.linkedin.com/in/nelson-g%C3%B3mez-s%C3%A1nchez/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg aria-hidden="true"><use href="#i-in"/></svg></a>
+          <a class="icon-btn" href="mailto:nelsongomezsa@gmail.com" aria-label="Email"><svg aria-hidden="true"><use href="#i-mail"/></svg></a>
         </div>
       </div>
 
-      <div class="term">
-        <div class="term-bar">
-          <span class="term-dot" style="background:#ff5f57"></span>
-          <span class="term-dot" style="background:#febc2e"></span>
-          <span class="term-dot" style="background:#28c840"></span>
-          <span class="fname">nelson.java</span>
-        </div>
-        <div class="term-body">
-          <p class="ln"><span class="k">public class</span> <span class="fn">NelsonGomez</span> {</p>
-          <p class="ln">&nbsp;&nbsp;<span class="k">private</span> String rol = <span class="s">"Java Junior"</span>;</p>
-          <p class="ln">&nbsp;&nbsp;<span class="k">private</span> String[] stack = {</p>
-          <p class="ln">&nbsp;&nbsp;&nbsp;&nbsp;<span class="s">"Java"</span>, <span class="s">"Spring Boot"</span>, <span class="s">"Python"</span>, <span class="s">"SQL"</span></p>
-          <p class="ln">&nbsp;&nbsp;};</p>
-          <p class="ln">&nbsp;&nbsp;<span class="k">private</span> String meta = <span class="s">"Banca y consultoría"</span>;</p>
-          <p class="ln"></p>
-          <p class="ln">&nbsp;&nbsp;<span class="k">public static void</span> <span class="fn">main</span>(String[] args) {</p>
-          <p class="ln">&nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">System.out.println</span>(<span class="s">"Listo para aportar 🚀"</span>);</p>
-          <p class="ln">&nbsp;&nbsp;}</p>
-          <p class="ln">}</p>
-          <p class="ln out">&gt; Listo para aportar 🚀</p>
+      <div class="term-wrap">
+        <div class="term">
+          <div class="term-bar">
+            <span class="term-dot" style="background:#ff5f57"></span>
+            <span class="term-dot" style="background:#febc2e"></span>
+            <span class="term-dot" style="background:#28c840"></span>
+            <span class="fname">nelson.java</span>
+          </div>
+          <div class="term-body">
+            <p class="ln"><span class="k">public class</span> <span class="fn">NelsonGomez</span> {</p>
+            <p class="ln">&nbsp;&nbsp;<span class="k">private</span> String rol = <span class="s">"Java Junior"</span>;</p>
+            <p class="ln">&nbsp;&nbsp;<span class="k">private</span> String[] stack = {</p>
+            <p class="ln">&nbsp;&nbsp;&nbsp;&nbsp;<span class="s">"Java"</span>, <span class="s">"Spring Boot"</span>, <span class="s">"Python"</span>, <span class="s">"SQL"</span></p>
+            <p class="ln">&nbsp;&nbsp;};</p>
+            <p class="ln">&nbsp;&nbsp;<span class="k">private</span> String meta = <span class="s">"Banca y consultoría"</span>;</p>
+            <p class="ln"></p>
+            <p class="ln">&nbsp;&nbsp;<span class="k">public static void</span> <span class="fn">main</span>(String[] args) {</p>
+            <p class="ln">&nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">System.out.println</span>(<span class="s">"Listo para aportar 🚀"</span>);</p>
+            <p class="ln">&nbsp;&nbsp;}</p>
+            <p class="ln">}</p>
+            <p class="ln out">&gt; Listo para aportar 🚀</p>
+          </div>
         </div>
       </div>
     </div>
@@ -519,8 +557,8 @@
         </div>
         <div class="stat" tabindex="0">
           <dt>rutas</dt>
-          <dd class="stat-num"><span data-count="100">100</span><span class="u">/día</span></dd>
-          <dd class="stat-cap"><span class="detail">coordinadas en TGF</span><span class="context">Entre 80 y 100 para El Corte Inglés</span></dd>
+          <dd class="stat-num"><span data-count="80">80</span>–<span data-count="100">100</span><span class="u">/día</span></dd>
+          <dd class="stat-cap"><span class="detail">coordinadas en TGF</span><span class="context">Para la cuenta de El Corte Inglés</span></dd>
         </div>
         <div class="stat" tabindex="0">
           <dt>tests</dt>
@@ -550,7 +588,7 @@
           <p>En TGF coordiné entre 80 y 100 rutas diarias para El Corte Inglés, monté desde cero el departamento logístico de la cuenta MediaMarkt y fui el único responsable del área durante 4 meses. De ahí saco dos costumbres: entender el proceso antes de tocar el código y cerrar los problemas en vez de pasárselos al siguiente.</p>
           <p>🇦🇺 <strong>Actualmente vivo en Australia</strong>, donde compagino mi formación en desarrollo con experiencia en operaciones: primero en CEVA Logistics (Brisbane) y ahora en Civeo, en un campamento minero de Queensland, donde me han promocionado a gestionar el aprovisionamiento y el almacén. Viajar y trabajar fuera me ha enseñado a adaptarme rápido, a trabajar en inglés con equipos multiculturales y a afrontar retos nuevos con autonomía.</p>
         </div>
-        <div class="fact-card reveal reveal-delay-2">
+        <div class="card glow fact-card reveal reveal-delay-2">
           <div class="fact-row"><span class="k">Ubicación</span><span class="v">Australia → Madrid (feb. 2027)</span></div>
           <div class="fact-row"><span class="k">Formación actual</span><span class="v">DAM · Máster Data &amp; Analytics</span></div>
           <div class="fact-row"><span class="k">Stack principal</span><span class="v">Java · Spring Boot</span></div>
@@ -569,13 +607,14 @@
         <span class="tag">git log --experience</span>
         <h2 class="h2">Experiencia</h2>
       </div>
-      <div class="timeline">
+      <div class="timeline" id="timeline">
+        <span class="tl-beam" id="tlBeam" aria-hidden="true"></span>
 
         <div class="tl-item reveal">
-          <span class="tl-dot"></span>
-          <div class="tl-card">
+          <span class="tl-dot" aria-hidden="true"></span>
+          <div class="card glow tl-card">
             <div class="tl-head">
-              <span class="tl-role">Coordinador de Aprovisionamiento y Gestión de Almacén</span>
+              <h3 class="tl-role">Coordinador de Aprovisionamiento y Gestión de Almacén</h3>
               <span class="tl-date">feb. 2026 — actualidad</span>
             </div>
             <div class="tl-company"><b>Civeo Australia</b> · Coppabella, Queensland, Australia</div>
@@ -584,10 +623,10 @@
         </div>
 
         <div class="tl-item reveal">
-          <span class="tl-dot"></span>
-          <div class="tl-card">
+          <span class="tl-dot" aria-hidden="true"></span>
+          <div class="card glow tl-card">
             <div class="tl-head">
-              <span class="tl-role">Facilities Attendant</span>
+              <h3 class="tl-role">Facilities Attendant</h3>
               <span class="tl-date">jun. 2025 — ene. 2026 · 8 meses</span>
             </div>
             <div class="tl-company"><b>Civeo Australia</b> · Coppabella, Queensland, Australia</div>
@@ -596,10 +635,10 @@
         </div>
 
         <div class="tl-item reveal">
-          <span class="tl-dot"></span>
-          <div class="tl-card">
+          <span class="tl-dot" aria-hidden="true"></span>
+          <div class="card glow tl-card">
             <div class="tl-head">
-              <span class="tl-role">Import Operations Coordinator</span>
+              <h3 class="tl-role">Import Operations Coordinator</h3>
               <span class="tl-date">dic. 2024 — jun. 2025 · 7 meses</span>
             </div>
             <div class="tl-company"><b>CEVA Logistics</b> · Brisbane, Australia</div>
@@ -608,10 +647,10 @@
         </div>
 
         <div class="tl-item reveal">
-          <span class="tl-dot"></span>
-          <div class="tl-card">
+          <span class="tl-dot" aria-hidden="true"></span>
+          <div class="card glow tl-card">
             <div class="tl-head">
-              <span class="tl-role">Responsable de Departamento Logístico (Cuenta MediaMarkt)</span>
+              <h3 class="tl-role">Responsable de Departamento Logístico (Cuenta MediaMarkt)</h3>
               <span class="tl-date">mar. 2024 — sept. 2024 · 7 meses</span>
             </div>
             <div class="tl-company"><b>TGF</b> · Comunidad de Madrid</div>
@@ -620,10 +659,10 @@
         </div>
 
         <div class="tl-item reveal">
-          <span class="tl-dot"></span>
-          <div class="tl-card">
+          <span class="tl-dot" aria-hidden="true"></span>
+          <div class="card glow tl-card">
             <div class="tl-head">
-              <span class="tl-role">Coordinador de Tráfico y Transporte (Cuenta El Corte Inglés)</span>
+              <h3 class="tl-role">Coordinador de Tráfico y Transporte (Cuenta El Corte Inglés)</h3>
               <span class="tl-date">jun. 2022 — feb. 2024 · 1 año 9 meses</span>
             </div>
             <div class="tl-company"><b>TGF</b> · Madrid</div>
@@ -632,10 +671,10 @@
         </div>
 
         <div class="tl-item reveal">
-          <span class="tl-dot"></span>
-          <div class="tl-card">
+          <span class="tl-dot" aria-hidden="true"></span>
+          <div class="card glow tl-card">
             <div class="tl-head">
-              <span class="tl-role">Prácticas en Coordinación de Tráfico y Transporte</span>
+              <h3 class="tl-role">Prácticas en Coordinación de Tráfico y Transporte</h3>
               <span class="tl-date">mar. 2022 — may. 2022 · 3 meses</span>
             </div>
             <div class="tl-company"><b>TGF</b> · Comunidad de Madrid</div>
@@ -644,10 +683,10 @@
         </div>
 
         <div class="tl-item reveal">
-          <span class="tl-dot"></span>
-          <div class="tl-card">
+          <span class="tl-dot" aria-hidden="true"></span>
+          <div class="card glow tl-card">
             <div class="tl-head">
-              <span class="tl-role">Coordinador de Aprovisionamiento / Logística Interna</span>
+              <h3 class="tl-role">Coordinador de Aprovisionamiento / Logística Interna</h3>
               <span class="tl-date">jun. 2021 — mar. 2022 · 10 meses</span>
             </div>
             <div class="tl-company"><b>SEDECAL</b> · Algete, Madrid</div>
@@ -656,10 +695,10 @@
         </div>
 
         <div class="tl-item reveal">
-          <span class="tl-dot"></span>
-          <div class="tl-card">
+          <span class="tl-dot" aria-hidden="true"></span>
+          <div class="card glow tl-card">
             <div class="tl-head">
-              <span class="tl-role">Supply Chain y operaciones de almacén</span>
+              <h3 class="tl-role">Supply Chain y operaciones de almacén</h3>
               <span class="tl-date">ene. 2020 — dic. 2020 · 1 año</span>
             </div>
             <div class="tl-company"><b>Amazon</b> · San Fernando de Henares</div>
@@ -723,151 +762,117 @@
         <h2 class="h2">Proyectos destacados</h2>
       </div>
 
-      <div class="featured-project reveal">
-        <div class="featured-inner">
-          <div class="featured-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.9 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 7.1-1.01L12 2z"/></svg>
-          </div>
-          <div>
-            <span class="featured-badge">⭐ Proyecto insignia</span>
+      <div class="feat-grid">
+        <article class="card glow feat reveal">
+          <a class="shot" href="https://github.com/nelsongomezsa/gestionAPPRO" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <picture><source srcset="img/gestionap-pro.webp" type="image/webp"><img src="img/gestionap-pro.jpg" alt="" width="1200" height="901" loading="lazy" decoding="async"></picture>
+          </a>
+          <div class="feat-body">
+            <span class="badge">⭐ Proyecto insignia</span>
             <h3>GestionAp PRO</h3>
-            <p class="desc">GestionAp PRO: app de escritorio para gestionar el alquiler de habitaciones. Java 21, JavaFX, MySQL y JDBC en capas, PDF con iText, BCrypt y 189 tests con JUnit 5.</p>
-            <div class="proj-tags" style="padding:0; margin-bottom:20px;"><span>Java 21</span><span>JavaFX</span><span>MySQL</span><span>JDBC</span><span>JUnit 5</span><span>Maven</span></div>
-            <a class="btn btn-primary" href="https://github.com/nelsongomezsa/gestionAPPRO" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.75 5.48.75 11.75c0 5.02 3.26 9.28 7.78 10.78.57.1.78-.25.78-.55v-2.03c-3.16.69-3.83-1.36-3.83-1.36-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.53-2.52-.29-5.17-1.26-5.17-5.6 0-1.24.44-2.25 1.17-3.04-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.16a10.9 10.9 0 0 1 5.74 0c2.18-1.47 3.14-1.16 3.14-1.16.63 1.58.23 2.75.12 3.04.73.8 1.17 1.8 1.17 3.04 0 4.36-2.66 5.31-5.19 5.59.41.35.77 1.04.77 2.1v3.11c0 .3.21.66.79.55A11.26 11.26 0 0 0 23.25 11.75C23.25 5.48 18.27.5 12 .5z"/></svg>
-              Ver repositorio insignia
-            </a>
-            <a class="btn btn-ghost" href="https://github.com/nelsongomezsa/gestionAPPRO/releases/download/v1.0.0/GestionAp-1.0.0.dmg">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
-              Descargar app (macOS)
-            </a>
+            <p class="desc">App de escritorio para gestionar el alquiler de habitaciones. Java 21, JavaFX, MySQL y JDBC en capas, PDF con iText, BCrypt y 189 tests con JUnit 5.</p>
+            <div class="tags"><span>Java 21</span><span>JavaFX</span><span>MySQL</span><span>JDBC</span><span>JUnit 5</span><span>Maven</span></div>
+            <div class="actions">
+              <a class="btn btn-primary btn-sm" href="https://github.com/nelsongomezsa/gestionAPPRO" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-gh"/></svg>Ver repositorio insignia</a>
+              <a class="btn btn-ghost btn-sm" href="https://github.com/nelsongomezsa/gestionAPPRO/releases/download/v1.0.0/GestionAp-1.0.0.dmg">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+                Descargar app (macOS)
+              </a>
+            </div>
           </div>
-        </div>
+        </article>
+
+        <article class="card glow feat reveal reveal-delay-1">
+          <a class="shot" href="https://nelsongomezsa.github.io/portfolio-chimigo/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <picture><source srcset="img/chimigo.webp" type="image/webp"><img src="img/chimigo.jpg" alt="" width="1200" height="750" loading="lazy" decoding="async"></picture>
+          </a>
+          <div class="feat-body">
+            <span class="badge neon"><span class="live-dot"></span>En vivo</span>
+            <h3>ChimiGO Urban Food</h3>
+            <p class="desc">Web para un local de comida callejera dominicana en Cuatro Caminos (Madrid): carta interactiva con carrito de pedido (listo para WhatsApp), horario en vivo, ES / EN e instalable como PWA. Lighthouse 97–100.</p>
+            <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>PWA</span><span>i18n</span></div>
+            <div class="actions">
+              <a class="btn btn-primary btn-sm" href="https://nelsongomezsa.github.io/portfolio-chimigo/" target="_blank" rel="noopener">Ver en vivo</a>
+              <a class="link" href="https://github.com/nelsongomezsa/portfolio-chimigo" target="_blank" rel="noopener">Ver repositorio</a>
+            </div>
+          </div>
+        </article>
       </div>
 
-      <p class="other-projects-label reveal">// más proyectos</p>
-      <div class="proj-grid">
-
-        <div class="proj-card reveal">
-          <div class="proj-top">
-            <div class="proj-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>
-            </div>
-            <h3>GestionAp PRO API + iOS</h3>
-            <p class="desc">GestionAp PRO API + iOS: API REST con Spring Boot 3.5, Spring Security y JWT por roles, PDF de contratos y app SwiftUI. 83 tests con JUnit 5 y MockMvc.</p>
-          </div>
-          <div class="proj-tags"><span>Java 21</span><span>Spring Boot 3.5</span><span>Spring Security</span><span>JWT</span><span>MariaDB</span><span>SwiftUI</span></div>
-          <div class="proj-bottom">
-            <a href="https://github.com/nelsongomezsa/gestionapro" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.75 5.48.75 11.75c0 5.02 3.26 9.28 7.78 10.78.57.1.78-.25.78-.55v-2.03c-3.16.69-3.83-1.36-3.83-1.36-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.53-2.52-.29-5.17-1.26-5.17-5.6 0-1.24.44-2.25 1.17-3.04-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.16a10.9 10.9 0 0 1 5.74 0c2.18-1.47 3.14-1.16 3.14-1.16.63 1.58.23 2.75.12 3.04.73.8 1.17 1.8 1.17 3.04 0 4.36-2.66 5.31-5.19 5.59.41.35.77 1.04.77 2.1v3.11c0 .3.21.66.79.55A11.26 11.26 0 0 0 23.25 11.75C23.25 5.48 18.27.5 12 .5z"/></svg>
-              Ver repositorio
-            </a>
-          </div>
-        </div>
-
-        <div class="proj-card reveal">
-          <div class="proj-shot-wrap"><img class="proj-shot" src="img/finance-tracker-swagger.png" alt="Swagger UI de Finance Tracker API" loading="lazy"></div>
-          <div class="proj-top">
-            <div class="proj-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-6"/></svg>
-            </div>
+      <h3 class="h3-sub reveal">más proyectos</h3>
+      <div class="bento">
+        <article class="card glow b-tall reveal">
+          <div class="shot"><picture><source srcset="img/finance-tracker-swagger.webp" type="image/webp"><img src="img/finance-tracker-swagger.png" alt="Swagger UI de Finance Tracker API" width="1280" height="900" loading="lazy" decoding="async"></picture></div>
+          <div class="b-body">
             <h3>Finance Tracker API</h3>
             <p class="desc">API REST de finanzas personales con Java 17 y Spring Boot 3: ingresos, gastos y resumen mensual por categoría. Tests con JUnit 5, Mockito y MockMvc.</p>
+            <div class="tags"><span>Java 17</span><span>Spring Boot 3</span><span>JUnit 5</span><span>Mockito</span><span>Swagger</span></div>
+            <div class="actions"><a class="link" href="https://github.com/nelsongomezsa/finance-tracker-api" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-gh"/></svg>Ver repositorio</a></div>
           </div>
-          <div class="proj-tags"><span>Java 17</span><span>Spring Boot 3</span><span>JUnit 5</span><span>Mockito</span><span>Swagger</span></div>
-          <div class="proj-bottom">
-            <a href="https://github.com/nelsongomezsa/finance-tracker-api" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.75 5.48.75 11.75c0 5.02 3.26 9.28 7.78 10.78.57.1.78-.25.78-.55v-2.03c-3.16.69-3.83-1.36-3.83-1.36-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.53-2.52-.29-5.17-1.26-5.17-5.6 0-1.24.44-2.25 1.17-3.04-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.16a10.9 10.9 0 0 1 5.74 0c2.18-1.47 3.14-1.16 3.14-1.16.63 1.58.23 2.75.12 3.04.73.8 1.17 1.8 1.17 3.04 0 4.36-2.66 5.31-5.19 5.59.41.35.77 1.04.77 2.1v3.11c0 .3.21.66.79.55A11.26 11.26 0 0 0 23.25 11.75C23.25 5.48 18.27.5 12 .5z"/></svg>
-              Ver repositorio
-            </a>
-          </div>
-        </div>
+        </article>
 
-        <div class="proj-card reveal">
-          <div class="proj-top">
-            <div class="proj-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 17V7a2 2 0 0 1 2-2h9l5 5v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M9 21v-6h6v6"/></svg>
-            </div>
+        <article class="card glow b-wide reveal reveal-delay-1">
+          <div class="b-body">
+            <div class="p-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></div>
+            <h3>GestionAp PRO API + iOS</h3>
+            <p class="desc">API REST con Spring Boot 3.5, Spring Security y JWT por roles, PDF de contratos y app SwiftUI. 83 tests con JUnit 5 y MockMvc.</p>
+            <div class="tags"><span>Java 21</span><span>Spring Boot 3.5</span><span>Spring Security</span><span>JWT</span><span>MariaDB</span><span>SwiftUI</span></div>
+            <div class="actions"><a class="link" href="https://github.com/nelsongomezsa/gestionapro" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-gh"/></svg>Ver repositorio</a></div>
+          </div>
+        </article>
+
+        <article class="card glow b-wide reveal reveal-delay-2">
+          <div class="b-body">
+            <div class="p-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 17V7a2 2 0 0 1 2-2h9l5 5v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M9 21v-6h6v6"/></svg></div>
             <h3>GestionAp API</h3>
             <p class="desc">API REST con Java 17 y Spring Boot 3 para gestionar habitaciones, inquilinos y contratos. Arquitectura en capas, Spring Data JPA, validación y errores JSON.</p>
+            <div class="tags"><span>Java 17</span><span>Spring Boot 3</span><span>Spring Data JPA</span><span>REST</span></div>
+            <div class="actions"><a class="link" href="https://github.com/nelsongomezsa/gestionap-api" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-gh"/></svg>Ver repositorio</a></div>
           </div>
-          <div class="proj-tags"><span>Java 17</span><span>Spring Boot 3</span><span>Spring Data JPA</span><span>REST</span></div>
-          <div class="proj-bottom">
-            <a href="https://github.com/nelsongomezsa/gestionap-api" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.75 5.48.75 11.75c0 5.02 3.26 9.28 7.78 10.78.57.1.78-.25.78-.55v-2.03c-3.16.69-3.83-1.36-3.83-1.36-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.53-2.52-.29-5.17-1.26-5.17-5.6 0-1.24.44-2.25 1.17-3.04-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.16a10.9 10.9 0 0 1 5.74 0c2.18-1.47 3.14-1.16 3.14-1.16.63 1.58.23 2.75.12 3.04.73.8 1.17 1.8 1.17 3.04 0 4.36-2.66 5.31-5.19 5.59.41.35.77 1.04.77 2.1v3.11c0 .3.21.66.79.55A11.26 11.26 0 0 0 23.25 11.75C23.25 5.48 18.27.5 12 .5z"/></svg>
-              Ver repositorio
-            </a>
-          </div>
-        </div>
-
+        </article>
       </div>
-    </div>
-  </section>
 
-  <!-- MORE PROJECTS -->
-  <section class="section-pad" id="mas-proyectos">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="tag">ls ./otros</span>
-        <h2 class="h2">Proyectos de datos y otros lenguajes</h2>
-      </div>
-      <div class="mini-grid">
-
-        <a class="mini-card reveal" href="https://github.com/nelsongomezsa/proyecto4-sql" target="_blank" rel="noopener">
-          <div class="mini-body">
-            <span class="mini-badge">Máster en Data &amp; Analytics</span>
+      <h3 class="h3-sub reveal" id="mas-proyectos">Proyectos de datos y otros lenguajes</h3>
+      <div class="bento minis">
+        <article class="card glow reveal">
+          <div class="b-body">
+            <span class="badge soft">Máster en Data &amp; Analytics</span>
             <h3>Consultas SQL</h3>
-            <p>Consultas SQL sobre la base de datos demo de Postgres Pro, la de reservas de vuelos.</p>
-            <div class="mini-tags"><span>SQL</span><span>PostgreSQL</span></div>
-            <span class="mini-link">Ver repositorio →</span>
+            <p class="desc">Consultas SQL sobre la base de datos demo de Postgres Pro, la de reservas de vuelos.</p>
+            <div class="tags"><span>SQL</span><span>PostgreSQL</span></div>
+            <div class="actions"><a class="link" href="https://github.com/nelsongomezsa/proyecto4-sql" target="_blank" rel="noopener">Ver repositorio</a></div>
           </div>
-        </a>
+        </article>
 
-        <a class="mini-card reveal" href="https://github.com/nelsongomezsa/proyecto5-nosql" target="_blank" rel="noopener">
-          <div class="mini-body">
-            <span class="mini-badge">Máster en Data &amp; Analytics</span>
+        <article class="card glow reveal reveal-delay-1">
+          <div class="b-body">
+            <span class="badge soft">Máster en Data &amp; Analytics</span>
             <h3>API de películas</h3>
-            <p>API de películas con Express y MongoDB (Mongoose), con el CRUD completo.</p>
-            <div class="mini-tags"><span>Node.js</span><span>Express</span><span>MongoDB</span><span>Mongoose</span></div>
-            <span class="mini-link">Ver repositorio →</span>
+            <p class="desc">API de películas con Express y MongoDB (Mongoose), con el CRUD completo.</p>
+            <div class="tags"><span>Node.js</span><span>Express</span><span>MongoDB</span><span>Mongoose</span></div>
+            <div class="actions"><a class="link" href="https://github.com/nelsongomezsa/proyecto5-nosql" target="_blank" rel="noopener">Ver repositorio</a></div>
           </div>
-        </a>
+        </article>
 
-        <a class="mini-card reveal" href="https://github.com/nelsongomezsa/proyecto3-katas-python" target="_blank" rel="noopener">
-          <div class="mini-body">
-            <span class="mini-badge">Máster en Data &amp; Analytics</span>
+        <article class="card glow reveal reveal-delay-2">
+          <div class="b-body">
+            <span class="badge soft">Máster en Data &amp; Analytics</span>
             <h3>Katas de Python</h3>
-            <p>40 katas de Python: listas, diccionarios, tuplas y sets, lambdas, una función recursiva y manejo de excepciones.</p>
-            <div class="mini-tags"><span>Python</span></div>
-            <span class="mini-link">Ver repositorio →</span>
+            <p class="desc">40 katas de Python: listas, diccionarios, tuplas y sets, lambdas, una función recursiva y manejo de excepciones.</p>
+            <div class="tags"><span>Python</span></div>
+            <div class="actions"><a class="link" href="https://github.com/nelsongomezsa/proyecto3-katas-python" target="_blank" rel="noopener">Ver repositorio</a></div>
           </div>
-        </a>
+        </article>
 
-        <a class="mini-card reveal" href="https://github.com/nelsongomezsa/proyecto2-katas-javascript" target="_blank" rel="noopener">
-          <div class="mini-body">
-            <span class="mini-badge">Máster en Data &amp; Analytics</span>
+        <article class="card glow reveal reveal-delay-3">
+          <div class="b-body">
+            <span class="badge soft">Máster en Data &amp; Analytics</span>
             <h3>Katas de JavaScript</h3>
-            <p>56 ejercicios resueltos de JavaScript, de los fundamentos a la asincronía y el DOM.</p>
-            <div class="mini-tags"><span>JavaScript</span><span>ES6+</span><span>DOM</span><span>HTML</span></div>
-            <span class="mini-link">Ver repositorio →</span>
+            <p class="desc">56 ejercicios resueltos de JavaScript, de los fundamentos a la asincronía y el DOM.</p>
+            <div class="tags"><span>JavaScript</span><span>ES6+</span><span>DOM</span><span>HTML</span></div>
+            <div class="actions"><a class="link" href="https://github.com/nelsongomezsa/proyecto2-katas-javascript" target="_blank" rel="noopener">Ver repositorio</a></div>
           </div>
-        </a>
-
-        <div class="mini-card mini-card--live reveal">
-          <a href="https://nelsongomezsa.github.io/portfolio-chimigo/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
-            <img class="mini-shot" src="https://raw.githubusercontent.com/nelsongomezsa/portfolio-chimigo/main/docs/captura-escritorio.jpg" alt="" width="1600" height="1000" loading="lazy">
-          </a>
-          <div class="mini-body">
-            <h3>ChimiGO Urban Food</h3>
-            <p>Web para un local de comida callejera dominicana en Cuatro Caminos (Madrid): carta interactiva con carrito de pedido (listo para WhatsApp), horario en vivo, ES / EN e instalable como PWA. Lighthouse 97–100.</p>
-            <div class="mini-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>PWA</span><span>i18n</span></div>
-            <div class="mini-actions">
-              <a class="btn btn-primary btn-sm" href="https://nelsongomezsa.github.io/portfolio-chimigo/" target="_blank" rel="noopener">Ver en vivo</a>
-              <a class="mini-link" href="https://github.com/nelsongomezsa/portfolio-chimigo" target="_blank" rel="noopener">Ver repositorio →</a>
-            </div>
-          </div>
-        </div>
-
+        </article>
       </div>
     </div>
   </section>
@@ -880,24 +885,24 @@
         <h2 class="h2">Formación</h2>
       </div>
       <div class="edu-grid">
-        <div class="edu-card reveal">
+        <div class="card glow edu-card reveal">
           <span class="edu-tag">En curso · 2025 – 2027</span>
-          <h4>Máster en Data &amp; Analytics</h4>
+          <h3>Máster en Data &amp; Analytics</h3>
           <p>Prometeo by thePower</p>
         </div>
-        <div class="edu-card reveal reveal-delay-1">
+        <div class="card glow edu-card reveal reveal-delay-1">
           <span class="edu-tag">En curso · 2.º curso · 2025 – 2027</span>
-          <h4>CFGS Desarrollo de Aplicaciones Multiplataforma (DAM)</h4>
+          <h3>CFGS Desarrollo de Aplicaciones Multiplataforma (DAM)</h3>
           <p>Prometeo by thePower, Madrid</p>
         </div>
-        <div class="edu-card reveal reveal-delay-2">
+        <div class="card glow edu-card reveal reveal-delay-2">
           <span class="edu-tag">Completado · 2023 – 2024</span>
-          <h4>Máster en Comercio Exterior</h4>
+          <h3>Máster en Comercio Exterior</h3>
           <p>Cámara de Comercio de Madrid &amp; Universidad Rey Juan Carlos</p>
         </div>
-        <div class="edu-card reveal reveal-delay-3">
+        <div class="card glow edu-card reveal reveal-delay-3">
           <span class="edu-tag">Completado · 2020 – 2022</span>
-          <h4>CFGS Transporte y Logística</h4>
+          <h3>CFGS Transporte y Logística</h3>
           <p>Escuela Profesional Javeriana</p>
         </div>
       </div>
@@ -906,23 +911,16 @@
 
   <!-- CONTACT -->
   <section class="section-pad" id="contacto">
-    <div class="wrap">
-      <div class="contact-box reveal">
+    <div class="wrap contact-stage">
+      <span class="orb g" aria-hidden="true"></span>
+      <span class="orb v" aria-hidden="true"></span>
+      <div class="contact-glass reveal">
         <h2>¿Hablamos?</h2>
         <p>Busco prácticas de Formación en Empresa en desarrollo de software o datos a partir de febrero de 2027. Si tienes una oportunidad o simplemente quieres conectar, escríbeme.</p>
         <div class="contact-actions">
-          <a class="btn btn-primary" href="mailto:nelsongomezsa@gmail.com">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6.5l9 6 9-6"/><rect x="3" y="4.5" width="18" height="15" rx="2"/></svg>
-            nelsongomezsa@gmail.com
-          </a>
-          <a class="btn btn-ghost" href="https://www.linkedin.com/in/nelson-g%C3%B3mez-s%C3%A1nchez/" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.11 20.45H3.56V9h3.55v11.45z"/></svg>
-            LinkedIn
-          </a>
-          <a class="btn btn-ghost" href="https://github.com/nelsongomezsa" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.75 5.48.75 11.75c0 5.02 3.26 9.28 7.78 10.78.57.1.78-.25.78-.55v-2.03c-3.16.69-3.83-1.36-3.83-1.36-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.53-2.52-.29-5.17-1.26-5.17-5.6 0-1.24.44-2.25 1.17-3.04-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.16a10.9 10.9 0 0 1 5.74 0c2.18-1.47 3.14-1.16 3.14-1.16.63 1.58.23 2.75.12 3.04.73.8 1.17 1.8 1.17 3.04 0 4.36-2.66 5.31-5.19 5.59.41.35.77 1.04.77 2.1v3.11c0 .3.21.66.79.55A11.26 11.26 0 0 0 23.25 11.75C23.25 5.48 18.27.5 12 .5z"/></svg>
-            GitHub
-          </a>
+          <a class="btn btn-primary" href="mailto:nelsongomezsa@gmail.com"><svg aria-hidden="true"><use href="#i-mail"/></svg>nelsongomezsa@gmail.com</a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/nelson-g%C3%B3mez-s%C3%A1nchez/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-in"/></svg>LinkedIn</a>
+          <a class="btn btn-ghost" href="https://github.com/nelsongomezsa" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-gh"/></svg>GitHub</a>
         </div>
       </div>
     </div>
@@ -937,26 +935,37 @@
 </footer>
 
 <script>
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   // Nav scroll state
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 10);
-  });
+  }, { passive: true });
 
   // Mobile menu
   const burger = document.getElementById('burger');
   const navLinks = document.getElementById('navLinks');
-  burger.addEventListener('click', () => navLinks.classList.toggle('open'));
-  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+  function setMenu(open){
+    navLinks.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open);
+  }
+  burger.addEventListener('click', () => setMenu(!navLinks.classList.contains('open')));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
 
   // Scroll reveal
   const revealEls = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); } });
-  }, { threshold: 0.12 });
-  revealEls.forEach(el => io.observe(el));
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    revealEls.forEach(el => el.classList.add('in-view'));
+  } else {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => io.observe(el));
+  }
 
-  // Typing effect (own implementation, no external image dependency)
+  // Typing effect
   const PHRASES = {
     es: [
       'whoami',
@@ -975,7 +984,6 @@
   };
   let phrases = PHRASES.es;
   const target = document.getElementById('typingTarget');
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   let pIndex = 0, cIndex = 0, deleting = false;
   function setPhrases(lang){
     phrases = PHRASES[lang];
@@ -1021,8 +1029,105 @@
     countEls.forEach(el => { el.textContent = '0'; countIo.observe(el); });
   }
 
+  // Glow cards: the light follows the pointer
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    document.querySelectorAll('.glow').forEach(card => {
+      card.addEventListener('pointermove', e => {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty('--x', (e.clientX - r.left) + 'px');
+        card.style.setProperty('--y', (e.clientY - r.top) + 'px');
+      });
+    });
+  }
+
+  // Timeline beam: fills up to the line 60% down the viewport
+  const timeline = document.getElementById('timeline');
+  const tlItems = [...timeline.querySelectorAll('.tl-item')];
+  let tlQueued = false;
+  function updateTimeline(){
+    tlQueued = false;
+    const mark = window.innerHeight * 0.6;
+    const r = timeline.getBoundingClientRect();
+    const p = reduceMotion ? 1 : Math.min(Math.max((mark - r.top) / r.height, 0), 1);
+    timeline.style.setProperty('--p', p.toFixed(3));
+    tlItems.forEach(item => {
+      const dot = item.querySelector('.tl-dot').getBoundingClientRect();
+      item.classList.toggle('lit', reduceMotion || dot.top < mark);
+    });
+  }
+  window.addEventListener('scroll', () => { if (!tlQueued) { tlQueued = true; requestAnimationFrame(updateTimeline); } }, { passive: true });
+  window.addEventListener('resize', updateTimeline);
+  updateTimeline();
+
+  // Hero particles: drifting nodes linked by faint lines; paused off screen, static with reduced motion
+  (function particles(){
+    const hero = document.getElementById('hero');
+    const cv = document.getElementById('particles');
+    const ctx = cv.getContext('2d');
+    if (!ctx) return;
+    const COLORS = ['46,230,166', '167,139,250'];
+    const LINK = 120;
+    let W = 0, H = 0, pts = [], visible = true, raf = 0;
+    const mouse = { x: -1e4, y: -1e4 };
+
+    function setup(){
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      W = cv.clientWidth; H = cv.clientHeight;
+      cv.width = W * dpr; cv.height = H * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const n = Math.max(18, Math.min(80, Math.round(W * H / 16000)));
+      pts = Array.from({ length: n }, () => ({
+        x: Math.random() * W, y: Math.random() * H,
+        vx: (Math.random() - .5) * .3, vy: (Math.random() - .5) * .3,
+        r: Math.random() * 1.4 + .6, c: COLORS[Math.random() < .65 ? 0 : 1]
+      }));
+    }
+    function draw(){
+      ctx.clearRect(0, 0, W, H);
+      for (let i = 0; i < pts.length; i++) {
+        const a = pts[i];
+        for (let j = i + 1; j < pts.length; j++) {
+          const b = pts[j], dx = a.x - b.x, dy = a.y - b.y, d = Math.hypot(dx, dy);
+          if (d < LINK) {
+            ctx.strokeStyle = `rgba(${a.c},${(1 - d / LINK) * .22})`;
+            ctx.lineWidth = 1;
+            ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+          }
+        }
+        const md = Math.hypot(a.x - mouse.x, a.y - mouse.y);
+        if (md < 150) {
+          ctx.strokeStyle = `rgba(46,230,166,${(1 - md / 150) * .45})`;
+          ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(mouse.x, mouse.y); ctx.stroke();
+        }
+        ctx.fillStyle = `rgba(${a.c},.85)`;
+        ctx.beginPath(); ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2); ctx.fill();
+      }
+    }
+    function step(){
+      for (const p of pts) {
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < -10) p.x = W + 10; else if (p.x > W + 10) p.x = -10;
+        if (p.y < -10) p.y = H + 10; else if (p.y > H + 10) p.y = -10;
+      }
+      draw();
+      raf = requestAnimationFrame(step);
+    }
+    function play(){ cancelAnimationFrame(raf); if (!reduceMotion && visible && !document.hidden) raf = requestAnimationFrame(step); }
+
+    setup(); draw();
+    let resizeTimer;
+    window.addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(() => { setup(); draw(); }, 150); });
+    if (reduceMotion) return;
+    hero.addEventListener('pointermove', e => { const r = cv.getBoundingClientRect(); mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; });
+    hero.addEventListener('pointerleave', () => { mouse.x = mouse.y = -1e4; });
+    new IntersectionObserver(([e]) => { visible = e.isIntersecting; play(); }).observe(hero);
+    document.addEventListener('visibilitychange', play);
+    play();
+  })();
+
   // i18n: Spanish is the source in the HTML; English is looked up by each text node's Spanish text
   const EN = {
+    "Saltar al contenido": "Skip to content",
     "Sobre mí": "About", "Experiencia": "Experience", "Proyectos": "Projects", "Formación": "Education",
     "Contacto": "Contact", "Contactar": "Get in touch",
     "Disponible para prácticas de Formación en Empresa · desde feb. 2027": "Available for a Formación en Empresa internship · from Feb 2027",
@@ -1043,7 +1148,7 @@
     "España y Australia, en inglés desde 2024": "Spain and Australia, in English since 2024",
     "rutas": "routes", "/día": "/day",
     "coordinadas en TGF": "coordinated at TGF",
-    "Entre 80 y 100 para El Corte Inglés": "80 to 100 for El Corte Inglés",
+    "Para la cuenta de El Corte Inglés": "For the El Corte Inglés account",
     "automatizados con JUnit 5": "automated with JUnit 5",
     "189 en GestionAp PRO + 83 en su API": "189 in GestionAp PRO + 83 in its API",
     "proyectos": "projects", "publicados en GitHub": "published on GitHub",
@@ -1091,17 +1196,17 @@
     "🌱 Explorando ahora mismo": "🌱 Exploring right now", "Git & GitHub avanzado": "Advanced Git & GitHub",
     "Aprendizaje activo, no dominio todavía — prefiero ser honesto sobre dónde estoy en cada tecnología.": "Actively learning, not mastered yet — I'd rather be honest about where I stand with each technology.",
     "Proyectos destacados": "Featured projects", "⭐ Proyecto insignia": "⭐ Flagship project",
-    "GestionAp PRO: app de escritorio para gestionar el alquiler de habitaciones. Java 21, JavaFX, MySQL y JDBC en capas, PDF con iText, BCrypt y 189 tests con JUnit 5.": "GestionAp PRO: desktop app to manage room rentals. Java 21, JavaFX, MySQL and layered JDBC, PDF with iText, BCrypt and 189 JUnit 5 tests.",
+    "App de escritorio para gestionar el alquiler de habitaciones. Java 21, JavaFX, MySQL y JDBC en capas, PDF con iText, BCrypt y 189 tests con JUnit 5.": "Desktop app to manage room rentals. Java 21, JavaFX, MySQL and layered JDBC, PDF with iText, BCrypt and 189 JUnit 5 tests.",
     "Ver repositorio insignia": "See flagship repository", "Descargar app (macOS)": "Download app (macOS)",
-    "// más proyectos": "// more projects",
-    "GestionAp PRO API + iOS: API REST con Spring Boot 3.5, Spring Security y JWT por roles, PDF de contratos y app SwiftUI. 83 tests con JUnit 5 y MockMvc.": "GestionAp PRO API + iOS: REST API with Spring Boot 3.5, Spring Security and role-based JWT, PDF contracts and a SwiftUI app. 83 tests with JUnit 5 and MockMvc.",
+    "En vivo": "Live",
+    "más proyectos": "more projects",
+    "API REST con Spring Boot 3.5, Spring Security y JWT por roles, PDF de contratos y app SwiftUI. 83 tests con JUnit 5 y MockMvc.": "REST API with Spring Boot 3.5, Spring Security and role-based JWT, PDF contracts and a SwiftUI app. 83 tests with JUnit 5 and MockMvc.",
     "Ver repositorio": "See repository",
     "API REST de finanzas personales con Java 17 y Spring Boot 3: ingresos, gastos y resumen mensual por categoría. Tests con JUnit 5, Mockito y MockMvc.": "Personal finance REST API with Java 17 and Spring Boot 3: income, expenses and a monthly summary by category. Tests with JUnit 5, Mockito and MockMvc.",
     "API REST con Java 17 y Spring Boot 3 para gestionar habitaciones, inquilinos y contratos. Arquitectura en capas, Spring Data JPA, validación y errores JSON.": "REST API with Java 17 and Spring Boot 3 to manage rooms, tenants and contracts. Layered architecture, Spring Data JPA, validation and JSON errors.",
     "Proyectos de datos y otros lenguajes": "Data projects and other languages",
     "Consultas SQL": "SQL queries",
     "Consultas SQL sobre la base de datos demo de Postgres Pro, la de reservas de vuelos.": "SQL queries on the Postgres Pro demo database, the flight bookings one.",
-    "Ver repositorio →": "See repository →",
     "API de películas": "Movies API",
     "API de películas con Express y MongoDB (Mongoose), con el CRUD completo.": "Movies API with Express and MongoDB (Mongoose), with full CRUD.",
     "Katas de Python": "Python katas",
