@@ -44,6 +44,7 @@
 </script>
 
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%230a0e14%22/><text x=%2250%22 y=%2266%22 font-size=%2244%22 text-anchor=%22middle%22 fill=%22%232ee6a6%22 font-family=%22monospace%22>&lt;/&gt;</text></svg>">
+<script>document.documentElement.classList.add('js');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -267,7 +268,8 @@
   .h3-sub{ font-family:'JetBrains Mono',monospace; font-size:.9rem; font-weight:600; color:var(--text-dim); margin:56px 0 18px; }
   .h3-sub::before{ content:'// '; color:var(--neon); }
 
-  .reveal{ opacity:0; transform:translateY(26px); transition:opacity .7s ease, transform .7s ease; }
+  /* Hidden only once JS has run, so the page never ships blank */
+  .js .reveal{ opacity:0; transform:translateY(26px); transition:opacity .7s ease, transform .7s ease; }
   .reveal.in-view{ opacity:1; transform:none; }
   .reveal-delay-1.in-view{ transition-delay:.08s; }
   .reveal-delay-2.in-view{ transition-delay:.16s; }
@@ -552,22 +554,22 @@
       <dl class="stats-grid reveal">
         <div class="stat" tabindex="0">
           <dt>experiencia</dt>
-          <dd class="stat-num"><span data-count="6">6</span><span class="u">+ años</span></dd>
+          <dd class="stat-num">6<span class="u">+ años</span></dd>
           <dd class="stat-cap"><span class="detail">en operaciones y logística</span><span class="context">España y Australia, en inglés desde 2024</span></dd>
         </div>
         <div class="stat" tabindex="0">
           <dt>rutas</dt>
-          <dd class="stat-num"><span data-count="80">80</span>–<span data-count="100">100</span><span class="u">/día</span></dd>
+          <dd class="stat-num">80–100<span class="u">/día</span></dd>
           <dd class="stat-cap"><span class="detail">coordinadas en TGF</span><span class="context">Para la cuenta de El Corte Inglés</span></dd>
         </div>
         <div class="stat" tabindex="0">
           <dt>tests</dt>
-          <dd class="stat-num"><span data-count="272">272</span></dd>
+          <dd class="stat-num">272</dd>
           <dd class="stat-cap"><span class="detail">automatizados con JUnit 5</span><span class="context">189 en GestionAp PRO + 83 en su API</span></dd>
         </div>
         <div class="stat" tabindex="0">
           <dt>proyectos</dt>
-          <dd class="stat-num"><span data-count="9">9</span></dd>
+          <dd class="stat-num">9</dd>
           <dd class="stat-cap"><span class="detail">publicados en GitHub</span><span class="context">Java, Spring Boot, SQL, Python y JS</span></dd>
         </div>
       </dl>
@@ -1011,24 +1013,6 @@
     tick();
   }
 
-  // Stats count-up: runs once when the band comes into view
-  const countEls = document.querySelectorAll('[data-count]');
-  if (!reduceMotion) {
-    const countIo = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (!e.isIntersecting) return;
-        countIo.unobserve(e.target);
-        const el = e.target, end = +el.dataset.count, start = performance.now(), dur = 1400;
-        (function step(now){
-          const t = Math.min((now - start) / dur, 1);
-          el.textContent = Math.round(end * (1 - Math.pow(1 - t, 3)));
-          if (t < 1) requestAnimationFrame(step);
-        })(start);
-      });
-    }, { threshold: 0.4 });
-    countEls.forEach(el => { el.textContent = '0'; countIo.observe(el); });
-  }
-
   // Glow cards: the light follows the pointer
   if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
     document.querySelectorAll('.glow').forEach(card => {
@@ -1237,7 +1221,7 @@
   const norm = s => s.replace(/\s+/g, ' ').trim();
   const textNodes = [];
   const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
-    acceptNode: n => n.parentElement.closest('script, style, #typingTarget, [data-count]') || !EN[norm(n.nodeValue)]
+    acceptNode: n => n.parentElement.closest('script, style, #typingTarget') || !EN[norm(n.nodeValue)]
       ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT
   });
   while (walker.nextNode()) textNodes.push({ node: walker.currentNode, es: walker.currentNode.nodeValue });
