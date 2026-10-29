@@ -296,6 +296,12 @@
   .mini-tags span{ font-family:'JetBrains Mono',monospace; font-size:.68rem; color:var(--accent2); background:rgba(94,180,255,.08); border:1px solid rgba(94,180,255,.2); padding:2px 7px; border-radius:6px; }
   .mini-link{ font-size:.76rem; font-weight:600; color:var(--text-dim); }
   .mini-card:hover .mini-link{ color:var(--accent); }
+  .mini-actions{ display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-top:6px; }
+  .mini-actions .mini-link{ text-decoration:none; }
+  .mini-actions .mini-link:hover, .mini-actions .mini-link:focus-visible{ color:var(--accent); }
+  .btn-sm{ padding:7px 14px; font-size:.78rem; }
+  .mini-card--live > a{ display:block; }
+  .mini-card--live .mini-shot{ height:auto; }
 
   /* PROJECTS */
   .proj-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:26px; }
@@ -754,15 +760,20 @@
           </div>
         </a>
 
-        <a class="mini-card reveal" href="https://github.com/nelsongomezsa/portfolio-chimigo" target="_blank" rel="noopener">
-          <img class="mini-shot" src="https://raw.githubusercontent.com/nelsongomezsa/portfolio-chimigo/main/docs/captura.png" alt="Captura de la web de Chimi Go" loading="lazy">
+        <div class="mini-card mini-card--live reveal">
+          <a href="https://nelsongomezsa.github.io/portfolio-chimigo/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <img class="mini-shot" src="https://raw.githubusercontent.com/nelsongomezsa/portfolio-chimigo/main/docs/captura-escritorio.jpg" alt="" width="1600" height="1000" loading="lazy">
+          </a>
           <div class="mini-body">
-            <h3>Chimi Go</h3>
-            <p>Web para Chimi Go, un local de comida callejera dominicana en Cuatro Caminos (Madrid): presentación, menú, ubicación y contacto en una sola página.</p>
-            <div class="mini-tags"><span>HTML</span><span>CSS</span><span>Flexbox</span><span>Grid</span></div>
-            <span class="mini-link">Ver repositorio →</span>
+            <h3>ChimiGO Urban Food</h3>
+            <p>Web para un local de comida callejera dominicana en Cuatro Caminos (Madrid): carta interactiva con carrito y pedido por WhatsApp, horario en vivo, ES / EN e instalable como PWA. Lighthouse 97–100.</p>
+            <div class="mini-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>PWA</span><span>i18n</span></div>
+            <div class="mini-actions">
+              <a class="btn btn-primary btn-sm" href="https://nelsongomezsa.github.io/portfolio-chimigo/" target="_blank" rel="noopener">Ver en vivo</a>
+              <a class="mini-link" href="https://github.com/nelsongomezsa/portfolio-chimigo" target="_blank" rel="noopener">Ver repositorio →</a>
+            </div>
           </div>
-        </a>
+        </div>
 
       </div>
     </div>
