@@ -76,6 +76,7 @@
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto;}
     *, *::before, *::after{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important;}
+    .js .term-body .typed{ clip-path:none; animation:none; }
   }
   body{
     margin:0;
@@ -112,6 +113,7 @@
   .nav-links a{ text-decoration:none; color:var(--text-dim); font-size:var(--fs-small); font-weight:500; position:relative; padding:4px 0; transition:color .2s ease; }
   .nav-links a::after{ content:''; position:absolute; left:0; bottom:-2px; width:100%; height:2px; background:var(--accent); transform:scaleX(0); transform-origin:left; transition:transform .2s var(--ease-out); }
   .nav-cta{ display:flex; align-items:center; gap:12px; }
+  .nav-contact svg{ display:none; }
   .burger{ display:none; flex-direction:column; align-items:center; justify-content:center; gap:5px; width:44px; height:44px; background:none; border:none; cursor:pointer; padding:0; }
   .burger span{ width:22px; height:2px; background:var(--text); display:block; border-radius:2px; }
 
@@ -171,7 +173,7 @@
   }
   .hero-fx{ position:absolute; inset:0; z-index:0; pointer-events:none; }
   #particles{ position:absolute; inset:0; width:100%; height:100%; -webkit-mask-image:linear-gradient(#000 55%, transparent); mask-image:linear-gradient(#000 55%, transparent); }
-  .hero-inner{ position:relative; z-index:1; display:grid; grid-template-columns:1.15fr .85fr; gap:56px; align-items:center; width:100%; }
+  .hero-inner{ position:relative; z-index:1; display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:center; width:100%; }
   .avail{ display:flex; align-items:center; gap:10px; margin:0 0 28px; font-size:var(--fs-small); font-weight:500; color:var(--text); }
   .dot{ width:8px; height:8px; flex-shrink:0; border-radius:50%; background:var(--accent); }
   h1.title{ font-size:var(--fs-display); line-height:1; margin:0 0 14px; font-weight:800; letter-spacing:-.03em; }
@@ -192,7 +194,7 @@
   .term{ position:relative; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; }
   .term-bar{ display:flex; align-items:center; gap:8px; padding:12px 16px; background:var(--surface-2); border-bottom:1px solid var(--border); }
   .term-dot{ width:11px; height:11px; border-radius:50%; }
-  .term-bar .fname{ margin-left:8px; font-family:'JetBrains Mono',monospace; font-size:var(--fs-small); color:var(--text-dimmer); }
+  .term-bar .fname{ margin-left:8px; font-family:'JetBrains Mono',monospace; font-size:var(--fs-small); color:var(--text-dim); }
   .term-body{ padding:20px 20px 24px; font-family:'JetBrains Mono',monospace; font-size:var(--fs-small); line-height:1.55; color:var(--text-dim); }
   .term-body .ln{ display:block; min-height:1.55em; margin:0 0 6px; white-space:pre-wrap; }
   /* The output line types itself once, in steps like a real terminal */
@@ -320,18 +322,20 @@
   .btn-lg svg{ width:20px; height:20px; }
   .contact-links{ display:flex; flex-wrap:wrap; gap:4px 24px; }
 
-  footer{ position:relative; z-index:1; padding:24px 0 40px; color:var(--text-dim); font-size:var(--fs-small); }
+  footer{ position:relative; z-index:1; padding:56px 0 40px; color:var(--text-dim); font-size:var(--fs-small); }
   .sign{ margin:0 0 20px; font-size:clamp(2.25rem, 7.4vw, 5.6rem); font-weight:800; letter-spacing:-.04em; line-height:.95; color:var(--text); }
   footer p{ margin:0; }
 
   @media (max-width:1020px){
-    .nav-links{ display:none; }
     .burger{ display:flex; }
-    .nav-links.open{
-      display:flex; position:fixed; top:64px; left:0; right:0; background:var(--bg);
-      flex-direction:column; padding:20px 24px; gap:6px; box-shadow:0 18px 30px -12px rgba(0,0,0,.6);
+    .nav-links{
+      position:absolute; top:100%; left:0; right:0; background:var(--bg);
+      flex-direction:column; padding:12px 24px 20px; gap:2px; box-shadow:0 18px 30px -12px rgba(0,0,0,.6);
+      opacity:0; visibility:hidden; transform:translateY(-8px);
+      transition:opacity .2s var(--ease-out), transform .2s var(--ease-out), visibility 0s .2s;
     }
-    .nav-links.open a{ display:block; padding:10px 0; font-size:1rem; }
+    .nav-links.open{ opacity:1; visibility:visible; transform:none; transition:opacity .2s var(--ease-out), transform .2s var(--ease-out), visibility 0s; }
+    .nav-links a{ display:block; padding:10px 0; font-size:var(--fs-body); }
   }
   @media (max-width:920px){
     .hero{ padding-top:110px; }
@@ -347,17 +351,27 @@
   @media (max-width:640px){
     .wrap{ padding:0 16px; }
     .nav-inner{ padding:12px 16px; }
+    .nav-links{ padding-left:16px; padding-right:16px; }
     .section-pad{ padding:72px 0; }
     .edu-item{ grid-template-columns:1fr; grid-template-areas:"title" "school" "date"; }
     .edu-tag{ padding-top:6px; }
     .plist li{ grid-template-columns:1fr; grid-template-areas:"t" "d" "g" "l"; padding:20px; }
     .feat-body{ padding:20px; }
-    .term-body{ padding:16px; }
+    .term-wrap{ display:none; }
+    .timeline{ padding-left:24px; }
+    .tl-dot{ left:-24px; }
+    .tl-card{ padding:18px; }
+    .tl-date{ white-space:normal; }
     .hero-actions .btn{ flex:1 1 auto; justify-content:center; }
     .btn, .link{ min-height:44px; }
     .lang-switch button{ min-height:40px; }
   }
-  @media (max-width:420px){ .nav-cta .btn-primary{ display:none; } }
+  @media (max-width:420px){
+    .nav-cta{ gap:8px; }
+    .nav-contact{ width:44px; height:44px; padding:0; justify-content:center; }
+    .nav-contact svg{ display:block; width:19px; height:19px; }
+    .nav-contact span{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+  }
 </style>
 </head>
 <body>
@@ -387,7 +401,7 @@
         <button type="button" role="radio" lang="es" data-lang="es" aria-checked="true" tabindex="0">ES</button>
         <button type="button" role="radio" lang="en" data-lang="en" aria-checked="false" tabindex="-1">EN</button>
       </div>
-      <a class="btn btn-primary" href="#contacto">Contactar</a>
+      <a class="btn btn-primary nav-contact" href="#contacto"><svg aria-hidden="true"><use href="#i-mail"/></svg><span>Contactar</span></a>
       <button class="burger" id="burger" aria-label="Menú" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -411,9 +425,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
             Ver proyectos
           </a>
-          <a class="btn btn-ghost" href="#experiencia">Ver experiencia</a>
-          <a class="btn btn-ghost" href="CV_Nelson_Gomez_Sanchez_ES.pdf" download>Descargar CV</a>
-          <a class="btn btn-ghost" href="CV_Nelson_Gomez_Sanchez_EN.pdf" download>CV (English)</a>
+          <a class="btn btn-ghost" id="cvBtn" href="CV_Nelson_Gomez_Sanchez_ES.pdf" download>Descarga mi CV</a>
         </div>
         <div class="socials">
           <a class="icon-btn" href="https://github.com/nelsongomezsa" target="_blank" rel="noopener" aria-label="GitHub"><svg aria-hidden="true"><use href="#i-gh"/></svg></a>
@@ -829,6 +841,9 @@
   burger.addEventListener('click', () => setMenu(!navLinks.classList.contains('open')));
   navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
   document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+  document.addEventListener('click', e => {
+    if (navLinks.classList.contains('open') && !navLinks.contains(e.target) && !burger.contains(e.target)) setMenu(false);
+  });
 
   // Scroll reveal
   const revealEls = document.querySelectorAll('.reveal');
@@ -949,7 +964,7 @@
     "Máster en Data & Analytics": "Master's in Data & Analytics",
     "en Prometeo by thePower, con la vista puesta en banca y consultoría tecnológica.": "at Prometeo by thePower, aiming at banking and tech consulting.",
     "Ver proyectos": "See projects", "Ver experiencia": "See experience",
-    "Descargar CV": "CV (Spanish)", "CV (English)": "CV (English)",
+    "Descargar CV": "CV (Spanish)", "Descarga mi CV": "Download my CV", "CV (English)": "CV (English)",
     'String rol =': 'String role =',
     '"Java Junior"': '"Junior Java"',
     '"Banca y consultoría"': '"Banking & consulting"',
@@ -1075,6 +1090,7 @@
     document.title = meta.title;
     document.querySelector('meta[name="description"]').content = meta.desc;
     document.documentElement.lang = lang;
+    document.getElementById('cvBtn').href = en ? 'CV_Nelson_Gomez_Sanchez_EN.pdf' : 'CV_Nelson_Gomez_Sanchez_ES.pdf';
     langSwitch.dataset.active = lang;
     langBtns.forEach(b => {
       const on = b.dataset.lang === lang;
