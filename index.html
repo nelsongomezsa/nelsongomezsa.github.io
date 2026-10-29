@@ -54,7 +54,6 @@
     --bg-alt:#0d131b;
     --surface:#121a24;
     --surface-2:#161f2b;
-    --glass:rgba(18,26,36,.62);
     --border:#212c3a;
     --text:#e7ecf3;
     --text-dim:#8b96a8;
@@ -62,21 +61,15 @@
     --accent:#2ee6a6;
     --accent-rgb:46,230,166;
     --accent-dim:#1f9e73;
-    --neon:#a78bfa;
-    --neon-rgb:167,139,250;
-    --accent2:#5eb4ff;
     --warn:#ffb454;
-    --pink:#ff6ac1;
-    --radius:18px;
+    --radius:14px;
     --maxw:1160px;
     --fs-display:clamp(2.5rem, 5.6vw, 4.25rem);
     --fs-h2:clamp(1.75rem, 3.4vw, 2.5rem);
     --fs-h3:1.25rem;
     --fs-body:1.0625rem;
     --fs-small:.9375rem;
-    --shadow:0 18px 50px -18px rgba(0,0,0,.7);
   }
-  @property --spin{ syntax:'<angle>'; inherits:false; initial-value:0deg; }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   @media (prefers-reduced-motion: reduce){
@@ -104,31 +97,19 @@
   .skip{position:absolute; left:16px; top:-60px; z-index:100; background:var(--accent); color:#04120c; padding:8px 14px; border-radius:10px; font-weight:700; text-decoration:none;}
   .skip:focus{top:12px;}
 
-  /* Page backdrop: faint grid fading out from the top */
-  .bg-grid{
-    position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.3;
-    background-image:
-      linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
-    background-size:44px 44px;
-    mask-image:radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 85%);
-  }
-
   /* NAV */
   header.nav{
     position:fixed; top:0; left:0; right:0; z-index:50;
-    backdrop-filter:blur(14px) saturate(140%); -webkit-backdrop-filter:blur(14px) saturate(140%);
-    background:rgba(10,14,20,.5);
-    border-bottom:1px solid transparent;
-    transition:border-color .3s ease, background .3s ease;
+    background:transparent;
+    transition:background-color .2s ease;
   }
-  header.nav.scrolled{ border-color:var(--border); background:rgba(10,14,20,.82); }
+  header.nav.scrolled{ background:var(--bg); }
   .nav-inner{ max-width:var(--maxw); margin:0 auto; padding:14px 24px; display:flex; align-items:center; justify-content:space-between; gap:16px; }
   .brand{ display:flex; align-items:center; font-size:var(--fs-body); font-weight:800; letter-spacing:-.01em; text-decoration:none; color:var(--text); white-space:nowrap; }
   .brand .brk{ color:var(--accent); }
   .nav-links{ display:flex; gap:26px; list-style:none; margin:0; padding:0; }
   .nav-links a{ text-decoration:none; color:var(--text-dim); font-size:var(--fs-small); font-weight:500; position:relative; padding:4px 0; transition:color .2s ease; }
-  .nav-links a::after{ content:''; position:absolute; left:0; bottom:-2px; width:0; height:2px; background:linear-gradient(90deg,var(--accent),var(--neon)); transition:width .25s ease; }
+  .nav-links a::after{ content:''; position:absolute; left:0; bottom:-2px; width:0; height:2px; background:var(--accent); transition:width .25s ease; }
   .nav-links a:hover{ color:var(--text); }
   .nav-links a:hover::after{ width:100%; }
   .nav-cta{ display:flex; align-items:center; gap:12px; }
@@ -138,12 +119,11 @@
   /* Language switcher: segmented pill with a sliding indicator */
   .lang-switch{
     position:relative; display:inline-grid; grid-template-columns:1fr 1fr; padding:3px;
-    border:1px solid var(--border); border-radius:999px; background:var(--surface);
+    border-radius:999px; background:var(--surface);
   }
   .lang-switch::before{
     content:''; position:absolute; top:3px; bottom:3px; left:3px; width:calc(50% - 3px); border-radius:999px;
-    background:rgba(var(--accent-rgb),.12); border:1px solid rgba(var(--accent-rgb),.4);
-    box-shadow:0 0 14px -2px rgba(var(--accent-rgb),.45);
+    background:rgba(var(--accent-rgb),.16);
     transition:transform .35s cubic-bezier(.3,1.4,.5,1);
   }
   .lang-switch[data-active="en"]::before{ transform:translateX(100%); }
@@ -159,51 +139,35 @@
   .btn{
     display:inline-flex; align-items:center; gap:8px;
     padding:11px 18px; border-radius:999px; font-weight:600; font-size:var(--fs-small);
-    text-decoration:none; cursor:pointer; border:1px solid var(--border);
+    text-decoration:none; cursor:pointer; border:0;
     transition:transform .18s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease;
     font-family:'Inter',sans-serif; white-space:nowrap;
   }
   .btn:hover{ transform:translateY(-2px); }
-  .btn-primary{ background:var(--accent); color:#04120c; border-color:var(--accent); box-shadow:0 8px 26px -8px rgba(var(--accent-rgb),.6); }
-  .btn-primary:hover{ box-shadow:0 12px 32px -6px rgba(var(--accent-rgb),.8), 0 0 0 4px rgba(var(--accent-rgb),.12); }
-  .btn-ghost{ background:rgba(255,255,255,.03); color:var(--text); }
-  .btn-ghost:hover{ border-color:rgba(var(--neon-rgb),.6); background:rgba(var(--neon-rgb),.08); box-shadow:0 0 22px -6px rgba(var(--neon-rgb),.55); }
+  .btn-primary{ background:var(--accent); color:#04120c; }
+  .btn-primary:hover{ background:#5cefbb; }
+  .btn-ghost{ background:rgba(255,255,255,.07); color:var(--text); }
+  .btn-ghost:hover{ background:rgba(255,255,255,.12); }
   .btn svg{ width:16px; height:16px; flex-shrink:0; }
   .btn-sm{ padding:8px 14px; }
 
   section{ position:relative; z-index:1; }
 
-  /* HERO: particle field + soft aurora */
+  /* HERO: a faint particle field, nothing else */
   .hero{
     position:relative; overflow:hidden; min-height:100vh; min-height:100svh; display:flex; align-items:center;
     padding:130px 0 80px;
   }
   .hero-fx{ position:absolute; inset:0; z-index:0; pointer-events:none; }
-  .hero-fx .aurora{
-    position:absolute; inset:-20%;
-    background:
-      radial-gradient(40% 35% at 20% 25%, rgba(var(--accent-rgb),.16), transparent 70%),
-      radial-gradient(35% 30% at 80% 20%, rgba(var(--neon-rgb),.16), transparent 70%),
-      radial-gradient(30% 30% at 60% 85%, rgba(var(--accent-rgb),.07), transparent 70%);
-    filter:blur(10px);
-    animation:drift 18s ease-in-out infinite alternate;
-  }
-  @keyframes drift{ to{ transform:translate3d(3%,2%,0) scale(1.06); } }
-  #particles{ position:absolute; inset:0; width:100%; height:100%; }
-  .hero-fx::after{ content:''; position:absolute; left:0; right:0; bottom:0; height:180px; background:linear-gradient(transparent, var(--bg)); }
+  #particles{ position:absolute; inset:0; width:100%; height:100%; -webkit-mask-image:linear-gradient(#000 55%, transparent); mask-image:linear-gradient(#000 55%, transparent); }
   .hero-inner{ position:relative; z-index:1; display:grid; grid-template-columns:1.15fr .85fr; gap:56px; align-items:center; width:100%; }
   .avail{ display:flex; align-items:center; gap:10px; margin:0 0 28px; font-size:var(--fs-small); font-weight:500; color:var(--text); }
-  .avail .dot{ width:7px; height:7px; flex-shrink:0; border-radius:50%; background:var(--accent); animation:pulse 2s infinite; }
-  @keyframes pulse{
-    0%{ box-shadow:0 0 0 0 rgba(var(--accent-rgb),.55); }
-    70%{ box-shadow:0 0 0 8px rgba(var(--accent-rgb),0); }
-    100%{ box-shadow:0 0 0 0 rgba(var(--accent-rgb),0); }
-  }
+  .dot{ width:8px; height:8px; flex-shrink:0; border-radius:50%; background:var(--accent); }
   h1.title{ font-size:var(--fs-display); line-height:1; margin:0 0 14px; font-weight:800; letter-spacing:-.03em; }
   .role{ font-size:var(--fs-h2); line-height:1.15; font-weight:700; letter-spacing:-.02em; color:var(--accent); margin:0 0 18px; }
   .typing-row{ font-family:'JetBrains Mono',monospace; font-size:clamp(.95rem,2.1vw,1.2rem); color:var(--text-dim); margin-bottom:22px; min-height:1.6em; }
-  .typing-row .prompt{ color:var(--neon); }
-  .typing-row .cursor{ display:inline-block; width:9px; height:1.1em; background:var(--accent); margin-left:2px; vertical-align:-3px; box-shadow:0 0 10px rgba(var(--accent-rgb),.8); animation:blink 1s step-end infinite; }
+  .typing-row .prompt{ color:var(--accent); }
+  .typing-row .cursor{ display:inline-block; width:9px; height:1.1em; background:var(--accent); margin-left:2px; vertical-align:-3px; animation:blink 1s step-end infinite; }
   @keyframes blink{ 50%{ opacity:0; } }
   .lede{ color:var(--text); max-width:58ch; margin:0 0 30px; }
   .lede strong{ color:var(--text); }
@@ -211,42 +175,31 @@
   .socials{ display:flex; gap:12px; }
   .icon-btn{
     width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center;
-    border:1px solid var(--border); background:var(--glass); transition:all .2s ease; text-decoration:none;
+    background:var(--surface); transition:all .2s ease; text-decoration:none;
   }
-  .icon-btn:hover{ border-color:rgba(var(--accent-rgb),.6); box-shadow:0 0 20px -4px rgba(var(--accent-rgb),.6); transform:translateY(-2px); }
+  .icon-btn:hover{ background:var(--surface-2); transform:translateY(-2px); }
   .icon-btn svg{ width:19px; height:19px; color:var(--text-dim); }
   .icon-btn:hover svg{ color:var(--accent); }
 
-  /* Terminal card with a rotating neon border */
-  .term-wrap{ position:relative; border-radius:18px; padding:1px; animation:float 7s ease-in-out infinite; }
-  .term-wrap::before{
-    content:''; position:absolute; inset:0; border-radius:inherit; padding:1px;
-    background:conic-gradient(from var(--spin), transparent 0 55%, var(--accent) 70%, var(--neon) 85%, transparent 100%);
-    -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite:xor; mask-composite:exclude;
-    animation:spin 6s linear infinite;
-  }
-  .term-wrap::after{ content:''; position:absolute; inset:10% 8%; z-index:-1; border-radius:30px; background:radial-gradient(rgba(var(--neon-rgb),.25), transparent 70%); filter:blur(30px); }
-  @keyframes spin{ to{ --spin:360deg; } }
+  /* Terminal: a real code fragment, so it keeps its own window chrome */
+  .term-wrap{ position:relative; animation:float 7s ease-in-out infinite; }
   @keyframes float{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(-10px);} }
-  .term{ position:relative; background:linear-gradient(180deg, rgba(22,31,43,.92), rgba(13,19,27,.95)); border:1px solid var(--border); border-radius:17px; overflow:hidden; box-shadow:var(--shadow); }
-  .term-bar{ display:flex; align-items:center; gap:8px; padding:12px 16px; background:rgba(22,31,43,.9); border-bottom:1px solid var(--border); }
+  .term{ position:relative; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; }
+  .term-bar{ display:flex; align-items:center; gap:8px; padding:12px 16px; background:var(--surface-2); border-bottom:1px solid var(--border); }
   .term-dot{ width:11px; height:11px; border-radius:50%; }
   .term-bar .fname{ margin-left:8px; font-family:'JetBrains Mono',monospace; font-size:var(--fs-small); color:var(--text-dimmer); }
   .term-body{ padding:20px 20px 24px; font-family:'JetBrains Mono',monospace; font-size:var(--fs-small); line-height:1.55; color:var(--text-dim); }
   .term-body .ln{ margin:0 0 6px; white-space:pre-wrap; }
-  .term-body .k{ color:var(--pink); }
+  .term-body .k{ color:var(--accent); }
   .term-body .s{ color:var(--warn); }
-  .term-body .fn{ color:var(--accent2); }
-  .term-body .out{ color:var(--accent); text-shadow:0 0 12px rgba(var(--accent-rgb),.5); }
+  .term-body .fn{ color:var(--text); }
+  .term-body .out{ color:var(--accent); }
 
   /* STATS BAND */
   .stats{ padding:0 0 30px; }
   .stats-grid{
-    display:grid; grid-template-columns:repeat(4,1fr); margin:0;
-    background:var(--glass); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden;
+    display:grid; grid-template-columns:repeat(4,1fr); gap:32px; margin:0;
   }
-  .stat{ position:relative; padding:24px 22px; border-left:1px solid var(--border); }
-  .stat:first-child{ border-left:none; }
   .stat-num{ margin:0 0 6px; font-size:var(--fs-h2); font-weight:800; letter-spacing:-.02em; color:var(--text); font-variant-numeric:tabular-nums; line-height:1.1; white-space:nowrap; }
   .stat-num .u{ color:var(--accent); }
   .stat-cap{ margin:0; font-size:var(--fs-small); line-height:1.45; }
@@ -268,38 +221,25 @@
   .reveal-delay-2.in-view{ transition-delay:.16s; }
   .reveal-delay-3.in-view{ transition-delay:.24s; }
 
-  /* Glow cards: a light that follows the pointer, plus a lit edge ring */
-  .card{ position:relative; background:var(--glass); border:1px solid var(--border); border-radius:var(--radius); transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
-  .glow{ --x:50%; --y:0%; isolation:isolate; }
-  .glow::before, .glow::after{ content:''; position:absolute; inset:-1px; border-radius:inherit; pointer-events:none; opacity:0; transition:opacity .3s ease; }
-  .glow::before{
-    padding:1px; z-index:2;
-    background:radial-gradient(320px circle at var(--x) var(--y), rgba(var(--accent-rgb),.9), rgba(var(--neon-rgb),.6) 40%, transparent 70%);
-    -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite:xor; mask-composite:exclude;
-  }
-  .glow::after{ z-index:-1; background:radial-gradient(420px circle at var(--x) var(--y), rgba(var(--neon-rgb),.09), transparent 60%); }
-  .glow:hover::before, .glow:hover::after, .glow:focus-within::before{ opacity:1; }
-  .glow:hover{ transform:translateY(-4px); box-shadow:0 24px 60px -24px rgba(var(--neon-rgb),.35); }
 
   /* ABOUT */
   .about-grid{ display:grid; grid-template-columns:1.4fr 1fr; gap:44px; align-items:start; }
   .about-text p{ color:var(--text); margin:0 0 16px; max-width:65ch; }
   .about-text strong{ color:var(--text); }
   .fact-card{ padding:22px; }
-  .fact-row{ display:flex; justify-content:space-between; gap:16px; padding:12px 0; border-bottom:1px solid var(--border); font-size:var(--fs-small); }
-  .fact-row:last-of-type{ border-bottom:none; }
+  .fact-row{ display:flex; justify-content:space-between; gap:16px; padding:9px 0; font-size:var(--fs-small); }
   .fact-row .k{ color:var(--text-dimmer); }
   .fact-row .v{ color:var(--text); font-weight:600; text-align:right; }
-  .avail-pill{ display:inline-flex; align-items:center; gap:8px; background:rgba(var(--accent-rgb),.09); border:1px solid rgba(var(--accent-rgb),.3); color:var(--accent); padding:10px 14px; border-radius:10px; font-size:var(--fs-small); font-weight:600; margin-top:16px; }
+  .avail-pill{ display:inline-flex; align-items:center; gap:8px; background:rgba(var(--accent-rgb),.1); color:var(--accent); padding:10px 14px; border-radius:10px; font-size:var(--fs-small); font-weight:600; margin-top:16px; }
 
   /* TIMELINE: the beam fills as you scroll */
   .timeline{ position:relative; padding-left:36px; }
   .timeline::before{ content:''; position:absolute; left:7px; top:6px; bottom:6px; width:2px; background:var(--border); border-radius:2px; }
-  .tl-beam{ position:absolute; left:7px; top:6px; bottom:6px; width:2px; border-radius:2px; background:linear-gradient(var(--accent), var(--neon)); box-shadow:0 0 12px rgba(var(--accent-rgb),.7); transform-origin:top; transform:scaleY(var(--p, 0)); }
+  .tl-beam{ position:absolute; left:7px; top:6px; bottom:6px; width:2px; border-radius:2px; background:var(--accent); transform-origin:top; transform:scaleY(var(--p, 0)); }
   .tl-item{ position:relative; padding-bottom:30px; }
   .tl-item:last-child{ padding-bottom:0; }
-  .tl-dot{ position:absolute; left:-36px; top:18px; width:16px; height:16px; border-radius:50%; background:var(--bg); border:2px solid var(--border); transition:border-color .3s ease, box-shadow .3s ease; }
-  .tl-item.lit .tl-dot{ border-color:var(--accent); box-shadow:0 0 0 4px rgba(var(--accent-rgb),.14), 0 0 14px rgba(var(--accent-rgb),.7); }
+  .tl-dot{ position:absolute; left:-36px; top:18px; width:16px; height:16px; border-radius:50%; background:var(--bg); border:2px solid var(--border); transition:border-color .3s ease, background-color .3s ease; }
+  .tl-item.lit .tl-dot{ border-color:var(--accent); background:var(--accent); }
   .tl-card{ padding:20px 22px; }
   .tl-head{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px; align-items:baseline; margin-bottom:6px; }
   .tl-role{ font-weight:700; font-size:var(--fs-h3); line-height:1.3; margin:0; }
@@ -314,7 +254,7 @@
   .chip-row{ display:flex; flex-wrap:wrap; gap:10px; }
   .chip{
     position:relative; overflow:hidden; display:inline-flex; align-items:center; gap:8px;
-    background:var(--glass); border:1px solid var(--border); border-radius:10px;
+    background:var(--surface); border-radius:10px;
     padding:9px 14px; font-size:var(--fs-small); font-weight:600;
     transition:transform .18s ease, border-color .2s ease, box-shadow .2s ease;
   }
@@ -326,15 +266,15 @@
   .chip:hover{ transform:translateY(-3px); border-color:rgba(var(--accent-rgb),.55); box-shadow:0 10px 26px -12px rgba(var(--accent-rgb),.6); }
   .chip:hover::after{ left:120%; }
   .chip .sw{ width:8px; height:8px; border-radius:2px; }
-  .chip:not(.learning) .sw{ background:var(--accent); box-shadow:0 0 8px rgba(var(--accent-rgb),.9); }
-  .chip.learning{ border-style:dashed; color:var(--warn); }
-  .chip.learning .sw{ background:var(--warn); box-shadow:0 0 8px rgba(255,180,84,.8); }
+  .chip .sw{ background:var(--accent); }
+  .chip.learning{ color:var(--text-dim); }
+  .chip.learning .sw{ background:var(--text-dim); }
   .learning-note{ color:var(--text-dim); font-size:var(--fs-small); margin-top:14px; max-width:65ch; }
 
   /* PROJECTS: two big featured cards */
   .feat-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
   .feat{ display:flex; flex-direction:column; overflow:hidden; }
-  .shot{ display:block; overflow:hidden; border-bottom:1px solid var(--border); background:var(--bg-alt); }
+  .shot{ display:block; overflow:hidden; background:var(--bg-alt); }
   .shot img{ display:block; width:100%; height:auto; aspect-ratio:16/10; object-fit:cover; object-position:top; transition:transform .6s ease; }
   .card:hover .shot img{ transform:scale(1.04); }
   .feat-body{ padding:24px; display:flex; flex-direction:column; gap:12px; flex:1; }
@@ -346,11 +286,9 @@
     font-size:var(--fs-small); font-weight:600;
     color:#04120c; background:var(--accent); padding:4px 11px; border-radius:999px;
   }
-  .badge.neon{ background:rgba(var(--neon-rgb),.14); color:var(--neon); border:1px solid rgba(var(--neon-rgb),.45); }
-  .badge.soft{ background:rgba(var(--accent-rgb),.08); color:var(--accent); border:1px solid rgba(var(--accent-rgb),.3); font-weight:500; }
-  .live-dot{ width:7px; height:7px; border-radius:50%; background:var(--neon); box-shadow:0 0 8px var(--neon); }
+  .badge.live{ background:rgba(var(--accent-rgb),.12); color:var(--accent); }
   .tags{ display:flex; flex-wrap:wrap; gap:6px; }
-  .tags span{ font-size:var(--fs-small); color:var(--accent2); background:rgba(94,180,255,.08); border:1px solid rgba(94,180,255,.22); padding:3px 9px; border-radius:6px; }
+  .tags span{ font-size:var(--fs-small); color:var(--text-dim); background:rgba(255,255,255,.06); padding:3px 9px; border-radius:6px; }
   .actions{ display:flex; flex-wrap:wrap; align-items:center; gap:12px; }
   .link{ font-size:var(--fs-small); font-weight:600; color:var(--text-dim); text-decoration:none; display:inline-flex; align-items:center; gap:6px; padding:6px 0; transition:color .2s ease; }
   .link svg{ width:15px; height:15px; }
@@ -358,56 +296,44 @@
   .link:hover{ color:var(--accent); }
   .link:hover::after{ transform:translateX(4px); }
 
-  /* PROJECTS: bento grid (4 columns, every cell filled) */
-  .bento{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
-  .bento .card{ display:flex; flex-direction:column; overflow:hidden; }
-  .b-wide{ grid-column:span 2; }
-  .b-tall{ grid-column:span 2; grid-row:span 2; }
-  .b-body{ padding:20px; display:flex; flex-direction:column; gap:10px; flex:1; }
-  .b-body h3{ margin:0; font-size:var(--fs-h3); }
-  .b-body .tags{ margin-top:auto; padding-top:4px; }
-  .b-body .actions{ margin-top:2px; }
-  .p-icon{ width:42px; height:42px; border-radius:12px; background:rgba(var(--accent-rgb),.1); border:1px solid rgba(var(--accent-rgb),.28); display:flex; align-items:center; justify-content:center; }
-  .p-icon svg{ width:21px; height:21px; color:var(--accent); }
-  .bento.minis .b-body{ padding:18px; }
+  /* MORE PROJECTS: one split row, a pair of plain columns, then a list */
+  .split{ display:grid; grid-template-columns:1.15fr 1fr; gap:40px; align-items:center; }
+  .split .shot{ border-radius:var(--radius); }
+  .split-body, .duo article{ display:flex; flex-direction:column; align-items:flex-start; gap:12px; }
+  .split h3, .duo h3, .plist h3{ margin:0; font-size:var(--fs-h3); line-height:1.3; }
+  .duo{ display:grid; grid-template-columns:repeat(2,1fr); gap:40px 56px; margin-top:64px; }
+  .plist{ list-style:none; margin:0; padding:0; display:grid; gap:12px; }
+  .plist li{ display:grid; grid-template-columns:13rem 1fr auto; grid-template-areas:"t d l" "t g l"; gap:8px 32px; align-items:baseline; padding:22px 24px; background:var(--surface); border-radius:var(--radius); }
+  .plist h3{ grid-area:t; }
+  .plist .desc{ grid-area:d; }
+  .plist .tags{ grid-area:g; }
+  .plist .link{ grid-area:l; align-self:center; }
 
-  /* EDUCATION */
-  .edu-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
-  .edu-card{ padding:20px 22px; }
-  .edu-card .edu-tag{ font-family:'JetBrains Mono',monospace; font-size:var(--fs-small); color:var(--text-dim); margin-top:6px; display:block; }
-  .edu-card h3{ margin:0 0 4px; font-size:var(--fs-h3); line-height:1.3; }
-  .edu-card p{ margin:0; color:var(--text-dim); }
+  /* EDUCATION: a plain chronological list */
+  .edu-list{ list-style:none; margin:0; padding:0; display:grid; gap:32px; }
+  .edu-item{ display:grid; grid-template-columns:15rem 1fr; grid-template-areas:"date title" "date school"; column-gap:32px; }
+  .edu-item h3{ grid-area:title; margin:0 0 4px; font-size:var(--fs-h3); line-height:1.3; }
+  .edu-item p{ grid-area:school; margin:0; color:var(--text-dim); }
+  .edu-tag{ grid-area:date; padding-top:3px; font-family:'JetBrains Mono',monospace; font-size:var(--fs-small); color:var(--text-dim); }
 
-  /* CONTACT: glass panel over neon orbs, spinning border */
-  .contact-stage{ position:relative; }
-  .orb{ position:absolute; border-radius:50%; filter:blur(60px); pointer-events:none; }
-  .orb.g{ width:320px; height:320px; left:4%; top:-10%; background:rgba(var(--accent-rgb),.28); }
-  .orb.v{ width:300px; height:300px; right:6%; bottom:-14%; background:rgba(var(--neon-rgb),.3); }
-  .contact-glass{
-    position:relative; border-radius:24px; padding:56px 40px; text-align:center; overflow:hidden;
-    background:rgba(18,26,36,.5); border:1px solid rgba(255,255,255,.08);
-    backdrop-filter:blur(18px) saturate(150%); -webkit-backdrop-filter:blur(18px) saturate(150%);
-    box-shadow:inset 0 1px 0 rgba(255,255,255,.06), var(--shadow);
-  }
-  .contact-glass::before{
-    content:''; position:absolute; inset:0; border-radius:inherit; padding:1px; pointer-events:none;
-    background:conic-gradient(from var(--spin), transparent 0 60%, rgba(var(--accent-rgb),.9) 75%, rgba(var(--neon-rgb),.9) 88%, transparent 100%);
-    -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite:xor; mask-composite:exclude;
-    animation:spin 8s linear infinite;
-  }
-  .contact-glass h2{ font-size:var(--fs-h2); margin:0 0 14px; font-weight:800; letter-spacing:-.02em; }
-  .contact-glass p{ color:var(--text-dim); max-width:52ch; margin:0 auto 30px; }
-  .contact-actions{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+  /* CONTACT: a plain close, the email as the one big action */
+  .contact{ display:grid; grid-template-columns:1.1fr .9fr; gap:48px; align-items:end; }
+  .contact-text{ color:var(--text); max-width:52ch; margin:16px 0 0; }
+  .contact-actions{ display:flex; flex-direction:column; align-items:flex-start; gap:18px; }
+  .btn-lg{ padding:16px 26px; font-size:var(--fs-body); }
+  .btn-lg svg{ width:20px; height:20px; }
+  .contact-links{ display:flex; flex-wrap:wrap; gap:4px 24px; }
 
-  footer{ position:relative; z-index:1; padding:36px 0 44px; text-align:center; color:var(--text-dim); font-size:var(--fs-small); }
+  footer{ position:relative; z-index:1; padding:24px 0 40px; color:var(--text-dim); font-size:var(--fs-small); }
+  .sign{ margin:0 0 20px; font-size:clamp(2.25rem, 7.4vw, 5.6rem); font-weight:800; letter-spacing:-.04em; line-height:.95; color:var(--text); }
   footer p{ margin:0; }
 
   @media (max-width:1020px){
     .nav-links{ display:none; }
     .burger{ display:flex; }
     .nav-links.open{
-      display:flex; position:fixed; top:64px; left:0; right:0; background:rgba(10,14,20,.97);
-      flex-direction:column; padding:20px 24px; gap:6px; border-bottom:1px solid var(--border);
+      display:flex; position:fixed; top:64px; left:0; right:0; background:var(--bg);
+      flex-direction:column; padding:20px 24px; gap:6px; box-shadow:0 18px 30px -12px rgba(0,0,0,.6);
     }
     .nav-links.open a{ display:block; padding:10px 0; font-size:1rem; }
   }
@@ -417,24 +343,19 @@
     .term-wrap{ animation:none; }
     .about-grid{ grid-template-columns:1fr; }
     .feat-grid{ grid-template-columns:1fr; }
-    .bento{ grid-template-columns:repeat(2,1fr); }
-    .b-tall{ grid-row:auto; }
-    .b-wide{ grid-column:span 1; }
-    .edu-grid{ grid-template-columns:1fr; }
+    .split, .duo, .contact{ grid-template-columns:1fr; }
   }
   @media (max-width:760px){
     .stats-grid{ grid-template-columns:repeat(2,1fr); }
-    .stat{ padding:20px 16px; }
-    .stat:nth-child(3){ border-left:none; }
-    .stat:nth-child(n+3){ border-top:1px solid var(--border); }
+    .stats-grid{ gap:28px 20px; }
   }
   @media (max-width:640px){
     .wrap{ padding:0 16px; }
     .nav-inner{ padding:12px 16px; }
     .section-pad{ padding:72px 0; }
-    .bento{ grid-template-columns:1fr; }
-    .b-tall, .b-wide{ grid-column:auto; }
-    .contact-glass{ padding:40px 20px; }
+    .edu-item{ grid-template-columns:1fr; grid-template-areas:"title" "school" "date"; }
+    .edu-tag{ padding-top:6px; }
+    .plist li{ grid-template-columns:1fr; grid-template-areas:"t" "d" "g" "l"; padding:20px; }
     .feat-body{ padding:20px; }
     .term-body{ padding:16px; }
     .hero-actions .btn{ flex:1 1 auto; justify-content:center; }
@@ -454,8 +375,6 @@
   <symbol id="i-in" viewBox="0 0 24 24"><path fill="currentColor" d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.11 20.45H3.56V9h3.55v11.45z"/></symbol>
   <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6.5l9 6 9-6"/><rect x="3" y="4.5" width="18" height="15" rx="2"/></g></symbol>
 </svg>
-
-<div class="bg-grid" aria-hidden="true"></div>
 
 <header class="nav" id="nav">
   <div class="nav-inner">
@@ -484,7 +403,6 @@
   <!-- HERO -->
   <section class="hero" id="hero">
     <div class="hero-fx" aria-hidden="true">
-      <div class="aurora"></div>
       <canvas id="particles"></canvas>
     </div>
     <div class="wrap hero-inner">
@@ -513,7 +431,7 @@
       </div>
 
       <div class="term-wrap">
-        <div class="term">
+        <div class="term" data-ui>
           <div class="term-bar">
             <span class="term-dot" style="background:#ff5f57"></span>
             <span class="term-dot" style="background:#febc2e"></span>
@@ -529,10 +447,10 @@
             <p class="ln">&nbsp;&nbsp;<span class="k">private</span> String meta = <span class="s">"Banca y consultoría"</span>;</p>
             <p class="ln"></p>
             <p class="ln">&nbsp;&nbsp;<span class="k">public static void</span> <span class="fn">main</span>(String[] args) {</p>
-            <p class="ln">&nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">System.out.println</span>(<span class="s">"Listo para aportar 🚀"</span>);</p>
+            <p class="ln">&nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">System.out.println</span>(<span class="s">"Listo para aportar"</span>);</p>
             <p class="ln">&nbsp;&nbsp;}</p>
             <p class="ln">}</p>
-            <p class="ln out">&gt; Listo para aportar 🚀</p>
+            <p class="ln out">&gt; Listo para aportar</p>
           </div>
         </div>
       </div>
@@ -574,15 +492,15 @@
           <p><strong>Programo en Java y Spring Boot</strong>, y antes de escribir código pasé 6 años coordinando rutas, stock y KPIs en España y Australia.</p>
           <p>Estudio 2.º del CFGS de <strong>Desarrollo de Aplicaciones Multiplataforma (DAM)</strong> y el <strong>Máster en Data &amp; Analytics</strong> en Prometeo by thePower. Antes me formé en Comercio Exterior (Máster, Cámara de Comercio de Madrid y Universidad Rey Juan Carlos) y en Transporte y Logística (CFGS).</p>
           <p>En TGF coordiné entre 80 y 100 rutas diarias para El Corte Inglés, monté desde cero el departamento logístico de la cuenta MediaMarkt y fui el único responsable del área durante 4 meses. De ahí saco dos costumbres: entender el proceso antes de tocar el código y cerrar los problemas en vez de pasárselos al siguiente.</p>
-          <p>🇦🇺 <strong>Actualmente vivo en Australia</strong>, donde compagino mi formación en desarrollo con experiencia en operaciones: primero en CEVA Logistics (Brisbane) y ahora en Civeo, en un campamento minero de Queensland, donde me han promocionado a gestionar el aprovisionamiento y el almacén. Viajar y trabajar fuera me ha enseñado a adaptarme rápido, a trabajar en inglés con equipos multiculturales y a afrontar retos nuevos con autonomía.</p>
+          <p><strong>Actualmente vivo en Australia</strong>, donde compagino mi formación en desarrollo con experiencia en operaciones: primero en CEVA Logistics (Brisbane) y ahora en Civeo, en un campamento minero de Queensland, donde me han promocionado a gestionar el aprovisionamiento y el almacén. Viajar y trabajar fuera me ha enseñado a adaptarme rápido, a trabajar en inglés con equipos multiculturales y a afrontar retos nuevos con autonomía.</p>
         </div>
-        <div class="card glow fact-card reveal reveal-delay-2">
+        <div class="card fact-card reveal reveal-delay-2">
           <div class="fact-row"><span class="k">Ubicación</span><span class="v">Australia → Madrid (feb. 2027)</span></div>
           <div class="fact-row"><span class="k">Formación actual</span><span class="v">DAM · Máster Data &amp; Analytics</span></div>
           <div class="fact-row"><span class="k">Stack principal</span><span class="v">Java · Spring Boot</span></div>
           <div class="fact-row"><span class="k">Objetivo</span><span class="v">Software y datos · Banca · Consultoría</span></div>
           <div class="fact-row"><span class="k">Modalidad</span><span class="v">Presencial · Híbrido · Remoto</span></div>
-          <div class="avail-pill">🟢 Abierto a prácticas de Formación en Empresa (feb. 2027)</div>
+          <div class="avail-pill"><span class="dot" aria-hidden="true"></span>Abierto a prácticas de Formación en Empresa (feb. 2027)</div>
         </div>
       </div>
     </div>
@@ -599,7 +517,7 @@
 
         <div class="tl-item reveal">
           <span class="tl-dot" aria-hidden="true"></span>
-          <div class="card glow tl-card">
+          <div class="card tl-card">
             <div class="tl-head">
               <h3 class="tl-role">Coordinador de Aprovisionamiento y Gestión de Almacén</h3>
               <span class="tl-date">feb. 2026 – actualidad</span>
@@ -611,7 +529,7 @@
 
         <div class="tl-item reveal">
           <span class="tl-dot" aria-hidden="true"></span>
-          <div class="card glow tl-card">
+          <div class="card tl-card">
             <div class="tl-head">
               <h3 class="tl-role">Facilities Attendant</h3>
               <span class="tl-date">jun. 2025 – ene. 2026 · 8 meses</span>
@@ -623,7 +541,7 @@
 
         <div class="tl-item reveal">
           <span class="tl-dot" aria-hidden="true"></span>
-          <div class="card glow tl-card">
+          <div class="card tl-card">
             <div class="tl-head">
               <h3 class="tl-role">Import Operations Coordinator</h3>
               <span class="tl-date">dic. 2024 – jun. 2025 · 7 meses</span>
@@ -635,7 +553,7 @@
 
         <div class="tl-item reveal">
           <span class="tl-dot" aria-hidden="true"></span>
-          <div class="card glow tl-card">
+          <div class="card tl-card">
             <div class="tl-head">
               <h3 class="tl-role">Responsable de Departamento Logístico (Cuenta MediaMarkt)</h3>
               <span class="tl-date">mar. 2024 – sept. 2024 · 7 meses</span>
@@ -647,7 +565,7 @@
 
         <div class="tl-item reveal">
           <span class="tl-dot" aria-hidden="true"></span>
-          <div class="card glow tl-card">
+          <div class="card tl-card">
             <div class="tl-head">
               <h3 class="tl-role">Coordinador de Tráfico y Transporte (Cuenta El Corte Inglés)</h3>
               <span class="tl-date">jun. 2022 – feb. 2024 · 1 año 9 meses</span>
@@ -659,7 +577,7 @@
 
         <div class="tl-item reveal">
           <span class="tl-dot" aria-hidden="true"></span>
-          <div class="card glow tl-card">
+          <div class="card tl-card">
             <div class="tl-head">
               <h3 class="tl-role">Prácticas en Coordinación de Tráfico y Transporte</h3>
               <span class="tl-date">mar. 2022 – may. 2022 · 3 meses</span>
@@ -671,7 +589,7 @@
 
         <div class="tl-item reveal">
           <span class="tl-dot" aria-hidden="true"></span>
-          <div class="card glow tl-card">
+          <div class="card tl-card">
             <div class="tl-head">
               <h3 class="tl-role">Coordinador de Aprovisionamiento / Logística Interna</h3>
               <span class="tl-date">jun. 2021 – mar. 2022 · 10 meses</span>
@@ -683,7 +601,7 @@
 
         <div class="tl-item reveal">
           <span class="tl-dot" aria-hidden="true"></span>
-          <div class="card glow tl-card">
+          <div class="card tl-card">
             <div class="tl-head">
               <h3 class="tl-role">Supply Chain y operaciones de almacén</h3>
               <span class="tl-date">ene. 2020 – dic. 2020 · 1 año</span>
@@ -730,7 +648,7 @@
       </div>
 
       <div class="skills-block reveal reveal-delay-3">
-        <h3>🌱 Explorando ahora mismo</h3>
+        <h3>Explorando ahora mismo</h3>
         <div class="chip-row">
           <span class="chip learning"><span class="sw"></span>Docker</span>
           <span class="chip learning"><span class="sw"></span>Git &amp; GitHub avanzado</span>
@@ -748,13 +666,13 @@
       </div>
 
       <div class="feat-grid">
-        <article class="card glow feat reveal">
+        <article class="card feat reveal">
           <a class="shot" href="https://github.com/nelsongomezsa/gestionAPPRO" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
             <picture><source srcset="img/gestionap-pro.webp" type="image/webp"><img src="img/gestionap-pro.jpg" alt="" width="1200" height="901" loading="lazy" decoding="async"></picture>
           </a>
           <div class="feat-body">
             <h3>GestionAp PRO</h3>
-            <span class="badge">⭐ Proyecto insignia</span>
+            <span class="badge">Proyecto insignia</span>
             <p class="desc">App de escritorio para gestionar el alquiler de habitaciones. Java 21, JavaFX, MySQL y JDBC en capas, PDF con iText, BCrypt y 189 tests con JUnit 5.</p>
             <div class="tags"><span>Java 21</span><span>JavaFX</span><span>MySQL</span><span>JDBC</span><span>JUnit 5</span><span>Maven</span></div>
             <div class="actions">
@@ -767,13 +685,13 @@
           </div>
         </article>
 
-        <article class="card glow feat reveal reveal-delay-1">
+        <article class="card feat reveal reveal-delay-1">
           <a class="shot" href="https://nelsongomezsa.github.io/portfolio-chimigo/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
             <picture><source srcset="img/chimigo.webp" type="image/webp"><img src="img/chimigo.jpg" alt="" width="1200" height="750" loading="lazy" decoding="async"></picture>
           </a>
           <div class="feat-body">
             <h3>ChimiGO Urban Food</h3>
-            <span class="badge neon"><span class="live-dot"></span>En vivo</span>
+            <span class="badge live"><span class="dot" aria-hidden="true"></span>En vivo</span>
             <p class="desc">Web para un local de comida callejera dominicana en Cuatro Caminos (Madrid): carta interactiva con carrito de pedido (listo para WhatsApp), horario en vivo, ES / EN e instalable como PWA. Lighthouse 100.</p>
             <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>PWA</span><span>i18n</span></div>
             <div class="actions">
@@ -785,77 +703,59 @@
       </div>
 
       <h3 class="h3-sub reveal">Más proyectos</h3>
-      <div class="bento">
-        <article class="card glow b-tall reveal">
-          <div class="shot"><picture><source srcset="img/finance-tracker-swagger.webp" type="image/webp"><img src="img/finance-tracker-swagger.png" alt="Swagger UI de Finance Tracker API" width="1280" height="900" loading="lazy" decoding="async"></picture></div>
-          <div class="b-body">
-            <h3>Finance Tracker API</h3>
-            <p class="desc">API REST de finanzas personales con Java 17 y Spring Boot 3: ingresos, gastos y resumen mensual por categoría. Tests con JUnit 5, Mockito y MockMvc.</p>
-            <div class="tags"><span>Java 17</span><span>Spring Boot 3</span><span>JUnit 5</span><span>Mockito</span><span>Swagger</span></div>
-            <div class="actions"><a class="link" href="https://github.com/nelsongomezsa/finance-tracker-api" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-gh"/></svg>Ver repositorio</a></div>
-          </div>
-        </article>
+      <article class="split reveal">
+        <div class="shot"><picture><source srcset="img/finance-tracker-swagger.webp" type="image/webp"><img src="img/finance-tracker-swagger.png" alt="Swagger UI de Finance Tracker API" width="1280" height="900" loading="lazy" decoding="async"></picture></div>
+        <div class="split-body">
+          <h3>Finance Tracker API</h3>
+          <p class="desc">API REST de finanzas personales con Java 17 y Spring Boot 3: ingresos, gastos y resumen mensual por categoría. Tests con JUnit 5, Mockito y MockMvc.</p>
+          <div class="tags"><span>Java 17</span><span>Spring Boot 3</span><span>JUnit 5</span><span>Mockito</span><span>Swagger</span></div>
+          <div class="actions"><a class="link" href="https://github.com/nelsongomezsa/finance-tracker-api" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-gh"/></svg>Ver repositorio</a></div>
+        </div>
+      </article>
 
-        <article class="card glow b-wide reveal reveal-delay-1">
-          <div class="b-body">
-            <div class="p-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></div>
-            <h3>GestionAp PRO API + iOS</h3>
-            <p class="desc">API REST con Spring Boot 3.5, Spring Security y JWT por roles, PDF de contratos y app SwiftUI. 83 tests con JUnit 5 y MockMvc.</p>
-            <div class="tags"><span>Java 21</span><span>Spring Boot 3.5</span><span>Spring Security</span><span>JWT</span><span>MariaDB</span><span>SwiftUI</span></div>
-            <div class="actions"><a class="link" href="https://github.com/nelsongomezsa/gestionapro" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-gh"/></svg>Ver repositorio</a></div>
-          </div>
+      <div class="duo">
+        <article class="reveal">
+          <h3>GestionAp PRO API + iOS</h3>
+          <p class="desc">API REST con Spring Boot 3.5, Spring Security y JWT por roles, PDF de contratos y app SwiftUI. 83 tests con JUnit 5 y MockMvc.</p>
+          <div class="tags"><span>Java 21</span><span>Spring Boot 3.5</span><span>Spring Security</span><span>JWT</span><span>MariaDB</span><span>SwiftUI</span></div>
+          <div class="actions"><a class="link" href="https://github.com/nelsongomezsa/gestionapro" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-gh"/></svg>Ver repositorio</a></div>
         </article>
-
-        <article class="card glow b-wide reveal reveal-delay-2">
-          <div class="b-body">
-            <div class="p-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 17V7a2 2 0 0 1 2-2h9l5 5v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M9 21v-6h6v6"/></svg></div>
-            <h3>GestionAp API</h3>
-            <p class="desc">API REST con Java 17 y Spring Boot 3 para gestionar habitaciones, inquilinos y contratos. Arquitectura en capas, Spring Data JPA, validación y errores JSON.</p>
-            <div class="tags"><span>Java 17</span><span>Spring Boot 3</span><span>Spring Data JPA</span><span>REST</span></div>
-            <div class="actions"><a class="link" href="https://github.com/nelsongomezsa/gestionap-api" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-gh"/></svg>Ver repositorio</a></div>
-          </div>
+        <article class="reveal reveal-delay-1">
+          <h3>GestionAp API</h3>
+          <p class="desc">API REST con Java 17 y Spring Boot 3 para gestionar habitaciones, inquilinos y contratos. Arquitectura en capas, Spring Data JPA, validación y errores JSON.</p>
+          <div class="tags"><span>Java 17</span><span>Spring Boot 3</span><span>Spring Data JPA</span><span>REST</span></div>
+          <div class="actions"><a class="link" href="https://github.com/nelsongomezsa/gestionap-api" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-gh"/></svg>Ver repositorio</a></div>
         </article>
       </div>
 
       <h3 class="h3-sub reveal" id="mas-proyectos">Proyectos de datos y otros lenguajes</h3>
       <p class="sub-note reveal">Proyectos del <strong>Máster en Data &amp; Analytics</strong>.</p>
-      <div class="bento minis">
-        <article class="card glow reveal">
-          <div class="b-body">
-            <h3>Consultas SQL</h3>
-            <p class="desc">Consultas SQL sobre la base de datos demo de Postgres Pro, la de reservas de vuelos.</p>
-            <div class="tags"><span>SQL</span><span>PostgreSQL</span></div>
-            <div class="actions"><a class="link" href="https://github.com/nelsongomezsa/proyecto4-sql" target="_blank" rel="noopener">Ver repositorio</a></div>
-          </div>
-        </article>
-
-        <article class="card glow reveal reveal-delay-1">
-          <div class="b-body">
-            <h3>API de películas</h3>
-            <p class="desc">API de películas con Express y MongoDB (Mongoose), con el CRUD completo.</p>
-            <div class="tags"><span>Node.js</span><span>Express</span><span>MongoDB</span><span>Mongoose</span></div>
-            <div class="actions"><a class="link" href="https://github.com/nelsongomezsa/proyecto5-nosql" target="_blank" rel="noopener">Ver repositorio</a></div>
-          </div>
-        </article>
-
-        <article class="card glow reveal reveal-delay-2">
-          <div class="b-body">
-            <h3>Katas de Python</h3>
-            <p class="desc">40 katas de Python: listas, diccionarios, tuplas y sets, lambdas, una función recursiva y manejo de excepciones.</p>
-            <div class="tags"><span>Python</span></div>
-            <div class="actions"><a class="link" href="https://github.com/nelsongomezsa/proyecto3-katas-python" target="_blank" rel="noopener">Ver repositorio</a></div>
-          </div>
-        </article>
-
-        <article class="card glow reveal reveal-delay-3">
-          <div class="b-body">
-            <h3>Katas de JavaScript</h3>
-            <p class="desc">56 ejercicios resueltos de JavaScript, de los fundamentos a la asincronía y el DOM.</p>
-            <div class="tags"><span>JavaScript</span><span>ES6+</span><span>DOM</span><span>HTML</span></div>
-            <div class="actions"><a class="link" href="https://github.com/nelsongomezsa/proyecto2-katas-javascript" target="_blank" rel="noopener">Ver repositorio</a></div>
-          </div>
-        </article>
-      </div>
+      <ul class="plist">
+        <li class="reveal">
+          <h3>Consultas SQL</h3>
+          <p class="desc">Consultas SQL sobre la base de datos demo de Postgres Pro, la de reservas de vuelos.</p>
+          <div class="tags"><span>SQL</span><span>PostgreSQL</span></div>
+          <a class="link" href="https://github.com/nelsongomezsa/proyecto4-sql" target="_blank" rel="noopener">Ver repositorio</a>
+        </li>
+        <li class="reveal">
+          <h3>API de películas</h3>
+          <p class="desc">API de películas con Express y MongoDB (Mongoose), con el CRUD completo.</p>
+          <div class="tags"><span>Node.js</span><span>Express</span><span>MongoDB</span><span>Mongoose</span></div>
+          <a class="link" href="https://github.com/nelsongomezsa/proyecto5-nosql" target="_blank" rel="noopener">Ver repositorio</a>
+        </li>
+        <li class="reveal">
+          <h3>Katas de Python</h3>
+          <p class="desc">40 katas de Python: listas, diccionarios, tuplas y sets, lambdas, una función recursiva y manejo de excepciones.</p>
+          <div class="tags"><span>Python</span></div>
+          <a class="link" href="https://github.com/nelsongomezsa/proyecto3-katas-python" target="_blank" rel="noopener">Ver repositorio</a>
+        </li>
+        <li class="reveal">
+          <h3>Katas de JavaScript</h3>
+          <p class="desc">56 ejercicios resueltos de JavaScript, de los fundamentos a la asincronía y el DOM.</p>
+          <div class="tags"><span>JavaScript</span><span>ES6+</span><span>DOM</span><span>HTML</span></div>
+          <a class="link" href="https://github.com/nelsongomezsa/proyecto2-katas-javascript" target="_blank" rel="noopener">Ver repositorio</a>
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -865,43 +765,45 @@
       <div class="section-head reveal">
         <h2 class="h2">Formación</h2>
       </div>
-      <div class="edu-grid">
-        <div class="card glow edu-card reveal">
+      <ol class="edu-list">
+        <li class="edu-item reveal">
           <h3>Máster en Data &amp; Analytics</h3>
           <p>Prometeo by thePower</p>
           <span class="edu-tag">En curso · 2025 – 2027</span>
-        </div>
-        <div class="card glow edu-card reveal reveal-delay-1">
+        </li>
+        <li class="edu-item reveal reveal-delay-1">
           <h3>CFGS Desarrollo de Aplicaciones Multiplataforma (DAM)</h3>
           <p>Prometeo by thePower, Madrid</p>
           <span class="edu-tag">En curso · 2.º curso · 2025 – 2027</span>
-        </div>
-        <div class="card glow edu-card reveal reveal-delay-2">
+        </li>
+        <li class="edu-item reveal reveal-delay-2">
           <h3>Máster en Comercio Exterior</h3>
           <p>Cámara de Comercio de Madrid &amp; Universidad Rey Juan Carlos</p>
           <span class="edu-tag">Completado · 2023 – 2024</span>
-        </div>
-        <div class="card glow edu-card reveal reveal-delay-3">
+        </li>
+        <li class="edu-item reveal reveal-delay-3">
           <h3>CFGS Transporte y Logística</h3>
           <p>Escuela Profesional Javeriana</p>
           <span class="edu-tag">Completado · 2020 – 2022</span>
-        </div>
-      </div>
+        </li>
+      </ol>
     </div>
   </section>
 
   <!-- CONTACT -->
   <section class="section-pad" id="contacto">
-    <div class="wrap contact-stage">
-      <span class="orb g" aria-hidden="true"></span>
-      <span class="orb v" aria-hidden="true"></span>
-      <div class="contact-glass reveal">
-        <h2>¿Hablamos?</h2>
-        <p>Busco prácticas de Formación en Empresa en desarrollo de software o datos a partir de febrero de 2027. Si tienes una oportunidad o simplemente quieres conectar, escríbeme.</p>
-        <div class="contact-actions">
-          <a class="btn btn-primary" href="mailto:nelsongomezsa@gmail.com"><svg aria-hidden="true"><use href="#i-mail"/></svg>nelsongomezsa@gmail.com</a>
-          <a class="btn btn-ghost" href="https://www.linkedin.com/in/nelson-g%C3%B3mez-s%C3%A1nchez/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-in"/></svg>LinkedIn</a>
-          <a class="btn btn-ghost" href="https://github.com/nelsongomezsa" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-gh"/></svg>GitHub</a>
+    <div class="wrap contact">
+      <div class="reveal">
+        <h2 class="h2">¿Hablamos?</h2>
+        <p class="contact-text">Busco prácticas de Formación en Empresa en desarrollo de software o datos a partir de febrero de 2027. Si tienes una oportunidad o simplemente quieres conectar, escríbeme.</p>
+      </div>
+      <div class="contact-actions reveal reveal-delay-1">
+        <a class="btn btn-primary btn-lg" href="mailto:nelsongomezsa@gmail.com"><svg aria-hidden="true"><use href="#i-mail"/></svg>nelsongomezsa@gmail.com</a>
+        <div class="contact-links">
+          <a class="link" href="https://www.linkedin.com/in/nelson-g%C3%B3mez-s%C3%A1nchez/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-in"/></svg>LinkedIn</a>
+          <a class="link" href="https://github.com/nelsongomezsa" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-gh"/></svg>GitHub</a>
+          <a class="link" href="CV_Nelson_Gomez_Sanchez_ES.pdf" download>Descargar CV</a>
+          <a class="link" href="CV_Nelson_Gomez_Sanchez_EN.pdf" download>CV (English)</a>
         </div>
       </div>
     </div>
@@ -911,6 +813,7 @@
 
 <footer>
   <div class="wrap">
+    <p class="sign" aria-hidden="true">Nelson Gómez Sánchez</p>
     <p>&copy; <span id="year"></span> Nelson Gómez Sánchez · Hecho a mano con HTML, CSS y JavaScript</p>
   </div>
 </footer>
@@ -952,14 +855,14 @@
       'whoami',
       'Estudiante DAM + Máster Data & Analytics',
       'Java · Spring Boot · Python · SQL',
-      'Buscando prácticas de Formación en Empresa 🚀',
+      'Buscando prácticas de Formación en Empresa',
       'git commit -m "listo para aprender"'
     ],
     en: [
       'whoami',
       "DAM student + Master's in Data & Analytics",
       'Java · Spring Boot · Python · SQL',
-      'Looking for a Formación en Empresa internship 🚀',
+      'Looking for a Formación en Empresa internship',
       'git commit -m "ready to learn"'
     ]
   };
@@ -992,17 +895,6 @@
     tick();
   }
 
-  // Glow cards: the light follows the pointer
-  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-    document.querySelectorAll('.glow').forEach(card => {
-      card.addEventListener('pointermove', e => {
-        const r = card.getBoundingClientRect();
-        card.style.setProperty('--x', (e.clientX - r.left) + 'px');
-        card.style.setProperty('--y', (e.clientY - r.top) + 'px');
-      });
-    });
-  }
-
   // Timeline beam: fills up to the line 60% down the viewport
   const timeline = document.getElementById('timeline');
   const tlItems = [...timeline.querySelectorAll('.tl-item')];
@@ -1028,7 +920,7 @@
     const cv = document.getElementById('particles');
     const ctx = cv.getContext('2d');
     if (!ctx) return;
-    const COLORS = ['46,230,166', '167,139,250'];
+    const COLORS = ['46,230,166'];
     const LINK = 120;
     let W = 0, H = 0, pts = [], visible = true, raf = 0;
     const mouse = { x: -1e4, y: -1e4 };
@@ -1038,11 +930,11 @@
       W = cv.clientWidth; H = cv.clientHeight;
       cv.width = W * dpr; cv.height = H * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      const n = Math.max(18, Math.min(80, Math.round(W * H / 16000)));
+      const n = Math.max(18, Math.min(80, Math.round(W * H / 22000)));
       pts = Array.from({ length: n }, () => ({
         x: Math.random() * W, y: Math.random() * H,
         vx: (Math.random() - .5) * .3, vy: (Math.random() - .5) * .3,
-        r: Math.random() * 1.4 + .6, c: COLORS[Math.random() < .65 ? 0 : 1]
+        r: Math.random() * 1.4 + .6, c: COLORS[0]
       }));
     }
     function draw(){
@@ -1052,17 +944,17 @@
         for (let j = i + 1; j < pts.length; j++) {
           const b = pts[j], dx = a.x - b.x, dy = a.y - b.y, d = Math.hypot(dx, dy);
           if (d < LINK) {
-            ctx.strokeStyle = `rgba(${a.c},${(1 - d / LINK) * .22})`;
+            ctx.strokeStyle = `rgba(${a.c},${(1 - d / LINK) * .09})`;
             ctx.lineWidth = 1;
             ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
           }
         }
         const md = Math.hypot(a.x - mouse.x, a.y - mouse.y);
         if (md < 150) {
-          ctx.strokeStyle = `rgba(46,230,166,${(1 - md / 150) * .45})`;
+          ctx.strokeStyle = `rgba(46,230,166,${(1 - md / 150) * .16})`;
           ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(mouse.x, mouse.y); ctx.stroke();
         }
-        ctx.fillStyle = `rgba(${a.c},.85)`;
+        ctx.fillStyle = `rgba(${a.c},.35)`;
         ctx.beginPath(); ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2); ctx.fill();
       }
     }
@@ -1104,8 +996,8 @@
     'String rol =': 'String role =',
     '"Java Junior"': '"Junior Java"',
     '"Banca y consultoría"': '"Banking & consulting"',
-    '"Listo para aportar 🚀"': '"Ready to build 🚀"',
-    "> Listo para aportar 🚀": "> Ready to build 🚀",
+    '"Listo para aportar"': '"Ready to build"',
+    "> Listo para aportar": "> Ready to build",
     "+ años": "+ years",
     "en operaciones y logística": "in operations and logistics",
     "España y Australia, en inglés desde 2024": "Spain and Australia, in English since 2024",
@@ -1130,7 +1022,7 @@
     "Stack principal": "Main stack", "Objetivo": "Goal",
     "Software y datos · Banca · Consultoría": "Software and data · Banking · Consulting",
     "Modalidad": "Work mode", "Presencial · Híbrido · Remoto": "On-site · Hybrid · Remote",
-    "🟢 Abierto a prácticas de Formación en Empresa (feb. 2027)": "🟢 Open to a Formación en Empresa internship (Feb 2027)",
+    "Abierto a prácticas de Formación en Empresa (feb. 2027)": "Open to a Formación en Empresa internship (Feb 2027)",
     "Coordinador de Aprovisionamiento y Gestión de Almacén": "Procurement and Warehouse Coordinator",
     "feb. 2026 – actualidad": "Feb 2026 – present",
     "Promocionado en febrero de 2026 a la gestión de aprovisionamiento y almacén de un campamento minero remoto de unos 3.500 residentes, en una operativa 24/7 en inglés: control de stock, inventario y reposición con Excel y SAP, recepción de mercancía y coordinación con proveedores.": "Promoted in February 2026 to run procurement and the warehouse at a remote mining camp of about 3,500 residents, in a 24/7 operation in English: stock control, inventory and replenishment with Excel and SAP, goods receiving and coordination with suppliers.",
@@ -1156,9 +1048,9 @@
     "Operaciones de almacén y supply chain en un centro de fulfillment de alto volumen: preparación de pedidos, inventarios cíclicos, control de stock y reposición con objetivos de productividad y SLAs.": "Warehouse and supply chain operations at a high-volume fulfilment centre: order picking, cycle counts, stock control and replenishment against productivity targets and SLAs.",
     "Tecnologías": "Tech stack", "Backend & lenguajes": "Backend & languages", "APIs REST": "REST APIs",
     "Datos": "Data", "Análisis de datos": "Data analysis",
-    "🌱 Explorando ahora mismo": "🌱 Exploring right now", "Git & GitHub avanzado": "Advanced Git & GitHub",
+    "Explorando ahora mismo": "Exploring right now", "Git & GitHub avanzado": "Advanced Git & GitHub",
     "Aprendizaje activo, no dominio todavía. Prefiero ser honesto sobre dónde estoy en cada tecnología.": "Actively learning, not mastered yet. I'd rather be honest about where I stand with each technology.",
-    "Proyectos destacados": "Featured projects", "⭐ Proyecto insignia": "⭐ Flagship project",
+    "Proyectos destacados": "Featured projects", "Proyecto insignia": "Flagship project",
     "App de escritorio para gestionar el alquiler de habitaciones. Java 21, JavaFX, MySQL y JDBC en capas, PDF con iText, BCrypt y 189 tests con JUnit 5.": "Desktop app to manage room rentals. Java 21, JavaFX, MySQL and layered JDBC, PDF with iText, BCrypt and 189 JUnit 5 tests.",
     "Ver repositorio insignia": "See flagship repository", "Descargar app (macOS)": "Download app (macOS)",
     "En vivo": "Live",
