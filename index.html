@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nelson Gómez Sánchez · Desarrollador Java Junior</title>
-<meta name="description" content="Desarrollador Java junior (DAM + Máster en Data &amp; Analytics): Java, Spring Boot, SQL y Python. Prácticas de Formación en Empresa en Madrid desde febrero de 2027.">
+<title>Nelson Gómez Sánchez · Desarrollo de software y datos</title>
+<meta name="description" content="Desarrollo de software y datos · Java, SQL y Python · Buscando prácticas en IT en Madrid desde febrero de 2027. Proyecto principal: GestionAp PRO (API Spring Boot + app iOS).">
 <meta name="theme-color" content="#0a0e14">
 <link rel="canonical" href="https://nelsongomezsa.github.io/">
 <meta name="google-site-verification" content="DYKfnQv1VahS18NmOht7Uqag6PJ8IT0HCceyO9pg85M" />
@@ -12,22 +12,23 @@
 <!-- Open Graph / Facebook / LinkedIn -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://nelsongomezsa.github.io/">
-<meta property="og:title" content="Nelson Gómez Sánchez · Desarrollador Java Junior">
-<meta property="og:description" content="Desarrollador Java junior (DAM + Máster en Data &amp; Analytics): Java, Spring Boot, SQL y Python. Prácticas de Formación en Empresa en Madrid desde febrero de 2027.">
-<meta property="og:image" content="https://nelsongomezsa.github.io/og-image-v2.png">
+<meta property="og:title" content="Nelson Gómez Sánchez · Desarrollo de software y datos">
+<meta property="og:description" content="Desarrollo de software y datos · Java, SQL y Python · Buscando prácticas en IT en Madrid desde febrero de 2027. Proyecto principal: GestionAp PRO (API Spring Boot + app iOS).">
+<meta property="og:image" content="https://nelsongomezsa.github.io/og-image-v3.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:type" content="image/png">
-<meta property="og:image:alt" content="Nelson Gómez Sánchez, Desarrollador Java Junior. DAM + Máster en Data &amp; Analytics. Prácticas desde feb. 2027.">
+<meta property="og:image:alt" content="Nelson Gómez Sánchez. Desarrollo de software y datos · Java, SQL y Python · Buscando prácticas en IT en Madrid desde febrero de 2027.">
 <meta property="og:locale" content="es_ES">
+<meta property="og:locale:alternate" content="en_GB">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:url" content="https://nelsongomezsa.github.io/">
-<meta name="twitter:title" content="Nelson Gómez Sánchez · Desarrollador Java Junior">
-<meta name="twitter:description" content="Desarrollador Java junior (DAM + Máster en Data &amp; Analytics): Java, Spring Boot, SQL y Python. Prácticas de Formación en Empresa en Madrid desde febrero de 2027.">
-<meta name="twitter:image" content="https://nelsongomezsa.github.io/og-image-v2.png">
-<meta name="twitter:image:alt" content="Nelson Gómez Sánchez, Desarrollador Java Junior. DAM + Máster en Data &amp; Analytics. Prácticas desde feb. 2027.">
+<meta name="twitter:title" content="Nelson Gómez Sánchez · Desarrollo de software y datos">
+<meta name="twitter:description" content="Desarrollo de software y datos · Java, SQL y Python · Buscando prácticas en IT en Madrid desde febrero de 2027. Proyecto principal: GestionAp PRO (API Spring Boot + app iOS).">
+<meta name="twitter:image" content="https://nelsongomezsa.github.io/og-image-v3.png">
+<meta name="twitter:image:alt" content="Nelson Gómez Sánchez. Desarrollo de software y datos · Java, SQL y Python · Buscando prácticas en IT en Madrid desde febrero de 2027.">
 
 <!-- JSON-LD structured data -->
 <script type="application/ld+json">
@@ -36,13 +37,22 @@
   "@type": "Person",
   "name": "Nelson Gómez Sánchez",
   "url": "https://nelsongomezsa.github.io/",
-  "jobTitle": "Desarrollador Java Junior",
-  "image": "https://nelsongomezsa.github.io/og-image-v2.png",
+  "jobTitle": "Desarrollo de software y datos",
+  "description": "Desarrollo de software y datos · Java, SQL y Python · Buscando prácticas en IT en Madrid desde febrero de 2027",
+  "image": "https://nelsongomezsa.github.io/og-image-v3.png",
+  "email": "mailto:nelsongomezsa@gmail.com",
   "sameAs": [
     "https://github.com/nelsongomezsa",
     "https://www.linkedin.com/in/nelson-gómez-sánchez/"
   ],
-  "knowsAbout": ["Java", "Spring Boot", "Spring Security", "JavaFX", "SQL", "Python"]
+  "knowsAbout": ["Java", "Spring Boot", "SQL", "Python", "Swift", "SwiftUI", "Análisis de datos"],
+  "seeks": {
+    "@type": "Demand",
+    "name": "Prácticas de Formación en Empresa en IT",
+    "description": "Desarrollo, datos o consultoría tecnológica, con interés en banca. Madrid, desde febrero de 2027.",
+    "availabilityStarts": "2027-02",
+    "areaServed": { "@type": "City", "name": "Madrid" }
+  }
 }
 </script>
 
@@ -82,7 +92,6 @@
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto;}
     *, *::before, *::after{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important;}
-    .js .term-body .typed{ clip-path:none; animation:none; }
   }
   body{
     margin:0;
@@ -167,7 +176,7 @@
     .icon-btn:hover{ background:var(--surface-2); }
     .icon-btn:hover svg{ color:var(--accent); }
     .feat:hover .shot img{ transform:scale(1.03); }
-    .link:hover{ color:var(--accent); }
+    .link:hover, .mlist a:hover, .origin a:hover{ color:var(--accent); }
     .link:hover::after{ transform:translateX(4px); }
   }
 
@@ -180,12 +189,13 @@
   }
   .hero-fx{ position:absolute; inset:0; z-index:0; pointer-events:none; }
   #particles{ position:absolute; inset:0; width:100%; height:100%; -webkit-mask-image:linear-gradient(#000 55%, transparent); mask-image:linear-gradient(#000 55%, transparent); }
-  .hero-inner{ position:relative; z-index:1; display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:center; width:100%; }
-  .avail{ display:flex; align-items:center; gap:10px; margin:0 0 28px; font-size:var(--fs-small); font-weight:500; color:var(--text); }
+  .hero-inner{ position:relative; z-index:1; width:100%; }
+  .hero-inner > div{ max-width:46rem; }
+  .avail{ display:flex; align-items:center; gap:10px; margin:0 0 22px; font-size:var(--fs-small); font-weight:500; color:var(--text); }
   .dot{ width:8px; height:8px; flex-shrink:0; border-radius:50%; background:var(--accent); }
   h1.title{ font-size:var(--fs-display); line-height:1; margin:0 0 14px; font-weight:800; letter-spacing:-.03em; }
-  .role{ font-size:var(--fs-h2); line-height:1.15; font-weight:700; letter-spacing:-.02em; color:var(--accent); margin:0 0 18px; }
-  @keyframes blink{ 50%{ opacity:0; } }
+  .role{ font-size:clamp(1.375rem, 2.6vw, 1.875rem); line-height:1.25; font-weight:700; letter-spacing:-.015em; color:var(--accent); margin:0 0 18px; }
+  .role .sep{ color:var(--text-dimmer); font-weight:400; }
   .lede{ color:var(--text); max-width:58ch; margin:0 0 30px; }
   .lede strong{ color:var(--text); }
   .hero-actions{ display:flex; gap:12px; flex-wrap:wrap; margin-bottom:30px; }
@@ -195,24 +205,6 @@
     background:var(--surface); transition:transform .16s var(--ease-out), background-color .2s ease; text-decoration:none;
   }
   .icon-btn svg{ width:19px; height:19px; color:var(--text-dim); transition:color .2s ease; }
-
-  /* Terminal: a real code fragment, so it keeps its own window chrome */
-  .term-wrap{ position:relative; }
-  .term{ position:relative; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; }
-  .term-bar{ display:flex; align-items:center; gap:8px; padding:12px 16px; background:var(--surface-2); border-bottom:1px solid var(--border); }
-  .term-dot{ width:11px; height:11px; border-radius:50%; }
-  .term-bar .fname{ margin-left:8px; font-family:'JetBrains Mono',monospace; font-size:var(--fs-small); color:var(--text-dim); }
-  .term-body{ padding:20px 20px 24px; font-family:'JetBrains Mono',monospace; font-size:var(--fs-small); line-height:1.55; color:var(--text-dim); }
-  .term-body .ln{ display:block; min-height:1.55em; margin:0 0 6px; white-space:pre-wrap; }
-  /* The output line types itself once, in steps like a real terminal */
-  .term-body .typed{ display:inline-block; vertical-align:bottom; }
-  .js .term-body .typed{ clip-path:inset(0 100% 0 0); animation:type 1.1s steps(20, end) .5s forwards; }
-  @keyframes type{ to{ clip-path:inset(0 0 0 0); } }
-  .term-body .cursor{ display:inline-block; width:8px; height:1.1em; margin-left:3px; vertical-align:-3px; background:var(--accent); animation:blink 1s step-end 6; }
-  .term-body .k{ color:var(--accent); }
-  .term-body .s{ color:var(--warn); }
-  .term-body .fn{ color:var(--text); }
-  .term-body .out{ color:var(--accent); }
 
   /* STATS BAND */
   .stats{ padding:0 0 30px; }
@@ -240,27 +232,27 @@
 
   /* ABOUT */
   .about-grid{ display:grid; grid-template-columns:1.4fr 1fr; gap:44px; align-items:start; }
-  .about-text p{ color:var(--text); margin:0 0 16px; max-width:65ch; }
-  .about-text strong{ color:var(--text); }
+  .about-text p{ color:var(--text); margin:0 0 16px; max-width:60ch; }
   .fact-card{ padding:22px; }
   .fact-row{ display:flex; justify-content:space-between; gap:16px; padding:9px 0; font-size:var(--fs-small); }
+  .fact-row .k{ flex-shrink:0; }
   .fact-row .k{ color:var(--text-dimmer); }
   .fact-row .v{ color:var(--text); font-weight:600; text-align:right; }
-  .avail-pill{ display:inline-flex; align-items:center; gap:8px; background:rgba(var(--accent-rgb),.1); color:var(--accent); padding:10px 14px; border-radius:10px; font-size:var(--fs-small); font-weight:600; margin-top:16px; }
 
   /* TIMELINE: the beam fills as you scroll */
   .timeline{ position:relative; padding-left:36px; }
   .timeline::before{ content:''; position:absolute; left:7px; top:6px; bottom:6px; width:2px; background:var(--border); border-radius:2px; }
   .tl-beam{ position:absolute; left:7px; top:6px; bottom:6px; width:2px; border-radius:2px; background:var(--accent); transform-origin:top; transform:scaleY(0); }
-  .tl-item{ position:relative; padding-bottom:30px; }
+  .tl-item{ position:relative; padding-bottom:20px; }
   .tl-item:last-child{ padding-bottom:0; }
   .tl-dot{ position:absolute; left:-36px; top:18px; width:16px; height:16px; border-radius:50%; background:var(--bg); border:2px solid var(--border); transition:border-color .3s ease, background-color .3s ease; }
   .tl-item.lit .tl-dot{ border-color:var(--accent); background:var(--accent); }
   .tl-card{ padding:20px 22px; }
-  .tl-head{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px; align-items:baseline; margin-bottom:6px; }
-  .tl-role{ font-weight:700; font-size:var(--fs-h3); line-height:1.3; margin:0; }
+  .tl-pos + .tl-pos{ margin-top:16px; padding-top:16px; border-top:1px solid var(--border); }
+  .tl-head{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:4px 12px; align-items:baseline; margin-bottom:4px; }
+  .tl-role{ font-weight:700; font-size:var(--fs-body); line-height:1.35; margin:0; }
   .tl-date{ font-family:'JetBrains Mono',monospace; font-size:var(--fs-small); color:var(--text-dim); white-space:nowrap; }
-  .tl-company{ color:var(--text-dim); font-size:var(--fs-small); margin-bottom:10px; }
+  .tl-company{ color:var(--text-dim); font-size:var(--fs-small); margin-bottom:12px; }
   .tl-company b{ color:var(--text); }
   .tl-desc{ color:var(--text); margin:0; max-width:65ch; }
 
@@ -279,7 +271,13 @@
   .chip.learning .sw{ background:var(--text-dim); }
   .learning-note{ color:var(--text-dim); font-size:var(--fs-small); margin-top:14px; max-width:65ch; }
 
-  /* PROJECTS: two big featured cards */
+  /* PROJECTS: the main one wide, then two cards, then a plain list */
+  .main-proj{ display:grid; grid-template-columns:1.1fr 1fr; overflow:hidden; margin-bottom:24px; }
+  .main-proj .shot img{ height:100%; aspect-ratio:auto; min-height:100%; }
+  .main-proj .feat-body{ padding:32px; }
+  .main-proj h3{ margin:0; font-size:var(--fs-h3); }
+  .origin{ margin:0; font-size:var(--fs-small); color:var(--text-dim); max-width:65ch; }
+  .origin a{ color:var(--text); text-underline-offset:3px; }
   .feat-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
   .feat{ display:flex; flex-direction:column; overflow:hidden; }
   .shot{ display:block; overflow:hidden; background:var(--bg-alt); }
@@ -301,18 +299,11 @@
   .link svg{ width:15px; height:15px; }
   .link::after{ content:'→'; transition:transform .2s var(--ease-out); }
 
-  /* MORE PROJECTS: one split row, a pair of plain columns, then a list */
-  .split{ display:grid; grid-template-columns:1.15fr 1fr; gap:40px; align-items:center; }
-  .split .shot{ border-radius:var(--radius); }
-  .split-body, .duo article{ display:flex; flex-direction:column; align-items:flex-start; gap:12px; }
-  .split h3, .duo h3, .plist h3{ margin:0; font-size:var(--fs-h3); line-height:1.3; }
-  .duo{ display:grid; grid-template-columns:repeat(2,1fr); gap:40px 56px; margin-top:64px; }
-  .plist{ list-style:none; margin:0; padding:0; display:grid; gap:12px; }
-  .plist li{ display:grid; grid-template-columns:13rem 1fr auto; grid-template-areas:"t d l" "t g l"; gap:8px 32px; align-items:baseline; padding:22px 24px; background:var(--surface); border-radius:var(--radius); }
-  .plist h3{ grid-area:t; }
-  .plist .desc{ grid-area:d; }
-  .plist .tags{ grid-area:g; }
-  .plist .link{ grid-area:l; align-self:center; }
+  /* MASTER PROJECTS: one line each */
+  .mlist{ list-style:none; margin:0; padding:0; border-top:1px solid var(--border); }
+  .mlist li{ display:flex; flex-wrap:wrap; align-items:baseline; gap:2px 16px; padding:12px 0; border-bottom:1px solid var(--border); font-size:var(--fs-small); }
+  .mlist a{ font-weight:600; color:var(--text); text-underline-offset:3px; min-width:11rem; padding:6px 0; }
+  .mlist span{ color:var(--text-dim); }
 
   /* EDUCATION: a plain chronological list */
   .edu-list{ list-style:none; margin:0; padding:0; display:grid; gap:32px; }
@@ -346,10 +337,10 @@
   }
   @media (max-width:920px){
     .hero{ padding-top:110px; }
-    .hero-inner{ grid-template-columns:1fr; gap:40px; }
     .about-grid{ grid-template-columns:1fr; }
     .feat-grid{ grid-template-columns:1fr; }
-    .split, .duo, .contact{ grid-template-columns:1fr; }
+    .main-proj, .contact{ grid-template-columns:1fr; }
+    .main-proj .shot img{ aspect-ratio:16/10; }
   }
   @media (max-width:760px){
     .stats-grid{ grid-template-columns:repeat(2,1fr); }
@@ -362,13 +353,13 @@
     .section-pad{ padding:72px 0; }
     .edu-item{ grid-template-columns:1fr; grid-template-areas:"title" "school" "date"; }
     .edu-tag{ padding-top:6px; }
-    .plist li{ grid-template-columns:1fr; grid-template-areas:"t" "d" "g" "l"; padding:20px; }
-    .feat-body{ padding:20px; }
-    .term-wrap{ display:none; }
+    .feat-body, .main-proj .feat-body{ padding:20px; }
     .timeline{ padding-left:24px; }
     .tl-dot{ left:-24px; }
     .tl-card{ padding:18px; }
     .tl-date{ white-space:normal; }
+    .role .sep{ display:none; }
+    .role .stack{ display:block; }
     .hero-actions .btn{ flex:1 1 auto; justify-content:center; }
     .btn, .link{ min-height:44px; }
     .lang-switch button{ min-height:40px; }
@@ -424,9 +415,9 @@
     <div class="wrap hero-inner">
       <div>
         <h1 class="title">Nelson Gómez Sánchez</h1>
-        <p class="role">Desarrollador Java Junior</p>
-        <p class="avail"><span class="dot" aria-hidden="true"></span>Disponible para prácticas desde feb. 2027</p>
-        <p class="lede">Programo en Java y Spring Boot, y antes de escribir código pasé 6 años coordinando rutas, stock y KPIs en España y Australia. Estudiante de <strong>DAM</strong> y del <strong>Máster en Data &amp; Analytics</strong> en Prometeo by thePower, con la vista puesta en banca y consultoría tecnológica.</p>
+        <p class="role">Desarrollo de software y datos <span class="sep" aria-hidden="true">·</span> <span class="stack">Java, SQL y Python</span></p>
+        <p class="avail"><span class="dot" aria-hidden="true"></span>Buscando prácticas en IT en Madrid desde febrero de 2027</p>
+        <p class="lede">Mi proyecto principal es <strong>GestionAp PRO</strong>: una API REST en Spring Boot y una app nativa para iPhone.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#proyectos">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
@@ -438,31 +429,6 @@
           <a class="icon-btn" href="https://github.com/nelsongomezsa" target="_blank" rel="noopener" aria-label="GitHub"><svg aria-hidden="true"><use href="#i-gh"/></svg></a>
           <a class="icon-btn" href="https://www.linkedin.com/in/nelson-g%C3%B3mez-s%C3%A1nchez/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg aria-hidden="true"><use href="#i-in"/></svg></a>
           <a class="icon-btn" href="mailto:nelsongomezsa@gmail.com" aria-label="Email"><svg aria-hidden="true"><use href="#i-mail"/></svg></a>
-        </div>
-      </div>
-
-      <div class="term-wrap">
-        <div class="term" data-ui>
-          <div class="term-bar">
-            <span class="term-dot" style="background:#ff5f57"></span>
-            <span class="term-dot" style="background:#febc2e"></span>
-            <span class="term-dot" style="background:#28c840"></span>
-            <code class="fname">nelson.java</code>
-          </div>
-          <div class="term-body">
-            <code class="ln"><span class="k">public class</span> <span class="fn">NelsonGomez</span> {</code>
-            <code class="ln">&nbsp;&nbsp;<span class="k">private</span> String rol = <span class="s">"Java Junior"</span>;</code>
-            <code class="ln">&nbsp;&nbsp;<span class="k">private</span> String[] stack = {</code>
-            <code class="ln">&nbsp;&nbsp;&nbsp;&nbsp;<span class="s">"Java"</span>, <span class="s">"Spring Boot"</span>, <span class="s">"Python"</span>, <span class="s">"SQL"</span></code>
-            <code class="ln">&nbsp;&nbsp;};</code>
-            <code class="ln">&nbsp;&nbsp;<span class="k">private</span> String meta = <span class="s">"Banca y consultoría"</span>;</code>
-            <code class="ln"></code>
-            <code class="ln">&nbsp;&nbsp;<span class="k">public static void</span> <span class="fn">main</span>(String[] args) {</code>
-            <code class="ln">&nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">System.out.println</span>(<span class="s">"Listo para aportar"</span>);</code>
-            <code class="ln">&nbsp;&nbsp;}</code>
-            <code class="ln">}</code>
-            <code class="ln out"><span class="typed">&gt; Listo para aportar</span><span class="cursor" aria-hidden="true"></span></code>
-          </div>
         </div>
       </div>
     </div>
@@ -481,12 +447,12 @@
           <dd class="stat-cap"><span class="detail">rutas coordinadas en TGF</span><span class="context">Para la cuenta de El Corte Inglés</span></dd>
         </div>
         <div class="stat">
-          <dt class="stat-num">272</dt>
-          <dd class="stat-cap"><span class="detail">tests automatizados con JUnit 5</span><span class="context">189 en GestionAp PRO + 83 en su API</span></dd>
+          <dt class="stat-num">220</dt>
+          <dd class="stat-cap"><span class="detail">tests automatizados en la API</span><span class="context">GestionAp PRO, con JUnit 5 y MockMvc</span></dd>
         </div>
         <div class="stat">
-          <dt class="stat-num">9</dt>
-          <dd class="stat-cap"><span class="detail">proyectos publicados en GitHub</span><span class="context">Java, Spring Boot, SQL, Python y JS</span></dd>
+          <dt class="stat-num">7</dt>
+          <dd class="stat-cap"><span class="detail">proyectos en GitHub</span><span class="context">3 principales y 4 del Máster</span></dd>
         </div>
       </dl>
     </div>
@@ -500,18 +466,13 @@
       </div>
       <div class="about-grid">
         <div class="about-text reveal">
-          <p><strong>Programo en Java y Spring Boot</strong>, y antes de escribir código pasé 6 años coordinando rutas, stock y KPIs en España y Australia.</p>
-          <p>Estudio 2.º del CFGS de <strong>Desarrollo de Aplicaciones Multiplataforma (DAM)</strong> y el <strong>Máster en Data &amp; Analytics</strong> en Prometeo by thePower. Antes me formé en Comercio Exterior (Máster, Cámara de Comercio de Madrid y Universidad Rey Juan Carlos) y en Transporte y Logística (CFGS).</p>
-          <p>En TGF coordiné entre 80 y 100 rutas diarias para El Corte Inglés, monté desde cero el departamento logístico de la cuenta MediaMarkt y fui el único responsable del área durante 4 meses. De ahí saco dos costumbres: entender el proceso antes de tocar el código y cerrar los problemas en vez de pasárselos al siguiente.</p>
-          <p><strong>Actualmente vivo en Australia</strong>, donde compagino mi formación en desarrollo con experiencia en operaciones: primero en CEVA Logistics (Brisbane) y ahora en Civeo, en un campamento minero de Queensland, donde me han promocionado a gestionar el aprovisionamiento y el almacén. Viajar y trabajar fuera me ha enseñado a adaptarme rápido, a trabajar en inglés con equipos multiculturales y a afrontar retos nuevos con autonomía.</p>
+          <p>Antes de programar pasé seis años en operaciones y logística. De ahí traigo dos costumbres: entender el proceso antes de tocar el código y cerrar los problemas en vez de pasárselos al siguiente.</p>
+          <p>Ahora estudio 2.º de DAM y el Máster en Data &amp; Analytics. Me interesan los proyectos en los que el software y los datos ayudan a decidir mejor, sobre todo en banca.</p>
         </div>
         <div class="card fact-card reveal">
           <div class="fact-row"><span class="k">Ubicación</span><span class="v">Australia → Madrid (feb. 2027)</span></div>
-          <div class="fact-row"><span class="k">Formación actual</span><span class="v">DAM · Máster Data &amp; Analytics</span></div>
-          <div class="fact-row"><span class="k">Stack principal</span><span class="v">Java · Spring Boot</span></div>
-          <div class="fact-row"><span class="k">Objetivo</span><span class="v">Software y datos · Banca · Consultoría</span></div>
-          <div class="fact-row"><span class="k">Modalidad</span><span class="v">Presencial · Híbrido · Remoto</span></div>
-          <div class="avail-pill"><span class="dot" aria-hidden="true"></span>Abierto a prácticas de Formación en Empresa (feb. 2027)</div>
+          <div class="fact-row"><span class="k">Formación</span><span class="v">DAM · Máster Data &amp; Analytics</span></div>
+          <div class="fact-row"><span class="k">Objetivo</span><span class="v">Prácticas en IT: desarrollo, datos o consultoría</span></div>
         </div>
       </div>
     </div>
@@ -529,96 +490,63 @@
         <div class="tl-item reveal">
           <span class="tl-dot" aria-hidden="true"></span>
           <div class="card tl-card">
-            <div class="tl-head">
-              <h3 class="tl-role">Coordinador de Aprovisionamiento y Gestión de Almacén</h3>
-              <span class="tl-date">feb. 2026 – actualidad</span>
+            <div class="tl-company"><b>Civeo Australia</b> · Queensland, Australia</div>
+            <div class="tl-pos">
+              <div class="tl-head"><h3 class="tl-role">Coordinador de Aprovisionamiento y Almacén</h3><span class="tl-date">feb. 2026 – actualidad</span></div>
+              <p class="tl-desc">Stock e inventario de un campamento minero de unos 3.500 residentes, con SAP y Excel.</p>
             </div>
-            <div class="tl-company"><b>Civeo Australia</b> · Coppabella, Queensland, Australia</div>
-            <p class="tl-desc">Promocionado en febrero de 2026 a la gestión de aprovisionamiento y almacén de un campamento minero remoto de unos 3.500 residentes, en una operativa 24/7 en inglés: control de stock, inventario y reposición con Excel y SAP, recepción de mercancía y coordinación con proveedores.</p>
+            <div class="tl-pos">
+              <div class="tl-head"><h3 class="tl-role">Facilities Attendant</h3><span class="tl-date">jun. 2025 – ene. 2026</span></div>
+              <p class="tl-desc">Ascendido a aprovisionamiento y almacén a los 8 meses.</p>
+            </div>
           </div>
         </div>
 
         <div class="tl-item reveal">
           <span class="tl-dot" aria-hidden="true"></span>
           <div class="card tl-card">
-            <div class="tl-head">
-              <h3 class="tl-role">Facilities Attendant</h3>
-              <span class="tl-date">jun. 2025 – ene. 2026 · 8 meses</span>
-            </div>
-            <div class="tl-company"><b>Civeo Australia</b> · Coppabella, Queensland, Australia</div>
-            <p class="tl-desc">Operativa diaria de instalaciones en Coppabella Village, alojamiento para trabajadores del sector minero en el Bowen Basin: mantenimiento de zonas comunes y habitaciones, resolución de incidencias y trabajo en equipo multicultural en inglés.</p>
-          </div>
-        </div>
-
-        <div class="tl-item reveal">
-          <span class="tl-dot" aria-hidden="true"></span>
-          <div class="card tl-card">
-            <div class="tl-head">
-              <h3 class="tl-role">Import Operations Coordinator</h3>
-              <span class="tl-date">dic. 2024 – jun. 2025 · 7 meses</span>
-            </div>
             <div class="tl-company"><b>CEVA Logistics</b> · Brisbane, Australia</div>
-            <p class="tl-desc">Gestión end-to-end del ciclo completo de importación internacional (marítima y terrestre): revisión documental (factura comercial, packing list, B/L), despachos aduaneros y coordinación con transitarios y navieras.</p>
+            <div class="tl-pos">
+              <div class="tl-head"><h3 class="tl-role">Import Operations Coordinator</h3><span class="tl-date">dic. 2024 – jun. 2025</span></div>
+              <p class="tl-desc">Importaciones marítimas y terrestres de principio a fin: documentación, aduanas y transitarios.</p>
+            </div>
           </div>
         </div>
 
         <div class="tl-item reveal">
           <span class="tl-dot" aria-hidden="true"></span>
           <div class="card tl-card">
-            <div class="tl-head">
-              <h3 class="tl-role">Responsable de Departamento Logístico (Cuenta MediaMarkt)</h3>
-              <span class="tl-date">mar. 2024 – sept. 2024 · 7 meses</span>
-            </div>
-            <div class="tl-company"><b>TGF</b> · Comunidad de Madrid</div>
-            <p class="tl-desc">Monté desde cero el departamento logístico de la cuenta MediaMarkt: diseño de rutas, estructura operativa y planificación diaria. Gestión diaria de unos 30 conductores y entre 20 y 30 rutas, con optimización de recorridos, turnos y cargas de trabajo.</p>
-          </div>
-        </div>
-
-        <div class="tl-item reveal">
-          <span class="tl-dot" aria-hidden="true"></span>
-          <div class="card tl-card">
-            <div class="tl-head">
-              <h3 class="tl-role">Coordinador de Tráfico y Transporte (Cuenta El Corte Inglés)</h3>
-              <span class="tl-date">jun. 2022 – feb. 2024 · 1 año 9 meses</span>
-            </div>
             <div class="tl-company"><b>TGF</b> · Madrid</div>
-            <p class="tl-desc">Coordinación de entre 80 y 100 rutas diarias y asignación de conductores y flota, como punto de contacto con el cliente. Seguimiento de KPIs de servicio y gestión de incidencias. Único responsable del departamento durante 4 meses (nov. 2023 – feb. 2024).</p>
+            <div class="tl-pos">
+              <div class="tl-head"><h3 class="tl-role">Responsable del Departamento Logístico (cuenta MediaMarkt)</h3><span class="tl-date">mar. 2024 – sept. 2024</span></div>
+              <p class="tl-desc">Monté el departamento desde cero: unos 30 conductores y entre 20 y 30 rutas diarias.</p>
+            </div>
+            <div class="tl-pos">
+              <div class="tl-head"><h3 class="tl-role">Coordinador de Tráfico y Transporte (cuenta El Corte Inglés)</h3><span class="tl-date">mar. 2022 – feb. 2024</span></div>
+              <p class="tl-desc">Entre 80 y 100 rutas diarias; único responsable del departamento durante 4 meses. Entré en prácticas.</p>
+            </div>
           </div>
         </div>
 
         <div class="tl-item reveal">
           <span class="tl-dot" aria-hidden="true"></span>
           <div class="card tl-card">
-            <div class="tl-head">
-              <h3 class="tl-role">Prácticas en Coordinación de Tráfico y Transporte</h3>
-              <span class="tl-date">mar. 2022 – may. 2022 · 3 meses</span>
-            </div>
-            <div class="tl-company"><b>TGF</b> · Comunidad de Madrid</div>
-            <p class="tl-desc">Apoyo en planificación de rutas y seguimiento de entregas para la cuenta de El Corte Inglés. Al terminar, me incorporaron a plantilla.</p>
-          </div>
-        </div>
-
-        <div class="tl-item reveal">
-          <span class="tl-dot" aria-hidden="true"></span>
-          <div class="card tl-card">
-            <div class="tl-head">
-              <h3 class="tl-role">Coordinador de Aprovisionamiento / Logística Interna</h3>
-              <span class="tl-date">jun. 2021 – mar. 2022 · 10 meses</span>
-            </div>
             <div class="tl-company"><b>SEDECAL</b> · Algete, Madrid</div>
-            <p class="tl-desc">Coordinación del aprovisionamiento de piezas para producción de equipos de diagnóstico médico: recepción, control de inventario y coordinación con proveedores.</p>
+            <div class="tl-pos">
+              <div class="tl-head"><h3 class="tl-role">Coordinador de Aprovisionamiento</h3><span class="tl-date">jun. 2021 – mar. 2022</span></div>
+              <p class="tl-desc">Piezas para la fabricación de equipos de diagnóstico médico: recepción, inventario y proveedores.</p>
+            </div>
           </div>
         </div>
 
         <div class="tl-item reveal">
           <span class="tl-dot" aria-hidden="true"></span>
           <div class="card tl-card">
-            <div class="tl-head">
-              <h3 class="tl-role">Supply Chain y operaciones de almacén</h3>
-              <span class="tl-date">ene. 2020 – dic. 2020 · 1 año</span>
-            </div>
             <div class="tl-company"><b>Amazon</b> · San Fernando de Henares</div>
-            <p class="tl-desc">Operaciones de almacén y supply chain en un centro de fulfillment de alto volumen: preparación de pedidos, inventarios cíclicos, control de stock y reposición con objetivos de productividad y SLAs.</p>
+            <div class="tl-pos">
+              <div class="tl-head"><h3 class="tl-role">Supply Chain y operaciones de almacén</h3><span class="tl-date">ene. 2020 – dic. 2020</span></div>
+              <p class="tl-desc">Pedidos, inventarios cíclicos y reposición con objetivos de productividad y SLAs.</p>
+            </div>
           </div>
         </div>
 
@@ -639,8 +567,8 @@
           <span class="chip"><span class="sw"></span>Java</span>
           <span class="chip"><span class="sw"></span>Spring Boot</span>
           <span class="chip"><span class="sw"></span>Spring Security · JWT</span>
-          <span class="chip"><span class="sw"></span>JavaFX</span>
           <span class="chip"><span class="sw"></span>Python</span>
+          <span class="chip"><span class="sw"></span>Swift · SwiftUI</span>
           <span class="chip"><span class="sw"></span>JavaScript</span>
           <span class="chip"><span class="sw"></span>APIs REST</span>
           <span class="chip"><span class="sw"></span>JUnit 5 · Mockito</span>
@@ -651,7 +579,7 @@
         <h3>Datos</h3>
         <div class="chip-row">
           <span class="chip"><span class="sw"></span>SQL</span>
-          <span class="chip"><span class="sw"></span>MySQL</span>
+          <span class="chip"><span class="sw"></span>MySQL · MariaDB</span>
           <span class="chip"><span class="sw"></span>PostgreSQL</span>
           <span class="chip"><span class="sw"></span>MongoDB</span>
           <span class="chip"><span class="sw"></span>Análisis de datos</span>
@@ -673,99 +601,64 @@
   <section class="section-pad" id="proyectos">
     <div class="wrap">
       <div class="section-head reveal">
-        <h2 class="h2">Proyectos destacados</h2>
+        <h2 class="h2">Proyectos</h2>
       </div>
 
-      <div class="feat-grid">
-        <article class="card feat reveal">
-          <a class="shot" href="https://github.com/nelsongomezsa/gestionAPPRO" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
-            <picture><source srcset="img/gestionap-pro.webp" type="image/webp"><img src="img/gestionap-pro.jpg" alt="" width="1200" height="901" loading="lazy" decoding="async"></picture>
-          </a>
-          <div class="feat-body">
-            <h3>GestionAp PRO</h3>
-            <span class="badge">Proyecto insignia</span>
-            <p class="desc">App de escritorio para gestionar el alquiler de habitaciones. Java 21, JavaFX, MySQL y JDBC en capas, PDF con iText, BCrypt y 189 tests con JUnit 5.</p>
-            <div class="tags"><span>Java 21</span><span>JavaFX</span><span>MySQL</span><span>JDBC</span><span>JUnit 5</span><span>Maven</span></div>
-            <div class="actions">
-              <a class="btn btn-primary btn-sm" href="https://github.com/nelsongomezsa/gestionAPPRO" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-gh"/></svg>Ver repositorio insignia</a>
-              <a class="btn btn-ghost btn-sm" href="https://github.com/nelsongomezsa/gestionAPPRO/releases/download/v1.0.0/GestionAp-1.0.0.dmg">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
-                Descargar app (macOS)
-              </a>
-            </div>
+      <article class="card main-proj reveal">
+        <a class="shot" href="https://github.com/nelsongomezsa/gestionapro" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+          <picture><source srcset="img/gestionapro-ios.webp" type="image/webp"><img src="img/gestionapro-ios.jpg" alt="" width="1200" height="750" loading="lazy" decoding="async"></picture>
+        </a>
+        <div class="feat-body">
+          <span class="badge">Proyecto principal</span>
+          <h3>GestionAp PRO · API + iOS</h3>
+          <p class="desc">API REST con Java 21 y Spring Boot 3.5 (JWT por roles, MariaDB) y app nativa de iPhone en SwiftUI para gestionar pisos compartidos: contratos, cobros y recibos en PDF. 220 tests de API con JUnit 5 y MockMvc.</p>
+          <div class="tags"><span>Java 21</span><span>Spring Boot 3.5</span><span>Spring Security · JWT</span><span>MariaDB</span><span>SwiftUI</span><span>JUnit 5</span></div>
+          <p class="origin">Es la evolución de GestionAp, que empezó en 1.º de DAM como app de escritorio con JavaFX y MySQL. <a href="https://github.com/nelsongomezsa/gestionAPPRO" target="_blank" rel="noopener">Versión de escritorio</a> · <a href="https://github.com/nelsongomezsa/gestionAPPRO/releases/download/v1.0.0/GestionAp-1.0.0.dmg">Descargar para macOS</a></p>
+          <div class="actions">
+            <a class="btn btn-primary btn-sm" href="https://github.com/nelsongomezsa/gestionapro" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-gh"/></svg>Ver repositorio</a>
+            <a class="link" href="https://github.com/nelsongomezsa/gestionapro/blob/main/docs/video/recorrido.mp4" target="_blank" rel="noopener">Vídeo del recorrido (70 s)</a>
           </div>
-        </article>
+        </div>
+      </article>
 
+      <div class="feat-grid">
         <article class="card feat reveal">
           <a class="shot" href="https://nelsongomezsa.github.io/portfolio-chimigo/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
             <picture><source srcset="img/chimigo.webp" type="image/webp"><img src="img/chimigo.jpg" alt="" width="1200" height="750" loading="lazy" decoding="async"></picture>
           </a>
           <div class="feat-body">
-            <h3>ChimiGO Urban Food</h3>
             <span class="badge live"><span class="dot" aria-hidden="true"></span>En vivo</span>
-            <p class="desc">Web para un local de comida callejera dominicana en Cuatro Caminos (Madrid): carta interactiva con carrito de pedido (listo para WhatsApp), horario en vivo, ES / EN e instalable como PWA. Lighthouse 100.</p>
-            <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>PWA</span><span>i18n</span></div>
+            <h3>ChimiGO Urban Food</h3>
+            <p class="desc">Web de un local de comida dominicana en Madrid: carta con carrito de pedido por WhatsApp, horario en vivo, ES / EN y PWA. Lighthouse 100.</p>
+            <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>PWA</span></div>
             <div class="actions">
               <a class="btn btn-primary btn-sm" href="https://nelsongomezsa.github.io/portfolio-chimigo/" target="_blank" rel="noopener">Ver en vivo</a>
               <a class="link" href="https://github.com/nelsongomezsa/portfolio-chimigo" target="_blank" rel="noopener">Ver repositorio</a>
             </div>
           </div>
         </article>
-      </div>
 
-      <h3 class="h3-sub reveal">Más proyectos</h3>
-      <article class="split reveal">
-        <div class="shot"><picture><source srcset="img/finance-tracker-swagger.webp" type="image/webp"><img src="img/finance-tracker-swagger.png" alt="Swagger UI de Finance Tracker API" width="1280" height="900" loading="lazy" decoding="async"></picture></div>
-        <div class="split-body">
-          <h3>Finance Tracker API</h3>
-          <p class="desc">API REST de finanzas personales con Java 17 y Spring Boot 3: ingresos, gastos y resumen mensual por categoría. Tests con JUnit 5, Mockito y MockMvc.</p>
-          <div class="tags"><span>Java 17</span><span>Spring Boot 3</span><span>JUnit 5</span><span>Mockito</span><span>Swagger</span></div>
-          <div class="actions"><a class="link" href="https://github.com/nelsongomezsa/finance-tracker-api" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-gh"/></svg>Ver repositorio</a></div>
-        </div>
-      </article>
-
-      <div class="duo">
-        <article class="reveal">
-          <h3>GestionAp PRO API + iOS</h3>
-          <p class="desc">API REST con Spring Boot 3.5, Spring Security y JWT por roles, PDF de contratos y app SwiftUI. 83 tests con JUnit 5 y MockMvc.</p>
-          <div class="tags"><span>Java 21</span><span>Spring Boot 3.5</span><span>Spring Security</span><span>JWT</span><span>MariaDB</span><span>SwiftUI</span></div>
-          <div class="actions"><a class="link" href="https://github.com/nelsongomezsa/gestionapro" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-gh"/></svg>Ver repositorio</a></div>
-        </article>
-        <article class="reveal">
-          <h3>GestionAp API</h3>
-          <p class="desc">API REST con Java 17 y Spring Boot 3 para gestionar habitaciones, inquilinos y contratos. Arquitectura en capas, Spring Data JPA, validación y errores JSON.</p>
-          <div class="tags"><span>Java 17</span><span>Spring Boot 3</span><span>Spring Data JPA</span><span>REST</span></div>
-          <div class="actions"><a class="link" href="https://github.com/nelsongomezsa/gestionap-api" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-gh"/></svg>Ver repositorio</a></div>
+        <article class="card feat reveal">
+          <a class="shot" href="https://github.com/nelsongomezsa/finance-tracker-api" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <picture><source srcset="img/finance-tracker-swagger.webp" type="image/webp"><img src="img/finance-tracker-swagger.png" alt="" width="1280" height="900" loading="lazy" decoding="async"></picture>
+          </a>
+          <div class="feat-body">
+            <h3>Finance Tracker API</h3>
+            <p class="desc">API REST de finanzas personales con Java 17 y Spring Boot 3: ingresos, gastos y resumen mensual por categoría. Tests con JUnit 5, Mockito y MockMvc.</p>
+            <div class="tags"><span>Java 17</span><span>Spring Boot 3</span><span>JUnit 5</span><span>Swagger</span></div>
+            <div class="actions">
+              <a class="btn btn-primary btn-sm" href="https://github.com/nelsongomezsa/finance-tracker-api" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-gh"/></svg>Ver repositorio</a>
+            </div>
+          </div>
         </article>
       </div>
 
-      <h3 class="h3-sub reveal" id="mas-proyectos">Proyectos de datos y otros lenguajes</h3>
-      <p class="sub-note reveal">Proyectos del <strong>Máster en Data &amp; Analytics</strong>.</p>
-      <ul class="plist">
-        <li class="reveal">
-          <h3>Consultas SQL</h3>
-          <p class="desc">Consultas SQL sobre la base de datos demo de Postgres Pro, la de reservas de vuelos.</p>
-          <div class="tags"><span>SQL</span><span>PostgreSQL</span></div>
-          <a class="link" href="https://github.com/nelsongomezsa/proyecto4-sql" target="_blank" rel="noopener">Ver repositorio</a>
-        </li>
-        <li class="reveal">
-          <h3>API de películas</h3>
-          <p class="desc">API de películas con Express y MongoDB (Mongoose), con el CRUD completo.</p>
-          <div class="tags"><span>Node.js</span><span>Express</span><span>MongoDB</span><span>Mongoose</span></div>
-          <a class="link" href="https://github.com/nelsongomezsa/proyecto5-nosql" target="_blank" rel="noopener">Ver repositorio</a>
-        </li>
-        <li class="reveal">
-          <h3>Katas de Python</h3>
-          <p class="desc">40 katas de Python: listas, diccionarios, tuplas y sets, lambdas, una función recursiva y manejo de excepciones.</p>
-          <div class="tags"><span>Python</span></div>
-          <a class="link" href="https://github.com/nelsongomezsa/proyecto3-katas-python" target="_blank" rel="noopener">Ver repositorio</a>
-        </li>
-        <li class="reveal">
-          <h3>Katas de JavaScript</h3>
-          <p class="desc">56 ejercicios resueltos de JavaScript, de los fundamentos a la asincronía y el DOM.</p>
-          <div class="tags"><span>JavaScript</span><span>ES6+</span><span>DOM</span><span>HTML</span></div>
-          <a class="link" href="https://github.com/nelsongomezsa/proyecto2-katas-javascript" target="_blank" rel="noopener">Ver repositorio</a>
-        </li>
+      <h3 class="h3-sub reveal" id="mas-proyectos">Proyectos del Máster en Data &amp; Analytics</h3>
+      <ul class="mlist reveal">
+        <li><a href="https://github.com/nelsongomezsa/proyecto4-sql" target="_blank" rel="noopener">Consultas SQL</a><span>PostgreSQL · base de datos demo de reservas de vuelos</span></li>
+        <li><a href="https://github.com/nelsongomezsa/proyecto5-nosql" target="_blank" rel="noopener">API de películas</a><span>Node.js, Express y MongoDB · CRUD completo</span></li>
+        <li><a href="https://github.com/nelsongomezsa/proyecto3-katas-python" target="_blank" rel="noopener">Katas de Python</a><span>40 ejercicios: funciones, lambdas y excepciones</span></li>
+        <li><a href="https://github.com/nelsongomezsa/proyecto2-katas-javascript" target="_blank" rel="noopener">Katas de JavaScript</a><span>56 ejercicios: de los fundamentos al DOM</span></li>
       </ul>
     </div>
   </section>
@@ -806,7 +699,7 @@
     <div class="wrap contact">
       <div class="reveal">
         <h2 class="h2">¿Hablamos?</h2>
-        <p class="contact-text">Busco prácticas de Formación en Empresa en desarrollo de software o datos a partir de febrero de 2027. Si tienes una oportunidad o simplemente quieres conectar, escríbeme.</p>
+        <p class="contact-text">Busco prácticas de Formación en Empresa en IT (desarrollo, datos o consultoría tecnológica, con interés en banca) en Madrid desde febrero de 2027. Si tienes una oportunidad o quieres conectar, escríbeme.</p>
       </div>
       <div class="contact-actions reveal">
         <a class="btn btn-primary btn-lg" href="mailto:nelsongomezsa@gmail.com"><svg aria-hidden="true"><use href="#i-mail"/></svg>nelsongomezsa@gmail.com</a>
@@ -962,111 +855,103 @@
   // i18n: Spanish is the source in the HTML; English is looked up by each text node's Spanish text
   const EN = {
     "Saltar al contenido": "Skip to content",
-    "Sobre mí": "About", "Experiencia": "Experience", "Proyectos": "Projects", "Formación": "Education",
-    "Contacto": "Contact", "Contactar": "Get in touch",
-    "Disponible para prácticas desde feb. 2027": "Available for an internship from Feb 2027",
-    "Desarrollador Java Junior": "Junior Java Developer",
-    "Programo en Java y Spring Boot, y antes de escribir código pasé 6 años coordinando rutas, stock y KPIs en España y Australia. Estudiante de": "I code in Java and Spring Boot, and before writing code I spent 6 years coordinating routes, stock and KPIs in Spain and Australia. Student of",
-    "y del": "and of the",
-    "Máster en Data & Analytics": "Master's in Data & Analytics",
-    "en Prometeo by thePower, con la vista puesta en banca y consultoría tecnológica.": "at Prometeo by thePower, aiming at banking and tech consulting.",
-    "Ver proyectos": "See projects", "Ver experiencia": "See experience",
-    "Descargar CV": "CV (Spanish)", "Descarga mi CV": "Download my CV", "CV (English)": "CV (English)",
-    'String rol =': 'String role =',
-    '"Java Junior"': '"Junior Java"',
-    '"Banca y consultoría"': '"Banking & consulting"',
-    '"Listo para aportar"': '"Ready to build"',
-    "> Listo para aportar": "> Ready to build",
+    "Sobre mí": "About",
+    "Experiencia": "Experience",
+    "Proyectos": "Projects",
+    "Formación": "Education",
+    "Contacto": "Contact",
+    "Contactar": "Get in touch",
+    "Desarrollo de software y datos": "Software development & data",
+    "Java, SQL y Python": "Java, SQL, Python",
+    "Buscando prácticas en IT en Madrid desde febrero de 2027": "Seeking an IT internship in Madrid from February 2027",
+    "Mi proyecto principal es": "My main project is",
+    ": una API REST en Spring Boot y una app nativa para iPhone.": ": a Spring Boot REST API and a native iPhone app.",
+    "Ver proyectos": "See projects",
+    "Descarga mi CV": "Download my CV",
+    "Descargar CV": "CV (Spanish)",
+    "CV (English)": "CV (English)",
     "+ años": "+ years",
     "en operaciones y logística": "in operations and logistics",
     "España y Australia, en inglés desde 2024": "Spain and Australia, in English since 2024",
     "/día": "/day",
     "rutas coordinadas en TGF": "routes coordinated at TGF",
     "Para la cuenta de El Corte Inglés": "For the El Corte Inglés account",
-    "tests automatizados con JUnit 5": "tests automated with JUnit 5",
-    "189 en GestionAp PRO + 83 en su API": "189 in GestionAp PRO + 83 in its API",
-    "proyectos publicados en GitHub": "projects published on GitHub",
-    "Java, Spring Boot, SQL, Python y JS": "Java, Spring Boot, SQL, Python and JS",
-    "Programo en Java y Spring Boot": "I code in Java and Spring Boot",
-    ", y antes de escribir código pasé 6 años coordinando rutas, stock y KPIs en España y Australia.": ", and before writing code I spent 6 years coordinating routes, stock and KPIs in Spain and Australia.",
-    "Estudio 2.º del CFGS de": "I'm in the second year of the Higher Vocational Diploma in",
-    "Desarrollo de Aplicaciones Multiplataforma (DAM)": "Multiplatform Application Development (DAM)",
-    "y el": "and the",
-    "en Prometeo by thePower. Antes me formé en Comercio Exterior (Máster, Cámara de Comercio de Madrid y Universidad Rey Juan Carlos) y en Transporte y Logística (CFGS).": "at Prometeo by thePower. Before that I studied International Trade (Master's, Madrid Chamber of Commerce and Rey Juan Carlos University) and Transport and Logistics (Higher Vocational Diploma).",
-    "En TGF coordiné entre 80 y 100 rutas diarias para El Corte Inglés, monté desde cero el departamento logístico de la cuenta MediaMarkt y fui el único responsable del área durante 4 meses. De ahí saco dos costumbres: entender el proceso antes de tocar el código y cerrar los problemas en vez de pasárselos al siguiente.": "At TGF I coordinated 80 to 100 daily routes for El Corte Inglés, built the MediaMarkt account's logistics department from scratch and ran the area on my own for 4 months. That gave me two habits: understand the process before touching the code, and close problems instead of passing them on.",
-    "Actualmente vivo en Australia": "I currently live in Australia",
-    ", donde compagino mi formación en desarrollo con experiencia en operaciones: primero en CEVA Logistics (Brisbane) y ahora en Civeo, en un campamento minero de Queensland, donde me han promocionado a gestionar el aprovisionamiento y el almacén. Viajar y trabajar fuera me ha enseñado a adaptarme rápido, a trabajar en inglés con equipos multiculturales y a afrontar retos nuevos con autonomía.": ", where I combine my development studies with operations work: first at CEVA Logistics (Brisbane) and now at Civeo, on a mining camp in Queensland, where I was promoted to run procurement and the warehouse. Travelling and working abroad has taught me to adapt fast, work in English with multicultural teams and take on new challenges on my own.",
-    "Ubicación": "Location", "Australia → Madrid (feb. 2027)": "Australia → Madrid (Feb 2027)",
-    "Formación actual": "Current studies", "DAM · Máster Data & Analytics": "DAM · Master's in Data & Analytics",
-    "Stack principal": "Main stack", "Objetivo": "Goal",
-    "Software y datos · Banca · Consultoría": "Software and data · Banking · Consulting",
-    "Modalidad": "Work mode", "Presencial · Híbrido · Remoto": "On-site · Hybrid · Remote",
-    "Abierto a prácticas de Formación en Empresa (feb. 2027)": "Open to a Formación en Empresa internship (Feb 2027)",
-    "Coordinador de Aprovisionamiento y Gestión de Almacén": "Procurement and Warehouse Coordinator",
+    "tests automatizados en la API": "automated tests in the API",
+    "GestionAp PRO, con JUnit 5 y MockMvc": "GestionAp PRO, with JUnit 5 and MockMvc",
+    "proyectos en GitHub": "projects on GitHub",
+    "3 principales y 4 del Máster": "3 main ones and 4 from the Master's",
+    "Antes de programar pasé seis años en operaciones y logística. De ahí traigo dos costumbres: entender el proceso antes de tocar el código y cerrar los problemas en vez de pasárselos al siguiente.": "Before coding I spent six years in operations and logistics. I brought two habits from there: understand the process before touching the code, and close problems instead of passing them on.",
+    "Ahora estudio 2.º de DAM y el Máster en Data & Analytics. Me interesan los proyectos en los que el software y los datos ayudan a decidir mejor, sobre todo en banca.": "I'm now in the second year of DAM (multiplatform app development) and doing the Master's in Data & Analytics. I'm drawn to projects where software and data lead to better decisions, especially in banking.",
+    "Ubicación": "Location",
+    "Australia → Madrid (feb. 2027)": "Australia → Madrid (Feb 2027)",
+    "DAM · Máster Data & Analytics": "DAM · Master's in Data & Analytics",
+    "Objetivo": "Goal",
+    "Prácticas en IT: desarrollo, datos o consultoría": "IT internship: development, data or consulting",
+    "Coordinador de Aprovisionamiento y Almacén": "Procurement and Warehouse Coordinator",
     "feb. 2026 – actualidad": "Feb 2026 – present",
-    "Promocionado en febrero de 2026 a la gestión de aprovisionamiento y almacén de un campamento minero remoto de unos 3.500 residentes, en una operativa 24/7 en inglés: control de stock, inventario y reposición con Excel y SAP, recepción de mercancía y coordinación con proveedores.": "Promoted in February 2026 to run procurement and the warehouse at a remote mining camp of about 3,500 residents, in a 24/7 operation in English: stock control, inventory and replenishment with Excel and SAP, goods receiving and coordination with suppliers.",
-    "jun. 2025 – ene. 2026 · 8 meses": "Jun 2025 – Jan 2026 · 8 months",
-    "Operativa diaria de instalaciones en Coppabella Village, alojamiento para trabajadores del sector minero en el Bowen Basin: mantenimiento de zonas comunes y habitaciones, resolución de incidencias y trabajo en equipo multicultural en inglés.": "Daily facilities operations at Coppabella Village, accommodation for mining workers in the Bowen Basin: upkeep of common areas and rooms, issue resolution and multicultural teamwork in English.",
-    "dic. 2024 – jun. 2025 · 7 meses": "Dec 2024 – Jun 2025 · 7 months",
-    "Gestión end-to-end del ciclo completo de importación internacional (marítima y terrestre): revisión documental (factura comercial, packing list, B/L), despachos aduaneros y coordinación con transitarios y navieras.": "End-to-end management of the full international import cycle (sea and road): document review (commercial invoice, packing list, B/L), customs clearance and coordination with forwarders and shipping lines.",
-    "Responsable de Departamento Logístico (Cuenta MediaMarkt)": "Logistics Department Lead (MediaMarkt account)",
-    "mar. 2024 – sept. 2024 · 7 meses": "Mar 2024 – Sep 2024 · 7 months",
-    "· Comunidad de Madrid": "· Madrid region",
-    "Monté desde cero el departamento logístico de la cuenta MediaMarkt: diseño de rutas, estructura operativa y planificación diaria. Gestión diaria de unos 30 conductores y entre 20 y 30 rutas, con optimización de recorridos, turnos y cargas de trabajo.": "Built the MediaMarkt account's logistics department from scratch: route design, operating structure and daily planning. Daily management of about 30 drivers and 20 to 30 routes, optimising routes, shifts and workloads.",
-    "Coordinador de Tráfico y Transporte (Cuenta El Corte Inglés)": "Traffic and Transport Coordinator (El Corte Inglés account)",
-    "jun. 2022 – feb. 2024 · 1 año 9 meses": "Jun 2022 – Feb 2024 · 1 year 9 months",
-    "Coordinación de entre 80 y 100 rutas diarias y asignación de conductores y flota, como punto de contacto con el cliente. Seguimiento de KPIs de servicio y gestión de incidencias. Único responsable del departamento durante 4 meses (nov. 2023 – feb. 2024).": "Coordinated 80 to 100 daily routes and assigned drivers and fleet, as the client's point of contact. Service KPI tracking and incident management. Ran the department on my own for 4 months (Nov 2023 – Feb 2024).",
-    "Prácticas en Coordinación de Tráfico y Transporte": "Traffic and Transport Coordination Intern",
-    "mar. 2022 – may. 2022 · 3 meses": "Mar 2022 – May 2022 · 3 months",
-    "Apoyo en planificación de rutas y seguimiento de entregas para la cuenta de El Corte Inglés. Al terminar, me incorporaron a plantilla.": "Supported route planning and delivery tracking for the El Corte Inglés account. When it ended, I was hired on staff.",
-    "Coordinador de Aprovisionamiento / Logística Interna": "Procurement / Internal Logistics Coordinator",
-    "jun. 2021 – mar. 2022 · 10 meses": "Jun 2021 – Mar 2022 · 10 months",
-    "Coordinación del aprovisionamiento de piezas para producción de equipos de diagnóstico médico: recepción, control de inventario y coordinación con proveedores.": "Coordinated the supply of parts for the production of medical diagnostic equipment: receiving, inventory control and coordination with suppliers.",
-    "Supply Chain y operaciones de almacén": "Supply Chain and warehouse operations",
-    "ene. 2020 – dic. 2020 · 1 año": "Jan 2020 – Dec 2020 · 1 year",
-    "Operaciones de almacén y supply chain en un centro de fulfillment de alto volumen: preparación de pedidos, inventarios cíclicos, control de stock y reposición con objetivos de productividad y SLAs.": "Warehouse and supply chain operations at a high-volume fulfilment centre: order picking, cycle counts, stock control and replenishment against productivity targets and SLAs.",
-    "Tecnologías": "Tech stack", "Backend & lenguajes": "Backend & languages", "APIs REST": "REST APIs",
-    "Datos": "Data", "Análisis de datos": "Data analysis",
-    "Explorando ahora mismo": "Exploring right now", "Git & GitHub avanzado": "Advanced Git & GitHub",
+    "Stock e inventario de un campamento minero de unos 3.500 residentes, con SAP y Excel.": "Stock and inventory for a mining camp of about 3,500 residents, with SAP and Excel.",
+    "jun. 2025 – ene. 2026": "Jun 2025 – Jan 2026",
+    "Ascendido a aprovisionamiento y almacén a los 8 meses.": "Promoted to procurement and warehouse after 8 months.",
+    "dic. 2024 – jun. 2025": "Dec 2024 – Jun 2025",
+    "Importaciones marítimas y terrestres de principio a fin: documentación, aduanas y transitarios.": "Sea and road imports end to end: documents, customs and forwarders.",
+    "Responsable del Departamento Logístico (cuenta MediaMarkt)": "Logistics Department Lead (MediaMarkt account)",
+    "mar. 2024 – sept. 2024": "Mar 2024 – Sep 2024",
+    "Monté el departamento desde cero: unos 30 conductores y entre 20 y 30 rutas diarias.": "Built the department from scratch: about 30 drivers and 20 to 30 daily routes.",
+    "Coordinador de Tráfico y Transporte (cuenta El Corte Inglés)": "Traffic and Transport Coordinator (El Corte Inglés account)",
+    "mar. 2022 – feb. 2024": "Mar 2022 – Feb 2024",
+    "Entre 80 y 100 rutas diarias; único responsable del departamento durante 4 meses. Entré en prácticas.": "80 to 100 daily routes; ran the department on my own for 4 months. Joined as an intern.",
+    "Coordinador de Aprovisionamiento": "Procurement Coordinator",
+    "jun. 2021 – mar. 2022": "Jun 2021 – Mar 2022",
+    "Piezas para la fabricación de equipos de diagnóstico médico: recepción, inventario y proveedores.": "Parts for manufacturing medical diagnostic equipment: receiving, inventory and suppliers.",
+    "Supply Chain y operaciones de almacén": "Supply chain and warehouse operations",
+    "ene. 2020 – dic. 2020": "Jan 2020 – Dec 2020",
+    "Pedidos, inventarios cíclicos y reposición con objetivos de productividad y SLAs.": "Order picking, cycle counts and replenishment against productivity targets and SLAs.",
+    "Tecnologías": "Tech stack",
+    "Backend & lenguajes": "Backend & languages",
+    "APIs REST": "REST APIs",
+    "Datos": "Data",
+    "Análisis de datos": "Data analysis",
+    "Explorando ahora mismo": "Exploring right now",
+    "Git & GitHub avanzado": "Advanced Git & GitHub",
     "Aprendizaje activo, no dominio todavía. Prefiero ser honesto sobre dónde estoy en cada tecnología.": "Actively learning, not mastered yet. I'd rather be honest about where I stand with each technology.",
-    "Proyectos destacados": "Featured projects", "Proyecto insignia": "Flagship project",
-    "App de escritorio para gestionar el alquiler de habitaciones. Java 21, JavaFX, MySQL y JDBC en capas, PDF con iText, BCrypt y 189 tests con JUnit 5.": "Desktop app to manage room rentals. Java 21, JavaFX, MySQL and layered JDBC, PDF with iText, BCrypt and 189 JUnit 5 tests.",
-    "Ver repositorio insignia": "See flagship repository", "Descargar app (macOS)": "Download app (macOS)",
-    "En vivo": "Live",
-    "Más proyectos": "More projects",
-    "Proyectos del": "Projects from the",
-    "API REST con Spring Boot 3.5, Spring Security y JWT por roles, PDF de contratos y app SwiftUI. 83 tests con JUnit 5 y MockMvc.": "REST API with Spring Boot 3.5, Spring Security and role-based JWT, PDF contracts and a SwiftUI app. 83 tests with JUnit 5 and MockMvc.",
+    "Proyecto principal": "Main project",
+    "API REST con Java 21 y Spring Boot 3.5 (JWT por roles, MariaDB) y app nativa de iPhone en SwiftUI para gestionar pisos compartidos: contratos, cobros y recibos en PDF. 220 tests de API con JUnit 5 y MockMvc.": "REST API with Java 21 and Spring Boot 3.5 (role-based JWT, MariaDB) and a native SwiftUI iPhone app to manage shared flats: contracts, payments and PDF receipts. 220 API tests with JUnit 5 and MockMvc.",
+    "Es la evolución de GestionAp, que empezó en 1.º de DAM como app de escritorio con JavaFX y MySQL.": "It grew out of GestionAp, which started in my first year of DAM as a desktop app with JavaFX and MySQL.",
+    "Versión de escritorio": "Desktop version",
+    "Descargar para macOS": "Download for macOS",
     "Ver repositorio": "See repository",
-    "API REST de finanzas personales con Java 17 y Spring Boot 3: ingresos, gastos y resumen mensual por categoría. Tests con JUnit 5, Mockito y MockMvc.": "Personal finance REST API with Java 17 and Spring Boot 3: income, expenses and a monthly summary by category. Tests with JUnit 5, Mockito and MockMvc.",
-    "API REST con Java 17 y Spring Boot 3 para gestionar habitaciones, inquilinos y contratos. Arquitectura en capas, Spring Data JPA, validación y errores JSON.": "REST API with Java 17 and Spring Boot 3 to manage rooms, tenants and contracts. Layered architecture, Spring Data JPA, validation and JSON errors.",
-    "Proyectos de datos y otros lenguajes": "Data projects and other languages",
-    "Consultas SQL": "SQL queries",
-    "Consultas SQL sobre la base de datos demo de Postgres Pro, la de reservas de vuelos.": "SQL queries on the Postgres Pro demo database, the flight bookings one.",
-    "API de películas": "Movies API",
-    "API de películas con Express y MongoDB (Mongoose), con el CRUD completo.": "Movies API with Express and MongoDB (Mongoose), with full CRUD.",
-    "Katas de Python": "Python katas",
-    "40 katas de Python: listas, diccionarios, tuplas y sets, lambdas, una función recursiva y manejo de excepciones.": "40 Python katas: lists, dictionaries, tuples and sets, lambdas, a recursive function and exception handling.",
-    "Katas de JavaScript": "JavaScript katas",
-    "56 ejercicios resueltos de JavaScript, de los fundamentos a la asincronía y el DOM.": "56 solved JavaScript exercises, from the basics to async code and the DOM.",
-    "Web para un local de comida callejera dominicana en Cuatro Caminos (Madrid): carta interactiva con carrito de pedido (listo para WhatsApp), horario en vivo, ES / EN e instalable como PWA. Lighthouse 100.": "Website for a Dominican street food spot in Cuatro Caminos (Madrid): interactive menu with an order cart (ready for WhatsApp), live opening hours, ES / EN and installable as a PWA. Lighthouse 100.",
+    "Vídeo del recorrido (70 s)": "Walkthrough video (70 s)",
+    "En vivo": "Live",
     "Ver en vivo": "See it live",
+    "Web de un local de comida dominicana en Madrid: carta con carrito de pedido por WhatsApp, horario en vivo, ES / EN y PWA. Lighthouse 100.": "Website for a Dominican food spot in Madrid: menu with a WhatsApp order cart, live opening hours, ES / EN and PWA. Lighthouse 100.",
+    "API REST de finanzas personales con Java 17 y Spring Boot 3: ingresos, gastos y resumen mensual por categoría. Tests con JUnit 5, Mockito y MockMvc.": "Personal finance REST API with Java 17 and Spring Boot 3: income, expenses and a monthly summary by category. Tests with JUnit 5, Mockito and MockMvc.",
+    "Proyectos del Máster en Data & Analytics": "Projects from the Master's in Data & Analytics",
+    "Consultas SQL": "SQL queries",
+    "PostgreSQL · base de datos demo de reservas de vuelos": "PostgreSQL · flight bookings demo database",
+    "API de películas": "Movies API",
+    "Node.js, Express y MongoDB · CRUD completo": "Node.js, Express and MongoDB · full CRUD",
+    "Katas de Python": "Python katas",
+    "40 ejercicios: funciones, lambdas y excepciones": "40 exercises: functions, lambdas and exceptions",
+    "Katas de JavaScript": "JavaScript katas",
+    "56 ejercicios: de los fundamentos al DOM": "56 exercises: from the basics to the DOM",
+    "Máster en Data & Analytics": "Master's in Data & Analytics",
     "En curso · 2025 – 2027": "Ongoing · 2025 – 2027",
     "En curso · 2.º curso · 2025 – 2027": "Ongoing · 2nd year · 2025 – 2027",
     "CFGS Desarrollo de Aplicaciones Multiplataforma (DAM)": "Higher Vocational Diploma in Multiplatform App Development (DAM)",
-    "Completado · 2023 – 2024": "Completed · 2023 – 2024",
     "Máster en Comercio Exterior": "Master's in International Trade",
     "Cámara de Comercio de Madrid & Universidad Rey Juan Carlos": "Madrid Chamber of Commerce & Rey Juan Carlos University",
+    "Completado · 2023 – 2024": "Completed · 2023 – 2024",
     "Completado · 2020 – 2022": "Completed · 2020 – 2022",
     "CFGS Transporte y Logística": "Higher Vocational Diploma in Transport and Logistics",
-    "¿Hablamos?": "Let's talk?",
-    "Busco prácticas de Formación en Empresa en desarrollo de software o datos a partir de febrero de 2027. Si tienes una oportunidad o simplemente quieres conectar, escríbeme.": "I'm looking for a software or data internship (Formación en Empresa) from February 2027. If you have an opportunity or just want to connect, drop me a line.",
+    "¿Hablamos?": "Let's talk",
+    "Busco prácticas de Formación en Empresa en IT (desarrollo, datos o consultoría tecnológica, con interés en banca) en Madrid desde febrero de 2027. Si tienes una oportunidad o quieres conectar, escríbeme.": "I'm looking for a Formación en Empresa IT internship (development, data or tech consulting, with an interest in banking) in Madrid from February 2027. If you have an opportunity or want to connect, drop me a line.",
     "Nelson Gómez Sánchez · Hecho a mano con HTML, CSS y JavaScript": "Nelson Gómez Sánchez · Handmade with HTML, CSS and JavaScript"
   };
-  const EN_ATTR = { "Menú": "Menu", "Idioma": "Language", "Cifras clave": "Key numbers", "Swagger UI de Finance Tracker API": "Finance Tracker API Swagger UI" };
+  const EN_ATTR = { "Menú": "Menu", "Idioma": "Language", "Cifras clave": "Key numbers" };
   const ES_META = { title: document.title, desc: document.querySelector('meta[name="description"]').content };
   const EN_META = {
-    title: 'Nelson Gómez Sánchez · Junior Java Developer',
-    desc: "Junior Java developer (DAM + Master's in Data & Analytics): Java, Spring Boot, SQL and Python. Formación en Empresa internship in Madrid from February 2027."
+    title: 'Nelson Gómez Sánchez · Software development & data',
+    desc: 'Software development & data · Java, SQL, Python · Seeking an IT internship in Madrid from February 2027. Main project: GestionAp PRO (Spring Boot API + iOS app).'
   };
 
   const norm = s => s.replace(/\s+/g, ' ').trim();
