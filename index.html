@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nelson Gómez Sánchez · Desarrollo de software y datos</title>
-<meta name="description" content="Desarrollo de software y datos · Java, SQL y Python · Buscando prácticas en IT en Madrid desde febrero de 2027. Proyecto principal: GestionAp PRO (API Spring Boot + app iOS).">
+<meta name="description" content="Desarrollo de software y datos · Java, SQL y Python · Buscando prácticas en IT en Madrid desde febrero de 2027. Proyecto principal: GestionAp PRO, app para iPhone con su API en Spring Boot.">
 <meta name="theme-color" content="#0a0e14">
 <link rel="canonical" href="https://nelsongomezsa.github.io/">
 <meta name="google-site-verification" content="DYKfnQv1VahS18NmOht7Uqag6PJ8IT0HCceyO9pg85M" />
@@ -13,7 +13,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://nelsongomezsa.github.io/">
 <meta property="og:title" content="Nelson Gómez Sánchez · Desarrollo de software y datos">
-<meta property="og:description" content="Desarrollo de software y datos · Java, SQL y Python · Buscando prácticas en IT en Madrid desde febrero de 2027. Proyecto principal: GestionAp PRO (API Spring Boot + app iOS).">
+<meta property="og:description" content="Desarrollo de software y datos · Java, SQL y Python · Buscando prácticas en IT en Madrid desde febrero de 2027. Proyecto principal: GestionAp PRO, app para iPhone con su API en Spring Boot.">
 <meta property="og:image" content="https://nelsongomezsa.github.io/og-image-v3.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -26,7 +26,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:url" content="https://nelsongomezsa.github.io/">
 <meta name="twitter:title" content="Nelson Gómez Sánchez · Desarrollo de software y datos">
-<meta name="twitter:description" content="Desarrollo de software y datos · Java, SQL y Python · Buscando prácticas en IT en Madrid desde febrero de 2027. Proyecto principal: GestionAp PRO (API Spring Boot + app iOS).">
+<meta name="twitter:description" content="Desarrollo de software y datos · Java, SQL y Python · Buscando prácticas en IT en Madrid desde febrero de 2027. Proyecto principal: GestionAp PRO, app para iPhone con su API en Spring Boot.">
 <meta name="twitter:image" content="https://nelsongomezsa.github.io/og-image-v3.png">
 <meta name="twitter:image:alt" content="Nelson Gómez Sánchez. Desarrollo de software y datos · Java, SQL y Python · Buscando prácticas en IT en Madrid desde febrero de 2027.">
 
@@ -293,10 +293,11 @@
   .learning-note{ color:var(--text-dim); font-size:var(--fs-small); margin-top:14px; max-width:65ch; }
 
   /* PROJECTS: the main one wide, then two cards, then a plain list */
-  .main-proj{ display:grid; grid-template-columns:1.1fr 1fr; overflow:hidden; margin-bottom:24px; }
-  .main-proj .shot img{ height:100%; aspect-ratio:auto; min-height:100%; }
-  .main-proj .feat-body{ padding:32px; }
-  .main-proj h3{ margin:0; font-size:var(--fs-h3); }
+  .main-proj{ display:grid; grid-template-columns:1.35fr 1fr; min-height:460px; overflow:hidden; margin-bottom:24px; }
+  .main-proj .shot{ display:flex; align-items:center; }
+  .main-proj .shot img{ height:100%; aspect-ratio:auto; object-fit:contain; object-position:center; }
+  .main-proj .feat-body{ padding:40px; gap:14px; justify-content:center; }
+  .main-proj h3{ margin:0; font-size:1.6rem; letter-spacing:-.01em; line-height:1.2; }
   .origin{ margin:0; font-size:var(--fs-small); color:var(--text-dim); max-width:65ch; }
   .origin a{ color:var(--text); text-underline-offset:3px; }
   .feat-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
@@ -438,7 +439,7 @@
         <h1 class="title">Nelson Gómez Sánchez</h1>
         <p class="role">Desarrollo de software y datos <span class="sep" aria-hidden="true">·</span> <span class="stack">Java, SQL y Python</span></p>
         <p class="avail"><span class="dot" aria-hidden="true"></span>Buscando prácticas en IT en Madrid desde febrero de 2027</p>
-        <p class="lede">Mi proyecto principal es <strong>GestionAp PRO</strong>: una API REST en Spring Boot y una app nativa para iPhone.</p>
+        <p class="lede">Mi proyecto principal es <strong>GestionAp PRO</strong>, una app nativa para iPhone con su propia API REST en Spring Boot.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#proyectos">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
@@ -656,9 +657,9 @@
         </a>
         <div class="feat-body">
           <span class="badge">Proyecto principal</span>
-          <h3>GestionAp PRO · API + iOS</h3>
-          <p class="desc">API REST con Java 21 y Spring Boot 3.5 (JWT por roles, MariaDB) y app nativa de iPhone en SwiftUI para gestionar pisos compartidos: contratos, cobros y recibos en PDF. 220 tests de API con JUnit 5 y MockMvc.</p>
-          <div class="tags"><span>Java 21</span><span>Spring Boot 3.5</span><span>Spring Security · JWT</span><span>MariaDB</span><span>SwiftUI</span><span>JUnit 5</span></div>
+          <h3>GestionAp PRO · App para iPhone</h3>
+          <p class="desc">App nativa de iPhone en SwiftUI para gestionar pisos compartidos: contratos, cobros y recibos en PDF. Con su propia API REST en Java 21 y Spring Boot 3.5 (JWT por roles, MariaDB) y 220 tests de API con JUnit 5 y MockMvc.</p>
+          <div class="tags"><span>SwiftUI</span><span>iOS 17</span><span>Java 21</span><span>Spring Boot 3.5</span><span>Spring Security · JWT</span><span>MariaDB</span><span>JUnit 5</span></div>
           <p class="origin">Es la evolución de GestionAp, que empezó en 1.º de DAM como app de escritorio con JavaFX y MySQL. <a href="https://github.com/nelsongomezsa/gestionAPPRO" target="_blank" rel="noopener">Versión de escritorio</a> · <a href="https://github.com/nelsongomezsa/gestionAPPRO/releases/download/v1.0.0/GestionAp-1.0.0.dmg">Descargar para macOS</a></p>
           <div class="actions">
             <a class="btn btn-primary btn-sm" href="https://github.com/nelsongomezsa/gestionapro" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-gh"/></svg>Ver repositorio</a>
@@ -911,7 +912,7 @@
     "Java, SQL y Python": "Java, SQL, Python",
     "Buscando prácticas en IT en Madrid desde febrero de 2027": "Seeking an IT internship in Madrid from February 2027",
     "Mi proyecto principal es": "My main project is",
-    ": una API REST en Spring Boot y una app nativa para iPhone.": ": a Spring Boot REST API and a native iPhone app.",
+    ", una app nativa para iPhone con su propia API REST en Spring Boot.": ", a native iPhone app with its own Spring Boot REST API.",
     "Ver proyectos": "See projects",
     "Descarga mi CV": "Download my CV",
     "Descargar CV": "CV (Spanish)",
@@ -961,7 +962,8 @@
     "Git & GitHub avanzado": "Advanced Git & GitHub",
     "Aprendizaje activo, no dominio todavía. Prefiero ser honesto sobre dónde estoy en cada tecnología.": "Actively learning, not mastered yet. I'd rather be honest about where I stand with each technology.",
     "Proyecto principal": "Main project",
-    "API REST con Java 21 y Spring Boot 3.5 (JWT por roles, MariaDB) y app nativa de iPhone en SwiftUI para gestionar pisos compartidos: contratos, cobros y recibos en PDF. 220 tests de API con JUnit 5 y MockMvc.": "REST API with Java 21 and Spring Boot 3.5 (role-based JWT, MariaDB) and a native SwiftUI iPhone app to manage shared flats: contracts, payments and PDF receipts. 220 API tests with JUnit 5 and MockMvc.",
+    "GestionAp PRO · App para iPhone": "GestionAp PRO · iPhone app",
+    "App nativa de iPhone en SwiftUI para gestionar pisos compartidos: contratos, cobros y recibos en PDF. Con su propia API REST en Java 21 y Spring Boot 3.5 (JWT por roles, MariaDB) y 220 tests de API con JUnit 5 y MockMvc.": "Native SwiftUI iPhone app to manage shared flats: contracts, payments and PDF receipts. With its own REST API in Java 21 and Spring Boot 3.5 (role-based JWT, MariaDB) and 220 API tests with JUnit 5 and MockMvc.",
     "Es la evolución de GestionAp, que empezó en 1.º de DAM como app de escritorio con JavaFX y MySQL.": "It grew out of GestionAp, which started in my first year of DAM as a desktop app with JavaFX and MySQL.",
     "Versión de escritorio": "Desktop version",
     "Descargar para macOS": "Download for macOS",
@@ -1001,7 +1003,7 @@
   const ES_META = { title: document.title, desc: document.querySelector('meta[name="description"]').content };
   const EN_META = {
     title: 'Nelson Gómez Sánchez · Software development & data',
-    desc: 'Software development & data · Java, SQL, Python · Seeking an IT internship in Madrid from February 2027. Main project: GestionAp PRO (Spring Boot API + iOS app).'
+    desc: 'Software development & data · Java, SQL, Python · Seeking an IT internship in Madrid from February 2027. Main project: GestionAp PRO, an iPhone app with its own Spring Boot API.'
   };
 
   const norm = s => s.replace(/\s+/g, ' ').trim();
