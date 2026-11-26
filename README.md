@@ -2,9 +2,9 @@
 
 **Mi web personal: [nelsongomezsa.github.io](https://nelsongomezsa.github.io)**
 
-Desarrollo de software y datos · Java, SQL y Python · Buscando prácticas en IT en Madrid desde febrero de 2027.
+Desarrollo de software y datos · Java, TypeScript y SQL · Buscando prácticas en IT en Madrid desde febrero de 2027.
 
-![Captura de la web](og-image-v3.png)
+![Captura de la web](og-image-v4.png)
 
 ## Qué es
 
