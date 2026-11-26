@@ -8,7 +8,7 @@ Desarrollo de software y datos · Java, SQL y Python · Buscando prácticas en I
 
 ## Qué es
 
-Una sola página con mis proyectos (GestionAp PRO, ChimiGO y Finance Tracker), experiencia, formación y CV en PDF. En español y en inglés (`?lang=en`).
+Una sola página con mis proyectos (GestionAp PRO, Fifti, Bitcoin Tracker, ChimiGO y Finance Tracker), experiencia, formación y CV en PDF. En español y en inglés (`?lang=en`).
 
 ## Stack
 
